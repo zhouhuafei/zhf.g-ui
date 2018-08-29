@@ -1,0 +1,212 @@
+@import "../config/config";
+
+/* 字体颜色 */
+.g-font-color-highlight {
+    color: $g-highlight-color !important;
+}
+
+.g-font-color-success {
+    color: $g-success-color !important;
+}
+
+.g-font-color-warning {
+    color: $g-warning-color !important;
+}
+
+.g-font-color-danger {
+    color: $g-danger-color !important;
+}
+
+.g-font-color-ignore {
+    color: $g-ignore-color !important;
+}
+
+.g-font-color-white {
+    color: white !important;
+}
+
+/* 背景颜色 */
+.g-background-color-white {
+    background-color: white !important;
+}
+
+/* 工具样式 */
+.g-display-inline {
+    display: inline !important;
+}
+
+.g-display-inline-block {
+    display: inline-block !important;
+}
+
+.g-display-block {
+    display: block !important;
+}
+
+.g-display-none {
+    display: none !important;
+}
+
+.g-display-flex {
+    display: flex !important;
+}
+
+.g-flex-1 {
+    flex: 1 !important;
+}
+
+.g-flex-0 {
+    flex: none !important;
+}
+
+.g-justify-content-center {
+    justify-content: center !important;
+}
+
+.g-align-items-center {
+    align-items: center !important;
+}
+
+.g-float-left {
+    float: left !important;
+}
+
+.g-float-right {
+    float: right !important;
+}
+
+/* text-indent */
+.g-text-indent-0 {
+    text-indent: 0 !important;
+}
+
+/* transition */
+.g-transition {
+    transition: 0.4s !important;
+}
+
+/* opacity */
+.g-opacity-0 {
+    opacity: 0 !important;
+}
+
+.g-opacity-1 {
+    opacity: 1 !important;
+}
+
+/* width */
+@each $value in 80, 100, 120, 140, 160 {
+    .g-width-#{$value} {
+        width: px2rem($value) !important;
+    }
+}
+
+.g-width-auto {
+    width: auto !important;
+}
+
+.g-width-100p {
+    width: 100% !important;
+}
+
+/* height */
+@each $value in 30, 40 {
+    .g-height-#{$value} {
+        height: px2rem($value) !important;
+    }
+}
+
+.g-height-auto {
+    height: auto !important;
+}
+
+.g-height-100p {
+    height: 100% !important;
+}
+
+/* margin 和 padding */
+@each $attr in margin, padding {
+    @each $value in 0, 5, 10, 20 {
+        .g-#{$attr}-top-#{$value} {
+            #{$attr}-top: px2rem($value) !important;
+        }
+        .g-#{$attr}-right-#{$value} {
+            #{$attr}-right: px2rem($value) !important;
+        }
+        .g-#{$attr}-bottom-#{$value} {
+            #{$attr}-bottom: px2rem($value) !important;
+        }
+        .g-#{$attr}-left-#{$value} {
+            #{$attr}-left: px2rem($value) !important;
+        }
+        .g-#{$attr}-top-bottom-#{$value} {
+            #{$attr}-top: px2rem($value) !important;
+            #{$attr}-bottom: px2rem($value) !important;
+        }
+        .g-#{$attr}-left-right-#{$value} {
+            #{$attr}-left: px2rem($value) !important;
+            #{$attr}-right: px2rem($value) !important;
+        }
+    }
+}
+
+/* border */
+@each $attr in top, right, bottom, left {
+    .g-border-#{$attr}-none {
+        border-#{$attr}: none !important;
+    }
+}
+
+.g-border-none {
+    border: none !important;
+}
+
+/* border-radius */
+@each $value in 0, 4, 6, 8, 10, 2000 {
+    .g-border-radius-#{$value} {
+        border-radius: px2rem($value) !important;
+    }
+}
+
+/* 清除浮动 */
+.g-clear-fix {
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+/* 文字超出显示省略号 */
+.g-text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 水平垂直居中 - 伪类 */
+.g-xy-center-sham {
+    font-size: 0;
+    text-align: center;
+    & > :nth-child(n) {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &:before {
+        content: '';
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+/* 水平垂直居中 - flex */
+.g-xy-center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    word-break: break-all;
+}

@@ -1,0 +1,78 @@
+@import "../config/config";
+
+// 全局的容器
+.g-wrap {
+    $w: 200;
+    display: flex;
+    .g-menu-wrap {
+        width: px2rem($w);
+        min-width: px2rem($w);
+        position: relative;
+        z-index: 2;
+        font-size: px2rem(12);
+        .g-menu {
+            width: inherit;
+            background: #252834;
+            color: #8a8d96;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            overflow: auto;
+            user-select: none;
+            .g-menu-item {
+                .g-menu-item-title {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 px2rem(5);
+                    line-height: px2rem(30);
+                    .g-menu-item-title-text {
+                        transition: 0.4s;
+                    }
+                    .g-menu-item-title-icon {
+                        width: px2rem(14);
+                        margin-right: px2rem(5);
+                    }
+                    &:hover {
+                        .g-menu-item-title-text {
+                            text-indent: px2rem(6);
+                        }
+                        //background: #383c49;
+                    }
+                }
+                .g-menu-item-body {
+                    display: none;
+                    line-height: px2rem(30);
+                    .g-menu-item-body-item {
+                        display: block;
+                        cursor: pointer;
+                        padding: 0 px2rem(5) 0 px2rem(30);
+                        transition: 0.4s;
+                        &.g-menu-item-body-item_active, &.g-menu-item-body-item_active:hover {
+                            background: $g-background-color-floor;
+                            color: #252834;
+                        }
+                        &:hover {
+                            background: #383c49;
+                        }
+                    }
+                }
+                &.g-menu-item_active {
+                    .g-menu-item-title-icon {
+                        transform: rotate(90deg);
+                    }
+                    .g-menu-item-body {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .g-body {
+        flex: 1;
+        padding: px2rem(40) px2rem(20);
+        position: relative;
+        z-index: 1;
+    }
+}

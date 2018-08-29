@@ -1,0 +1,131 @@
+@import "../config/config";
+
+/* 盒模型重置 */
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /*
+    当用户点击iOS的Safari浏览器中的链接或JavaScript的可点击的元素时，覆盖显示的高亮颜色。
+    iOS 1.1.1及更高版本的Safari浏览器可用
+    大部分android手机也是支持的，只是显示效果有所不同。
+    */
+}
+
+/* 主体重置 */
+body {
+    margin: 0;
+    font-family: "iconfont", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    //font-family: "iconfont", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "SimSun", "Arial", "sans-serif";
+    //font-family: "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "SimSun", "sans-serif";
+    font-size: px2rem(12);
+    line-height: 1;
+    color: $g-font-color-default;
+    background: $g-background-color-floor;
+}
+
+/* 内联标签重置 */
+small, sub, sup {
+    font-size: inherit;
+}
+
+i, em {
+    font-style: normal;
+}
+
+/* 标题重置 */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: inherit;
+}
+
+/* 列表重置 */
+ul, ol, menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+dl, dd {
+    margin: 0;
+}
+
+/* 表单重置 */
+label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type=radio], input[type=checkbox], input[type=text], input[type=password], input[type=tel], input[type=number], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=month], input[type=week], input[type=color], textarea, select {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    border: px2rem(1) solid #9b9b9b;
+    outline: none;
+    color: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    vertical-align: middle;
+    /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+}
+
+input[type=radio], input[type=checkbox] {
+    border: none;
+}
+
+input[type=submit], input[type=reset], input[type=file], input[type=button], button {
+    outline: none;
+    color: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    vertical-align: middle;
+    /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+}
+
+/* 表格重置 */
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0;
+}
+
+/* 超链接重置 */
+a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+    /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+}
+
+/* 段落重置 */
+p {
+    margin: 0;
+}
+
+/* 画布重置 */
+canvas {
+    vertical-align: middle;
+}
+
+/* 图片重置 */
+img {
+    border: none;
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* 修复浏览器记住密码时输入框内异常的背景色 */
+:-webkit-autofill {
+    /* 背景色会一直是白色的，其他背景色将统统失效，需要其他背景色，只需要单独进行重新覆盖即可 */
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    /* 延迟7天变背景色，7天后背景色还是会变的异常，切换input类型背景色还是会变异常 */
+    /*transition: background-color 604800s ease-in-out 0s;*/
+}

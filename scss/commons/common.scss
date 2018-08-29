@@ -1,0 +1,304 @@
+// 清零样式
+@import "../reset/reset";
+// 字体图标
+@import "iconfont";
+// 工具样式
+@import "tools";
+// 普通组件
+@import "../components-dom/g-wrap";
+@import "../components-dom/g-input";
+@import "../components-dom/g-select";
+@import "../components-dom/g-textarea";
+@import "../components-dom/g-radio";
+@import "../components-dom/g-checkbox";
+@import "../components-dom/g-validate-form-hint";
+@import "../components-dom/g-radio-switch";
+@import "../components-dom/g-upload";
+@import "../components-dom/g-button";
+@import "../components-dom/g-table";
+@import "../components-dom/g-list";
+@import "../components-dom/g-loading";
+@import "../components-dom/g-mask";
+@import "../components-dom/g-message";
+@import "../components-dom/g-dialog-confirm";
+@import "../components-dom/g-dialog-tooltip";
+@import "../components-dom/g-dialog-popover";
+@import "../components-dom/g-dialog-jump-link";
+@import "../components-dom/g-navigation";
+@import "../components-dom/g-pagination";
+@import "../components-dom/g-slide";
+@import "../components-dom/g-star";
+@import "../components-dom/g-go-top";
+@import "../components-dom/g-no-data";
+@import "../components-dom/g-copyright";
+@import "../components-dom/g-lazy-load";
+@import "../components-dom/g-footer-nav";
+@import "../components-dom/g-quick-enter";
+// 业务组件(存在数据交互)
+@import "../components-dom-business/g-gallery";
+
+// 图片列表测试
+.g-img-test {
+    .g-img-test-big img {
+        height: px2rem(80);
+    }
+    .g-img-test-small img {
+        height: px2rem(60);
+    }
+}
+
+// 音频
+.g-audio {
+    position: relative;
+    .g-audio-icon {
+        position: absolute;
+        top: px2rem(40);
+        left: px2rem(20);
+        width: px2rem(20);
+        height: px2rem(20);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .g-audio-icon-item {
+            &.g-audio-icon-item_on {
+                display: none;
+            }
+        }
+    }
+    &.g-audio_on {
+        .g-audio-icon {
+            .g-audio-icon-item {
+                &.g-audio-icon-item_on {
+                    display: block;
+                }
+                &.g-audio-icon-item_off {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// 表单
+.g-form-wrap {
+    &.g-form-wrap_no-margin {
+        .g-form {
+            &:first-of-type {
+                border-top: 1px solid $g-border-color-default;
+            }
+            margin-bottom: 0;
+            .g-form-body {
+                border-top: none;
+            }
+        }
+    }
+    .g-form {
+        $height: 40;
+        $text-width: 100;
+        position: relative;
+        margin-bottom: px2rem(10);
+        font-size: px2rem($g-font-size-default);
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        .g-form-body {
+            display: flex;
+            border: 1px solid $g-border-color-default;
+            border-left: none;
+            border-right: none;
+            .g-form-body-text {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 0 px2rem(10);
+                min-width: px2rem($text-width);
+                text-align: right;
+                background: #ffffff;
+                & + .g-form-body-content {
+                    border-left: 1px solid $g-border-color-default;
+                }
+            }
+            .g-form-body-content {
+                display: flex;
+                flex: 1;
+                background: #ffffff;
+                padding: 0 px2rem(10);
+                /* 符号标记，例如人民币符号￥，美元符号$ */
+                .g-form-body-content-symbol {
+                    display: flex;
+                    align-items: center;
+                    width: px2rem(16);
+                }
+                /* 主体 */
+                .g-form-body-content-main {
+                    display: flex;
+                    flex: 1;
+                    flex-wrap: wrap;
+                    /* 展示文本 */
+                    .g-form-body-content-main-info {
+                        padding: px2rem(10) 0;
+                        line-height: 1.4;
+                        text-align: justify;
+                    }
+                    /* 重置g-input */
+                    .g-input {
+                        border: none;
+                        background: transparent;
+                        padding-left: 0;
+                    }
+                    /* 重置g-select */
+                    .g-select {
+                        border: none;
+                        background: transparent;
+                        .g-select-body {
+                            padding-left: 0;
+                        }
+                    }
+                    /* 重置g-textarea */
+                    .g-textarea {
+                        border: none;
+                        background: transparent;
+                        padding-left: 0;
+                    }
+                    /* 重置g-upload */
+                    .g-upload {
+                        margin: px2rem(10) px2rem(10) px2rem(10) 0;
+                    }
+                    /* 重置g-checkbox */
+                    .g-checkbox {
+                        margin: px2rem(10) px2rem(10) px2rem(10) 0;
+                        .g-checkbox-body {
+                            background: transparent;
+                        }
+                    }
+                    /* 重置g-radio */
+                    .g-radio {
+                        margin: px2rem(10) px2rem(10) px2rem(10) 0;
+                        .g-radio-body {
+                            background: transparent;
+                        }
+                    }
+                    /* 多行时重置 */
+                    &.g-form-body-content-main_more-row {
+                        padding-bottom: px2rem(10);
+                        .g-upload, .g-checkbox, .g-radio {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                /* 字数限制 */
+                .g-form-body-content-limit {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding: 0 px2rem(2);
+                }
+                /* 图标展示 */
+                .g-form-body-content-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: px2rem(20);
+                    padding: 0 px2rem(2);
+                }
+                /* 图标提示色 */
+                .g-form-body-content-hint {
+                    color: $g-danger-color;
+                }
+            }
+        }
+        .g-form-footer {
+            padding: 0 px2rem(10) 0 px2rem($text-width + 10);
+            background: #ffffff;
+            border-bottom: 1px solid $g-border-color-default;
+            .g-form-footer-item {
+                &:last-of-type {
+                    padding-bottom: px2rem(10);
+                }
+                padding-top: px2rem(10);
+                line-height: 1.4;
+                text-align: justify;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+// 验证码
+.g-verify-code-canvas {
+    width: px2rem(160);
+    height: px2rem(40);
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// 登录,注册,改密的跳转引导
+.g-jump-guide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: px2rem(30);
+    padding: 0 px2rem(10);
+    font-size: px2rem($g-font-size-default);
+    .g-jump-guide-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .g-jump-guide-item-text {
+        }
+        .g-jump-guide-item-icon {
+        }
+    }
+}
+
+// 行和列
+.g-row {
+    display: flex;
+    flex-wrap: wrap;
+    .g-col {
+        flex: 1;
+        width: 0;
+        margin-right: px2rem(20);
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
+
+// 标题
+.g-title {
+    height: px2rem(18);
+    font-size: px2rem($g-font-size-default);
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: px2rem(10) 0 px2rem(5);
+    &:before, &:after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 60%;
+        background: $g-ignore-color;
+        border-radius: px2rem(20);
+        transition: 0.4s;
+    }
+    &:before {
+        margin-right: px2rem(10);
+        transform: rotate(-15deg);
+    }
+    &:after {
+        margin-left: px2rem(10);
+        transform: rotate(15deg);
+    }
+    &:hover {
+        &:before {
+            transform: rotate(-15-360deg);
+        }
+        &:after {
+            transform: rotate(15+360deg);
+        }
+    }
+}

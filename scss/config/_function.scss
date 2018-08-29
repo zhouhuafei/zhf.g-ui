@@ -1,0 +1,20 @@
+/*
+// px转rem(phone) 这个是给手机端用的。
+@function px2rem($px, $psd:320) {
+    @return $px / $psd * 10rem;
+}
+
+// px转px(phone) 这个是给手机端用的。当需要使用到px时，使用这个即可。pc端为什么不使用px2px而是重写了px2rem？原因是这样做pc组件和phone组件互转时比较方便。
+@function px2px($px) {
+    @return $px * 1px;
+}
+*/
+
+// px转rem(pc) 这个是给电脑端用的。
+@function px2rem($px) {
+    @if $px == 0 {
+        @return 0;
+    } @else {
+        @return $px * 1px;
+    }
+}

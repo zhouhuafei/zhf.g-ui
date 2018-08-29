@@ -1,0 +1,70 @@
+@import "../config/config";
+
+// 单选框
+.g-radio {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    &.g-radio_small {
+        .g-radio-body {
+            $height: 16;
+            width: px2rem($height);
+            height: px2rem($height);
+            .g-radio-body-mark {
+                font-size: px2rem(12);
+            }
+        }
+    }
+    .g-radio-body {
+        $height: 20;
+        position: relative;
+        width: px2rem($height);
+        height: px2rem($height);
+        background: #ffffff;
+        border-radius: px2rem(2000);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .g-radio-body-main {
+            margin: 0;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            outline: none;
+            width: inherit;
+            height: inherit;
+            background: inherit;
+            border-radius: inherit;
+            border: px2rem(1) solid $g-border-color-default;
+            transition: 0.2s;
+            &:checked {
+                border-color: $g-highlight-color;
+                & + .g-radio-body-mark {
+                    transform: scale(1);
+                }
+            }
+            &:disabled {
+                background: $g-background-color-disabled;
+                border-color: $g-border-color-disabled;
+                cursor: not-allowed;
+            }
+        }
+        .g-radio-body-mark {
+            transition: 0.2s;
+            transform: scale(0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: inherit;
+            height: inherit;
+            color: $g-highlight-color;
+            font-size: px2rem(16);
+        }
+    }
+    .g-radio-text {
+        line-height: 1;
+        margin-left: px2rem(4);
+    }
+}

@@ -1,0 +1,35 @@
+@import "../config/config";
+
+// 表单验证失败的提示
+.g-validate-form-hint {
+    $height: 16;
+    $triangleW: 4;
+    $bgc: rgba(250, 85, 85, 0.8);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    right: px2rem(6);
+    top: px2rem(- $height - $triangleW - 2);
+    .g-validate-form-hint-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: px2rem($height);
+        padding: 0 px2rem(10);
+        font-size: px2rem(12);
+        font-style: normal;
+        font-weight: normal;
+        color: #ffffff;
+        background-color: $bgc;
+        border-radius: px2rem(100);
+    }
+    .g-validate-form-hint-icon {
+        width: 0;
+        height: 0;
+        margin-right: px2rem(10);
+        border: px2rem($triangleW) solid transparent;
+        border-top-color: $bgc;
+    }
+}

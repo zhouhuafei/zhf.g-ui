@@ -1,0 +1,45 @@
+@import "../config/config";
+
+.g-message {
+    position: fixed;
+    z-index: 599;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: px2rem(260*1.5);
+    padding: px2rem(10) px2rem(20);
+    border-radius: px2rem(6);
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    &.g-message_center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &.g-message_bottom {
+        bottom: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &.g-message_top {
+        top: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .g-message-close {
+        position: absolute;
+        left: px2rem(4);
+        bottom: px2rem(4);
+        font-size: px2rem(12);
+    }
+    .g-message-icon {
+        margin-right: px2rem(10);
+        font-size: px2rem(24);
+        color: $g-warning-color;
+    }
+    .g-message-text {
+        font-size: px2rem(14);
+        line-height: 1.2;
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "g-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhouhuafei/g-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhouhuafei/g-ui/issues"
+  },
+  "homepage": "https://github.com/zhouhuafei/g-ui#readme"
+}
