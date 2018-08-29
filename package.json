@@ -1,19 +1,19 @@
 {
-  "name": "g-ui",
+  "name": "zhf.g-ui",
   "version": "1.0.0",
-  "description": "开发阶段，尚不能使用，占个位置",
+  "description": "本来取名是g-ui，奈何完了一步，开发阶段，尚不能使用，占个位置。",
   "main": "index.js",
   "scripts": {
     "test": ""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhouhuafei/g-ui.git"
+    "url": "git+https://github.com/zhouhuafei/zhf.g-ui.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhouhuafei/g-ui/issues"
+    "url": "https://github.com/zhouhuafei/zhf.g-ui/issues"
   },
-  "homepage": "https://github.com/zhouhuafei/g-ui#readme"
+  "homepage": "https://github.com/zhouhuafei/zhf.g-ui#readme"
 }
