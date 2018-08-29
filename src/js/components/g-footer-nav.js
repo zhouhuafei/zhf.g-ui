@@ -1,6 +1,6 @@
 const tools = require('zhf.tools'); // 工具方法集合
 const applications = require('zhf.applications'); // 应用方法集合
-const Super = require('../components-dom-super/g-super'); // 超类型(子类型继承的对象)
+const Super = require('../components-super/g-super'); // 超类型(子类型继承的对象)
 
 // 子类型
 const Sub = tools.constructorInherit(Super, {
