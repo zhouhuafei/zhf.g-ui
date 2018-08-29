@@ -1,7 +1,7 @@
 {
   "name": "g-ui",
   "version": "1.0.0",
-  "description": "",
+  "description": "开发阶段，尚不能使用，占个位置",
   "main": "index.js",
   "scripts": {
     "test": ""
