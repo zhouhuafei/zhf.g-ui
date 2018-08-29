@@ -1,7 +1,7 @@
 {
   "name": "zhf.g-ui",
   "version": "1.0.0",
-  "description": "本来取名是g-ui，奈何完了一步，开发阶段，尚不能使用，占个位置。",
+  "description": "开发阶段，尚不能使用，占个位置",
   "main": "index.js",
   "scripts": {
     "test": ""
