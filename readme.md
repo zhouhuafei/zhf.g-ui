@@ -1,3 +1,6 @@
+# 字体图标
+* 使用的阿里字体图标 http://www.iconfont.cn/
+
 ```
 # 安装依赖
 npm i
