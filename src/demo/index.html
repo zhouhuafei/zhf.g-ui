@@ -15,8 +15,8 @@
             /* rem自适应 */
             (function () {
                 function resetFontSize() {
-                    const fontSize = document.documentElement.clientWidth / 10;
-                    document.querySelector('html').style.fontSize = `${fontSize}px`;
+                    var fontSize = document.documentElement.clientWidth / 10;
+                    document.querySelector('html').style.fontSize = fontSize + 'px';
                 }
 
                 resetFontSize();
