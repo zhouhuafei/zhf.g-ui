@@ -1,32 +1,32 @@
 {
-  "name": "zhf.g-ui",
-  "version": "1.0.0",
-  "description": "开发阶段，尚不能使用，占个位置",
-  "main": "index.js",
-  "scripts": {
-    "test": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhouhuafei/zhf.g-ui.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zhouhuafei/zhf.g-ui/issues"
-  },
-  "homepage": "https://github.com/zhouhuafei/zhf.g-ui#readme",
-  "devDependencies": {
-    "babel-eslint": "^8.0.2",
-    "babel-preset-env": "^1.6.0",
-    "eslint": "^4.11.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-html": "^3.2.2",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "husky": "^0.14.3",
-    "jest": "^22.1.1"
-  }
+    "name": "zhf.g-ui",
+    "version": "1.0.0",
+    "description": "开发阶段，尚不能使用，占个位置",
+    "main": "index.js",
+    "scripts": {
+        "demo": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zhouhuafei/zhf.g-ui.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zhouhuafei/zhf.g-ui/issues"
+    },
+    "homepage": "https://github.com/zhouhuafei/zhf.g-ui#readme",
+    "devDependencies": {
+        "babel-eslint": "^8.0.2",
+        "babel-preset-env": "^1.6.0",
+        "eslint": "^4.11.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-html": "^3.2.2",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-node": "^5.2.1",
+        "eslint-plugin-promise": "^3.6.0",
+        "eslint-plugin-standard": "^3.0.1",
+        "husky": "^0.14.3",
+        "jest": "^22.1.1"
+    }
 }
