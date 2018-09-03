@@ -15,6 +15,22 @@ let configEnvironment = {
 module.exports = {
     // devtool----#source-map
     devtool: configEnvironment.devtool,
+    // resolve----配置用来影响webpack模块解析规则
+    resolve: {
+        // 加速----默认的配置会采用向上递归搜索的方式去寻找node_modules,为了减少搜索我们直接写明node_modules的全路径
+        modules: [`${__dirname}/node_modules/`],
+        // 别名----引入开发版本还是生产版本
+        alias: {
+            // vue: `vue/dist/vue.${configEnvironment.min}js`,
+            // axios: `axios/dist/axios.min.js`,
+        },
+    },
+    // 忽略----从输出的bundle中排除依赖
+    externals: {
+        // jquery: 'window.jQuery',
+        // laydate: 'window.laydate',
+        // swiper: 'window.Swiper',
+    },
     entry: {
         'index': './src/demo/index.js', // 入口文件
     },
