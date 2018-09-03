@@ -36,6 +36,7 @@ src
 * rem：基于320的宽度进行设计的，将320的宽度分成了10份。
     - 如果是320的设计图，1rem就是32px。
     - 如果是640的设计图，1rem就是64px。
+* 字体图标格式：```<span class="iconfont icon-g-xxx"></span>```。
 ```
 .g-components .g-components-header {}
 .g-components .g-components-header-item {}
