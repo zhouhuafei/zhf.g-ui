@@ -118,16 +118,16 @@ module.exports = function (env, argv) {
             splitChunks: {
                 chunks: 'initial', // 只对入口文件处理
                 cacheGroups: {
-                    // 如果引入了node_modules里都包，则提取为this-is-global-file-vendor(.css/.js)
+                    // 如果引入(require/import)了node_modules里都包，则提取为this-is-global-file-vendor(.css/.js)
                     vendor: {
                         test: /node_modules/,
                         name: 'this-is-global-file-vendor',
                         priority: 10,
                         enforce: true,
                     },
-                    // 如果引入了common，则提取为this-is-global-file-common(.css/.js)
+                    // 如果引入(require/import)了commons/common，则提取为this-is-global-file-common(.css/.js)
                     commons: {
-                        test: /common/,
+                        test: /commons\/common/,
                         name: 'this-is-global-file-common',
                         priority: 10,
                         enforce: true,
