@@ -112,9 +112,9 @@ module.exports = function (env, argv) {
         },
         // 优化----配置
         optimization: {
-            runtimeChunk: {
-                name: 'this-is-global-file-manifest'
-            },
+            // runtimeChunk: {
+            //     name: 'this-is-global-file-manifest'
+            // },
             splitChunks: {
                 cacheGroups: {
                     // 注意: priority属性
