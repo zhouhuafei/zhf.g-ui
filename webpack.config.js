@@ -98,7 +98,7 @@ module.exports = function (env, argv) {
         // 出口----配置
         output: {
             path: `${__dirname}/dist/demo/`, // 出口路径，必须是绝对路径
-            filename: `js/pages/[name].[id].bundle.${configEnvironment.chunkhash}js`, // 出的文件名
+            filename: `js/pages/[name].${configEnvironment.chunkhash}js`, // 出的文件名
             publicPath: `../../`, // 静态资源引入的路径方式
             /*
             chunkFilename用来打包require.ensure方法中引入的模块,如果该方法中没有引入任何模块则不会生成任何chunk块文件
@@ -108,7 +108,7 @@ module.exports = function (env, argv) {
             chunk的hash值只有在require.ensure中引入的模块发生变化,hash值才会改变
             注意:对于不是在ensure方法中引入的模块,此属性不会生效,只能用CommonsChunkPlugin插件来提取
             */
-            chunkFilename: `js/chunks/[name].[id].chunk.${configEnvironment.chunkhash}js`,
+            chunkFilename: `js/chunks/[name].${configEnvironment.chunkhash}js`,
         },
         // 优化----配置
         optimization: {
