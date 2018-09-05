@@ -1,10 +1,12 @@
 {
     "name": "zhf.g-ui",
     "version": "1.0.0",
-    "description": "开发阶段，尚不能使用，占个位置",
-    "main": "index.js",
+    "description": "一套原生js写的ui框架",
+    "main": "./src/ui/js/commons/common.js",
     "scripts": {
-        "demo": "webpack"
+        "webpack": "webpack --colors --profile --progress --display-modules",
+        "demoDev": "cross-env NODE_ENV=development npm run webpack",
+        "demoBuild": "cross-env NODE_ENV=production npm run webpack"
     },
     "repository": {
         "type": "git",
@@ -17,8 +19,14 @@
     },
     "homepage": "https://github.com/zhouhuafei/zhf.g-ui#readme",
     "devDependencies": {
+        "autoprefixer": "^9.1.5",
+        "babel-core": "^6.26.3",
         "babel-eslint": "^8.0.2",
+        "babel-loader": "^7.1.5",
         "babel-preset-env": "^1.6.0",
+        "clean-webpack-plugin": "^0.1.19",
+        "cross-env": "^5.2.0",
+        "css-loader": "^1.0.0",
         "eslint": "^4.11.0",
         "eslint-config-standard": "^10.2.1",
         "eslint-plugin-html": "^3.2.2",
@@ -26,8 +34,22 @@
         "eslint-plugin-node": "^5.2.1",
         "eslint-plugin-promise": "^3.6.0",
         "eslint-plugin-standard": "^3.0.1",
+        "file-loader": "^2.0.0",
+        "html-loader": "^0.5.5",
         "html-webpack-plugin": "^3.2.0",
         "husky": "^0.14.3",
-        "jest": "^22.1.1"
+        "imagemin-webpack-plugin": "^2.2.0",
+        "jest": "^22.1.1",
+        "node-sass": "^4.9.3",
+        "postcss-loader": "^3.0.0",
+        "sass-loader": "^7.1.0",
+        "style-loader": "^0.23.0",
+        "url-loader": "^1.1.1",
+        "webpack": "^4.17.2",
+        "webpack-cli": "^3.1.0"
+    },
+    "dependencies": {
+        "mini-css-extract-plugin": "^0.4.2",
+        "zhf.extend": "^2.0.3"
     }
 }
