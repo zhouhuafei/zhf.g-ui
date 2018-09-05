@@ -229,7 +229,7 @@ module.exports = function (env, argv) {
             inline: true,
             open: true,
             port: 4555,
-            openPage: 'dist/demo/ui.html',
+            openPage: 'dist/demo/views/pages/ui.html',
         },
     };
 };
