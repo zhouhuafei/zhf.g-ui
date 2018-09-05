@@ -106,28 +106,56 @@ module.exports = {
         chunkFilename: `js/chunks/[name].[id].chunk.${configEnvironment.chunkhash}js`,
     },
     // 优化----配置
+    // optimization: {
+    //     splitChunks: {
+    //         chunks: 'async',
+    //         minSize: 30000,
+    //         maxSize: 0,
+    //         minChunks: 1,
+    //         maxAsyncRequests: 5,
+    //         maxInitialRequests: 3,
+    //         automaticNameDelimiter: '~',
+    //         name: true,
+    //         cacheGroups: {
+    //             vendors: {
+    //                 test: /[\\/]node_modules[\\/]/,
+    //                 priority: -10
+    //             },
+    //             default: {
+    //                 minChunks: 2,
+    //                 priority: -20,
+    //                 reuseExistingChunk: true
+    //             }
+    //         }
+    //     }
+    // },
     optimization: {
+        // runtimeChunk: {
+        //     name: 'this-is-global-file-manifest'
+        // },
         splitChunks: {
-            chunks: 'async',
-            minSize: 30000,
-            maxSize: 0,
-            minChunks: 1,
-            maxAsyncRequests: 5,
-            maxInitialRequests: 3,
-            automaticNameDelimiter: '~',
-            name: true,
             cacheGroups: {
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10
+                // 注意: priority属性
+                // 其次: 打包业务中公共代码
+                common: {
+                    name: 'this-is-global-file-common',
+                    chunks: 'all',
+                    priority: 0,
+                    minSize: 0,
+                    minChunks: 1,
                 },
-                default: {
-                    minChunks: 2,
-                    priority: -20,
-                    reuseExistingChunk: true
-                }
-            }
-        }
+                // 首先: 打包node_modules中的文件
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'this-is-global-file-vendor',
+                    chunks: 'all',
+                    priority: 10,
+                    minSize: 0,
+                    minChunks: 1,
+                },
+            },
+        },
+        minimizer: minimizer,
     },
     // 插件----配置
     plugins: plugins,
