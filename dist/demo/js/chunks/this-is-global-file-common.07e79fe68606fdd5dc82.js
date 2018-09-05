@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],[function(o,n,c){"use strict";c(3);console.log("common-a:",1),console.log("common-b:",2)},,,function(o,n,c){}]]);
-//# sourceMappingURL=this-is-global-file-common.07e79fe68606fdd5dc82.js.map
