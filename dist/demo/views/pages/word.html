@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            /* rem自适应 */
+            (function () {
+                function resetFontSize() {
+                    var fontSize = document.documentElement.clientWidth / 10;
+                    document.querySelector('html').style.fontSize = fontSize + 'px';
+                }
+
+                resetFontSize();
+                document.addEventListener('resize', resetFontSize);
+            })();
+        </script>
+    <link href="../../css/pages/word.css" rel="stylesheet"></head>
+    <body>
+        word
+    <script type="text/javascript" src="../../js/pages/word.1.bundle.c0159d193eabc3f00db8.js"></script></body>
+</html>
