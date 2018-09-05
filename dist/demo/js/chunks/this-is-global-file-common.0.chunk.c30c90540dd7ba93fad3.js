@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],[function(n,o,c){"use strict";c(1)},function(n,o,c){},,function(n,o,c){},,,function(n,o,c){},,function(n,o,c){"use strict";c(0),c(3),c(5),console.log("ui")},function(n,o,c){"use strict";c(0),c(6),console.log("word")}]]);
+//# sourceMappingURL=this-is-global-file-common.0.chunk.c30c90540dd7ba93fad3.js.map
