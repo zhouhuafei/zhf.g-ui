@@ -4,10 +4,9 @@
     "description": "一套原生js写的ui框架",
     "main": "./src/ui/js/commons/common.js",
     "scripts": {
-        "webpack": "webpack --colors --profile --progress --display-modules",
-        "demoDev": "cross-env NODE_ENV=development npm run webpack",
-        "demoBuild": "cross-env NODE_ENV=production npm run webpack",
-        "demoDevHot": "cross-env NODE_ENV=development webpack-dev-server --inline --config webpack.config.js"
+        "demoDev": "webpack --colors --profile --progress --display-modules --mode=development",
+        "demoBuild": "webpack --colors --profile --progress --display-modules --mode=production",
+        "demoDevHot": "webpack-dev-server --inline --config webpack.config.js"
     },
     "repository": {
         "type": "git",
@@ -26,7 +25,6 @@
         "babel-loader": "^7.1.5",
         "babel-preset-env": "^1.6.0",
         "clean-webpack-plugin": "^0.1.19",
-        "cross-env": "^5.2.0",
         "css-loader": "^1.0.0",
         "eslint": "^4.11.0",
         "eslint-config-standard": "^10.2.1",
