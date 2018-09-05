@@ -1,8 +1,12 @@
 ```
 # 安装依赖
 npm i
-# 查看demo
-npm run demo
+# 开发环境打包
+npm run demoDev
+# 生产环境打包
+npm run demoBuild
+# 开发环境热更新打包，可以直接运行这个来查看demo。
+npm run demoDevHot
 ```
 
 ```

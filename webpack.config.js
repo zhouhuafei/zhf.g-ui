@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空目录
 
 module.exports = function (env, argv) {
     const isProduction = argv.mode === 'production'; // 是否是生产环境
+    console.log('argv.mode', argv.mode);
     // 环境----开发环境
     let configEnvironment = {
         hash: '[hash:8].', // 图片和字体用到了这个hash
@@ -227,8 +228,8 @@ module.exports = function (env, argv) {
             historyApiFallback: true,
             inline: true,
             open: true,
-            port: 961,
-            openPage: 'dist/demo/',
+            port: 4555,
+            openPage: 'dist/demo/ui.html',
         },
     };
 };
