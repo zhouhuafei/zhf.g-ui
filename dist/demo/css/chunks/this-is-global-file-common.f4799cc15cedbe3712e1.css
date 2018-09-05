@@ -6,6 +6,10 @@ body {
 
 /* g-ui样式 */
 
+.ui {
+  width: 100px;
+  height: 100px; }
+
 .ui1 {
   width: 100px;
   height: 100px; }
@@ -23,6 +27,10 @@ body {
   height: 100px; }
 
 .ui5 {
+  width: 100px;
+  height: 100px; }
+
+.ui6 {
   width: 100px;
   height: 100px; }
 
@@ -46,5 +54,13 @@ body {
   width: 100px;
   height: 100px; }
 
+.word5 {
+  width: 100px;
+  height: 100px; }
 
-/*# sourceMappingURL=this-is-global-file-common.d705ae4e0c02379502f6.css.map*/
+.word6 {
+  width: 100px;
+  height: 100px; }
+
+
+/*# sourceMappingURL=this-is-global-file-common.f4799cc15cedbe3712e1.css.map*/
