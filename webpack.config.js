@@ -113,27 +113,24 @@ module.exports = function (env, argv) {
         // 优化----配置
         optimization: {
             // runtimeChunk: {
-            //     name: 'this-is-global-file-manifest'
+            //     name: 'this-is-global-file-manifest',
             // },
             splitChunks: {
+                chunks: 'initial', // 只对入口文件处理
                 cacheGroups: {
-                    // 注意: priority属性
-                    // 其次: 打包业务中公共代码
-                    common: {
-                        name: 'this-is-global-file-common',
-                        chunks: 'all',
-                        priority: 0,
-                        minSize: 0,
-                        minChunks: 1,
-                    },
-                    // 首先: 打包node_modules中的文件
+                    // 如果引入了node_modules里都包，则提取为this-is-global-file-vendor(.css/.js)
                     vendor: {
-                        test: /[\\/]node_modules[\\/]/,
+                        test: /node_modules/,
                         name: 'this-is-global-file-vendor',
-                        chunks: 'all',
                         priority: 10,
-                        minSize: 0,
-                        minChunks: 1,
+                        enforce: true,
+                    },
+                    // 如果引入了common，则提取为this-is-global-file-common(.css/.js)
+                    commons: {
+                        test: /common/,
+                        name: 'this-is-global-file-common',
+                        priority: 10,
+                        enforce: true,
                     },
                 },
             },
