@@ -1,2 +1,2 @@
 (window.webpackJsonp=window.webpackJsonp||[]).push([[0],[function(o,n,c){"use strict";c(1);console.log("common-a:",1),console.log("common-b:",2)},function(o,n,c){},,function(o,n,c){},,,function(o,n,c){},,function(o,n,c){"use strict";c(0),c(3),c(5),console.log("ui")},function(o,n,c){"use strict";c(0),c(6),console.log("word")}]]);
-//# sourceMappingURL=this-is-global-file-common.0.chunk.251a36bebc5532e62cf3.js.map
+//# sourceMappingURL=this-is-global-file-common.0.chunk.ac7f7808d4537bfa70c0.js.map
