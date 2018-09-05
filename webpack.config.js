@@ -22,7 +22,7 @@ module.exports = function (env, argv) {
     if (isProduction) {
         configEnvironment = {
             hash: '[hash:8].', // 图片和字体用到了这个hash
-            chunkhash: '[contenthash].', // js用到了这个chunkhash，webpack4需要使用contenthash。
+            chunkhash: '[contenthash].', // webpack3时js用到了这个chunkhash，webpack4时js需要使用contenthash。否则修改css会导致js的hash值改变。
             contenthash: '[contenthash].', // css用到了这个contenthash
             min: 'min.', // 第三方库是否引用压缩版(生产环境引用压缩版)
             isMinCss: true, // 是否压缩css
@@ -128,7 +128,7 @@ module.exports = function (env, argv) {
                     commons: {
                         test: /commons\/common/,
                         name: 'this-is-global-file-common',
-                        priority: 10,
+                        priority: 9,
                         enforce: true,
                     },
                 },
