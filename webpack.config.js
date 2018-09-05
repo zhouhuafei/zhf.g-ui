@@ -14,12 +14,29 @@ module.exports = function (env, argv) {
         contenthash: '', // css用到了这个contenthash
         min: '', // 第三方库是否引用压缩版(生产环境引用压缩版)
         isMinCss: false, // 是否压缩css
-        isMinJs: false, // 是否压缩js
         isWatch: true, // 是否监听
         minView: {}, // 压缩视图模板文件
         devtool: '', // #source-map
     };
+    // 环境----生产环境
+    if (isProduction) {
+        configEnvironment = {
+            hash: '[hash:8].', // 图片和字体用到了这个hash
+            chunkhash: '[chunkhash].', // js用到了这个chunkhash
+            contenthash: '[contenthash].', // css用到了这个contenthash
+            min: 'min.', // 第三方库是否引用压缩版(生产环境引用压缩版)
+            isMinCss: true, // 是否压缩css
+            isWatch: false, // 是否监听
+            minView: {
+                removeComments: true, // 移除HTML中的注释
+                collapseWhitespace: true, // 删除空白符与换行符
+            },
+            devtool: '#source-map', // #source-map
+        };
+    }
+    // 压缩----配置
     const minimizer = [];
+    // 插件----配置
     const plugins = [
         // 插件----清空dist/assets目录下对应的项目文件
         new CleanWebpackPlugin(['dist'], {
@@ -45,26 +62,12 @@ module.exports = function (env, argv) {
         // 插件----提取css样式到文件
         new MiniCssExtractPlugin({filename: `css/pages/[name].${configEnvironment.contenthash}css`}),
     ];
-
     // 环境----生产环境
     if (isProduction) {
-        configEnvironment = {
-            hash: '[hash:8].', // 图片和字体用到了这个hash
-            chunkhash: '[chunkhash].', // js用到了这个chunkhash
-            contenthash: '[contenthash].', // css用到了这个contenthash
-            min: 'min.', // 第三方库是否引用压缩版(生产环境引用压缩版)
-            isMinCss: true, // 是否压缩css
-            isMinJs: true, // 是否压缩js
-            isWatch: false, // 是否监听
-            minView: {
-                removeComments: true, // 移除HTML中的注释
-                collapseWhitespace: true, // 删除空白符与换行符
-            },
-            devtool: '#source-map', // #source-map
-        };
         minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: true})); // 插件----压缩js
         plugins.push(new ImageminPlugin({disable: false, pngquant: {quality: '95-100'}})); // 插件----压缩图片
     }
+
 
     return {
         // devtool----#source-map
