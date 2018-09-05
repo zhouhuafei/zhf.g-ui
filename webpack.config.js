@@ -22,7 +22,7 @@ module.exports = function (env, argv) {
     if (isProduction) {
         configEnvironment = {
             hash: '[hash:8].', // 图片和字体用到了这个hash
-            chunkhash: '[chunkhash].', // js用到了这个chunkhash
+            chunkhash: '[contenthash].', // js用到了这个chunkhash，webpack4需要使用contenthash。
             contenthash: '[contenthash].', // css用到了这个contenthash
             min: 'min.', // 第三方库是否引用压缩版(生产环境引用压缩版)
             isMinCss: true, // 是否压缩css
@@ -93,7 +93,6 @@ module.exports = function (env, argv) {
         entry: {
             'ui': './src/demo/js/pages/ui.js', // ui样式页，此处应该循环处理
             'word': './src/demo/js/pages/word.js', // word单词页，此处应该循环处理
-            // 'this-is-global-file-vendor': ['zhf.extend'], // 公用的第三方包
         },
         // 出口----配置
         output: {
