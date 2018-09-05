@@ -60,15 +60,16 @@ module.exports = function (env, argv) {
             minify: false, // 压缩视图模板文件
         }),
         // 插件----提取css样式到文件
-        new MiniCssExtractPlugin({filename: `css/pages/[name].${configEnvironment.contenthash}css`}),
+        new MiniCssExtractPlugin({
+            filename: `css/pages/[name].${configEnvironment.contenthash}css`,
+            chunkFilename: `css/chunks/[name].${configEnvironment.contenthash}css`,
+        }),
     ];
     // 环境----生产环境
     if (isProduction) {
         minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: true})); // 插件----压缩js
         plugins.push(new ImageminPlugin({disable: false, pngquant: {quality: '95-100'}})); // 插件----压缩图片
     }
-
-
     return {
         // devtool----#source-map
         devtool: configEnvironment.devtool,
@@ -110,29 +111,6 @@ module.exports = function (env, argv) {
             chunkFilename: `js/chunks/[name].[id].chunk.${configEnvironment.chunkhash}js`,
         },
         // 优化----配置
-        // optimization: {
-        //     splitChunks: {
-        //         chunks: 'async',
-        //         minSize: 30000,
-        //         maxSize: 0,
-        //         minChunks: 1,
-        //         maxAsyncRequests: 5,
-        //         maxInitialRequests: 3,
-        //         automaticNameDelimiter: '~',
-        //         name: true,
-        //         cacheGroups: {
-        //             vendors: {
-        //                 test: /[\\/]node_modules[\\/]/,
-        //                 priority: -10
-        //             },
-        //             default: {
-        //                 minChunks: 2,
-        //                 priority: -20,
-        //                 reuseExistingChunk: true
-        //             }
-        //         }
-        //     }
-        // },
         optimization: {
             // runtimeChunk: {
             //     name: 'this-is-global-file-manifest'
