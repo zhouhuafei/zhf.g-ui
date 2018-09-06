@@ -125,7 +125,7 @@ module.exports = function (env, argv) {
                     },
                     // 如果引入(require/import)了common模块，则提取为this-is-global-file-common(.css/.js)
                     commons: {
-                        test: /common/, // 匹配符合规则的块。
+                        test: /common|iconfont/, // 匹配符合规则的块。还请根据项目的情况自行适配。
                         name: 'this-is-global-file-common', // 提取成此文件
                         priority: 9, // 优先级10
                         enforce: true, // 强制拆出块，否则不达到一定容量，拆不出来。应该是如果拆出的块，达不到minSize(默认30kb)值，则不会进行拆出。
