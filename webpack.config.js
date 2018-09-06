@@ -49,16 +49,16 @@ module.exports = function (env, argv) {
         new HtmlWebpackPlugin({ // ui样式页，此处应该循环处理
             template: `./src/demo/views/pages/ui.html`, // 入口模板
             filename: `views/pages/ui.html`, // 出口模板
-            // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)
+            // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)。webpack4中和priority属性值有关(等级高的优先引入)。
             chunks: ['ui', 'this-is-global-file-common', 'this-is-global-file-vendor'],
-            minify: false, // 压缩视图模板文件
+            minify: configEnvironment.minView, // 压缩视图模板文件
         }),
         new HtmlWebpackPlugin({ // word单词页，此处应该循环处理
             template: `./src/demo/views/pages/word.html`, // 入口模板
             filename: `views/pages/word.html`, // 出口模板
-            // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)
+            // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)。webpack4中和priority属性值有关(等级高的优先引入)。
             chunks: ['word', 'this-is-global-file-common', 'this-is-global-file-vendor'],
-            minify: false, // 压缩视图模板文件
+            minify: configEnvironment.minView, // 压缩视图模板文件
         }),
         // 插件----提取css样式到文件
         new MiniCssExtractPlugin({
