@@ -223,17 +223,17 @@ module.exports = function (env, argv) {
         },
         // 重载----自动刷新
         devServer: {
-            historyApiFallback: true,
-            inline: true,
-            open: true,
-            port: 4555,
+            historyApiFallback: true, // 对于单页应用，如果路由不是hash方式，防止回退404，所有的路径都执行index.html。
+            inline: true, // 设置为true，代码有变化，浏览器端刷新。
+            open: true, // 打开浏览器
+            port: 4555, // 端口
             /*
             output.publicPath是：'/'
             output.path是：`${__dirname}/dist/demo/`
             正确的访问路径是：output.publicPath 拼接上 output.path之后的路径
             所以访问路径是：/views/pages/ui.html。但是使用openPage配置时，前面不要带反斜杠，否则浏览器上会出现两个反斜杠。
             */
-            openPage: 'views/pages/ui.html',
+            openPage: 'views/pages/ui.html', // 打开指定的路径
         },
     };
 };
