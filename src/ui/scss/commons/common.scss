@@ -1,5 +1,3 @@
-// 清零样式
-@import "../reset/reset";
 // 字体图标
 @import "iconfont";
 // 工具样式
@@ -34,16 +32,6 @@
 @import "../components/g-lazy-load";
 @import "../components/g-footer-nav";
 @import "../components/g-quick-enter";
-
-// 图片列表测试
-.g-img-test {
-    .g-img-test-big img {
-        height: px2rem(80);
-    }
-    .g-img-test-small img {
-        height: px2rem(60);
-    }
-}
 
 // 音频
 .g-audio {
@@ -298,5 +286,32 @@
         &:after {
             transform: rotate(15+360deg);
         }
+    }
+}
+
+// 排序切换
+.g-sort-tab {
+    display: flex;
+    height: px2rem(40);
+    background: #ffffff;
+    .g-sort-tab-item {
+        width: 0;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .g-sort-tab-item-text {
+        font-size: px2rem(14);
+    }
+    .g-sort-tab-item-icon {
+        color: #999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .g-sort-tab-item-icon-item {
+        font-size: px2rem(16);
     }
 }
