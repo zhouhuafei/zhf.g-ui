@@ -1,0 +1,26 @@
+// 标题
+.g-title {
+    height: px2rem(40);
+    font-size: px2rem($g-font-size-default);
+    color: #000;
+    display: flex;
+    align-items: center;
+    &:before, &:after {
+        content: '';
+        display: block;
+        width: px2rem(10);
+        height: 1px;
+        background: $g-ignore-color;
+        border-radius: px2rem(20);
+        transition: 0.4s;
+        margin: 0 px2rem(10);
+    }
+    &:hover {
+        &:before {
+            transform: rotate(-360deg);
+        }
+        &:after {
+            transform: rotate(360deg);
+        }
+    }
+}
