@@ -231,9 +231,9 @@ module.exports = function (env, argv) {
             output.publicPath是：'/'
             output.path是：`${__dirname}/dist/demo/`
             正确的访问路径是：output.publicPath 拼接上 output.path之后的路径
-            所以路径是：/views/pages/ui.html
+            所以路径是：views/pages/ui.html
             */
-            openPage: '/views/pages/ui.html',
+            openPage: 'views/pages/ui.html',
         },
     };
 };
