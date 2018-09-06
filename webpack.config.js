@@ -99,7 +99,7 @@ module.exports = function (env, argv) {
         output: {
             path: `${__dirname}/dist/demo/`, // 出口路径，必须是绝对路径
             filename: `js/pages/[name].${configEnvironment.chunkhash}js`, // 出的文件名
-            publicPath: `../../`, // 静态资源引入的路径方式
+            publicPath: `/`, // 引入静态资源文件时，资源的前缀路径。
             /*
             chunkFilename用来打包require.ensure方法中引入的模块,如果该方法中没有引入任何模块则不会生成任何chunk块文件
             比如在main.js文件中,require.ensure([],function(require){alert(11);}),这样不会打包块文件
@@ -229,7 +229,13 @@ module.exports = function (env, argv) {
             inline: true,
             open: true,
             port: 4555,
-            openPage: 'dist/demo/views/pages/ui.html',
+            /*
+            output.publicPath是：'/'
+            output.path是：`${__dirname}/dist/demo/`
+            正确的访问路径是：output.publicPath 拼接上 output.path之后的路径
+            所以路径是：/views/pages/ui.html
+            */
+            openPage: '/views/pages/ui.html',
         },
     };
 };

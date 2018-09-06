@@ -6,7 +6,8 @@
     "scripts": {
         "demoDev": "webpack --colors --profile --progress --display-modules --mode=development",
         "demoBuild": "webpack --colors --profile --progress --display-modules --mode=production",
-        "demoDevHot": "webpack-dev-server --inline --config webpack.config.js"
+        "demoDevHot": "webpack-dev-server --inline --mode=development --config webpack.config.js",
+        "demoBuildHot": "webpack-dev-server --inline --mode=production --config webpack.config.js"
     },
     "repository": {
         "type": "git",
