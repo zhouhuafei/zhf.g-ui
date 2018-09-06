@@ -255,6 +255,22 @@
 }
 
 // 标题
+/*
+.g-title {
+    height: px2rem(40);
+    display: flex;
+    font-size: px2rem($g-font-size-default);
+    color: #000;
+    background: #ffffff;
+    .g-title-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid $g-danger-color;
+        padding: 0 px2rem(10);
+    }
+}
+*/
 .g-title {
     height: px2rem(18);
     font-size: px2rem($g-font-size-default);
@@ -317,7 +333,7 @@
         }
     }
     .g-sort-tab-item-text {
-        font-size: px2rem(14);
+        font-size: px2rem(12);
     }
     .g-sort-tab-item-icon {
         color: #999999;
