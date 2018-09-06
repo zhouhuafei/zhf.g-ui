@@ -294,12 +294,27 @@
     display: flex;
     height: px2rem(40);
     background: #ffffff;
+    line-height: 1;
     .g-sort-tab-item {
         width: 0;
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
+        &.g-sort-tab-item_up { // 升序
+            .g-sort-tab-item-icon-item {
+                &:first-of-type {
+                    color: $g-danger-color;
+                }
+            }
+        }
+        &.g-sort-tab-item_down { // 降序
+            .g-sort-tab-item-icon-item {
+                &:last-of-type {
+                    color: $g-danger-color;
+                }
+            }
+        }
     }
     .g-sort-tab-item-text {
         font-size: px2rem(14);
@@ -312,6 +327,10 @@
         flex-direction: column;
     }
     .g-sort-tab-item-icon-item {
-        font-size: px2rem(16);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: px2rem(12);
+        height: px2rem(8);
     }
 }
