@@ -50,14 +50,14 @@ module.exports = function (env, argv) {
             template: `./src/demo/views/pages/ui.html`, // 入口模板
             filename: `views/pages/ui.html`, // 出口模板
             // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)
-            chunks: ['ui', 'this-is-global-file-common', 'this-is-global-file-vendor', 'this-is-global-file-manifest'],
+            chunks: ['ui', 'this-is-global-file-common', 'this-is-global-file-vendor'],
             minify: false, // 压缩视图模板文件
         }),
         new HtmlWebpackPlugin({ // word单词页，此处应该循环处理
             template: `./src/demo/views/pages/word.html`, // 入口模板
             filename: `views/pages/word.html`, // 出口模板
             // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)
-            chunks: ['word', 'this-is-global-file-common', 'this-is-global-file-vendor', 'this-is-global-file-manifest'],
+            chunks: ['word', 'this-is-global-file-common', 'this-is-global-file-vendor'],
             minify: false, // 压缩视图模板文件
         }),
         // 插件----提取css样式到文件
@@ -113,25 +113,22 @@ module.exports = function (env, argv) {
         },
         // 优化----配置
         optimization: {
-            // runtimeChunk: {
-            //     name: 'this-is-global-file-manifest',
-            // },
             splitChunks: {
-                chunks: 'initial', // 只对入口文件处理
+                chunks: 'all', // 表示显示块的范围。有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)。默认值：async。
                 cacheGroups: {
                     // 如果引入(require/import)了node_modules里都包，则提取为this-is-global-file-vendor(.css/.js)
                     vendor: {
-                        test: /node_modules/,
-                        name: 'this-is-global-file-vendor',
-                        priority: 10,
-                        enforce: true,
+                        test: /node_modules/, // 匹配符合规则的块。
+                        name: 'this-is-global-file-vendor', // 提取成此文件
+                        priority: 10, // 优先级10
+                        enforce: true, // 强制拆出块，否则不达到一定容量，拆不出来。应该是如果拆出的块，达不到minSize(默认30kb)值，则不会进行拆出。
                     },
                     // 如果引入(require/import)了common模块，则提取为this-is-global-file-common(.css/.js)
                     commons: {
-                        test: /common/,
-                        name: 'this-is-global-file-common',
-                        priority: 9,
-                        enforce: true,
+                        test: /common/, // 匹配符合规则的块。
+                        name: 'this-is-global-file-common', // 提取成此文件
+                        priority: 9, // 优先级10
+                        enforce: true, // 强制拆出块，否则不达到一定容量，拆不出来。应该是如果拆出的块，达不到minSize(默认30kb)值，则不会进行拆出。
                     },
                 },
             },
