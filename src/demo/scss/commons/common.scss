@@ -5,6 +5,12 @@ body {
 }
 
 /* g-ui样式 */
+@import "../../../ui/scss/config/function";
+@function px2rem($px, $psd:320) {
+    @return $px / $psd * 10rem;
+}
+@import "../../../ui/scss/config/config";
+@import "../../../ui/scss/commons/iconfont";
 @import "../../../ui/scss/commons/common";
 
 //@for $i from 1 through 300 {
