@@ -7,6 +7,8 @@ npm run demoDev
 npm run demoBuild
 # 开发环境热更新打包，可以直接运行这个来查看demo。
 npm run demoDevHot
+# 生产环境热更新打包，可以直接运行这个来查看demo。
+npm run demoBuildHot
 ```
 
 ```
