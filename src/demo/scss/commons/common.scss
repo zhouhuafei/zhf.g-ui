@@ -5,11 +5,6 @@ body {
 }
 
 /* g-ui样式 */
-@import "../../../ui/scss/config/config"; // 先引入配置(必须引入)
-@function px2rem($px, $psd:320) { // px2rem函数覆盖
-    @return $px / $psd * 10rem;
-}
-
-@import "../../../ui/scss/tools/tools"; // 工具类。
-@import "../../../ui/scss/tools/iconfont"; // 字体，需要单独引入，否则打包会报错。
+@import "../../../ui/scss/config/config"; // 先引入配置(必须引入，亦可使用自定义的配置来覆盖这份配置)。
+@import "../../../ui/scss/fonts/iconfont.css"; // 字体图标，需要单独引入，否则打包会报错。
 @import "../../../ui/scss/commons/common"; // 组件，所有的组件集合。

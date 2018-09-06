@@ -1,3 +1,5 @@
+// 清零样式
+@import "../tools/tools";
 // 普通组件
 @import "../components/g-wrap";
 @import "../components/g-input";
@@ -252,35 +254,27 @@
 
 // 标题
 .g-title {
-    height: px2rem(18);
+    height: px2rem(40);
     font-size: px2rem($g-font-size-default);
     color: #000;
     display: flex;
     align-items: center;
-    padding: px2rem(10) px2rem(10) px2rem(5);
     &:before, &:after {
         content: '';
         display: block;
-        width: 1px;
-        height: 60%;
+        width: px2rem(10);
+        height: 1px;
         background: $g-ignore-color;
         border-radius: px2rem(20);
         transition: 0.4s;
-    }
-    &:before {
-        margin-right: px2rem(10);
-        transform: rotate(-90deg);
-    }
-    &:after {
-        margin-left: px2rem(10);
-        transform: rotate(90deg);
+        margin: 0 px2rem(10);
     }
     &:hover {
         &:before {
-            transform: rotate(-90-360deg);
+            transform: rotate(-360deg);
         }
         &:after {
-            transform: rotate(90+360deg);
+            transform: rotate(360deg);
         }
     }
 }
