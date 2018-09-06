@@ -125,9 +125,9 @@ module.exports = function (env, argv) {
                         priority: 10,
                         enforce: true,
                     },
-                    // 如果引入(require/import)了commons/common，则提取为this-is-global-file-common(.css/.js)
+                    // 如果引入(require/import)了common模块，则提取为this-is-global-file-common(.css/.js)
                     commons: {
-                        test: /commons\/common/,
+                        test: /common/,
                         name: 'this-is-global-file-common',
                         priority: 9,
                         enforce: true,
