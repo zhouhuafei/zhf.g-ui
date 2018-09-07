@@ -1,5 +1,5 @@
 // 清除浮动
-@mixin clear-fix() {
+@mixin g-clearfix() {
     &:after {
         content: '';
         clear: both;
@@ -10,7 +10,7 @@
 }
 
 // 垂直水平居中(伪类)
-@mixin xy-center-sham() {
+@mixin g-xy-center_sham() {
     font-size: 0;
     text-align: center;
     & > :nth-child(n) {
@@ -26,7 +26,7 @@
 }
 
 // 垂直水平居中(flex)
-@mixin xy-center-flex() {
+@mixin g-xy-center_flex() {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@
 }
 
 // 省略号
-@mixin text-ellipsis($lineClamp:1, $lineHeight:1, $height:0) {
+@mixin g-text-ellipsis($lineClamp:1, $lineHeight:1, $height:0) {
     line-height: $lineHeight;
     @if $height == 0 {
         height: $lineHeight * $lineClamp;
