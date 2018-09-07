@@ -1,0 +1,9 @@
+// 进度条
+.g-progress-bar {
+    @extend .g-reset_font;
+    @extend .g-xy-center_flex;
+    width: px2rem(60);
+    height: px2rem(60);
+    border: 1px solid $g-brand-color;
+    border-radius: 50%;
+}
