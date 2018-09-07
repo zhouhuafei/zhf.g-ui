@@ -167,7 +167,7 @@
 }
 
 /* 清除浮动 */
-.g-clear-fix {
+.g-clearfix {
     &:after {
         content: '';
         clear: both;
@@ -185,7 +185,7 @@
 }
 
 /* 水平垂直居中 - 伪类 */
-.g-xy-center-sham {
+.g-xy-center_sham {
     font-size: 0;
     text-align: center;
     & > :nth-child(n) {
@@ -201,7 +201,7 @@
 }
 
 /* 水平垂直居中 - flex */
-.g-xy-center-flex {
+.g-xy-center_flex {
     display: flex;
     align-items: center;
     justify-content: center;
