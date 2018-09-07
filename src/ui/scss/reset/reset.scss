@@ -4,6 +4,24 @@
     line-height: 1;
 }
 
-body {
-    font-family: "iconfont";
+// 重置字体
+.g-reset_font {
+    font: px2rem($g-font-size-default) "iconfont";
+    color: px2rem($g-font-color-default);
+    line-height: 1;
+}
+
+// 重置a标签
+.g-reset_a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+// 图片重置
+.g-reset_img {
+    border: none;
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
 }

@@ -1,46 +1,44 @@
 // 排序切换
 .g-sort-tab {
+    @extend .g-reset_font;
     display: flex;
     height: px2rem(40);
     background: #ffffff;
-    line-height: 1;
     .g-sort-tab-item {
         width: 0;
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        &.g-sort-tab-item_up { // 升序
-            .g-sort-tab-item-icon-item {
-                &:first-of-type {
-                    color: $g-danger-color;
-                }
-            }
+        color: $g-font-color-auxiliary;
+        &.g-sort-tab-item_selected {
+            color: $g-font-color-default;
         }
-        &.g-sort-tab-item_down { // 降序
-            .g-sort-tab-item-icon-item {
-                &:last-of-type {
-                    color: $g-danger-color;
-                }
-            }
-        }
-    }
-    .g-sort-tab-item-text {
-        font-size: px2rem(12);
     }
     .g-sort-tab-item-icon {
-        color: #999999;
+        color: $g-font-color-auxiliary;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        width: px2rem(12);
+        margin-left: px2rem(2);
     }
     .g-sort-tab-item-icon-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: px2rem(12);
-        height: px2rem(8);
+        width: 0;
+        height: 0;
+        border: px2rem(4) solid transparent;
+        margin: px2rem(1) 0;
+        &:first-of-type {
+            border-bottom-color: $g-font-color-auxiliary;
+            &.g-sort-tab-item-icon-item_selected {
+                border-bottom-color: $g-danger-color;
+            }
+        }
+        &:last-of-type {
+            border-top-color: $g-font-color-auxiliary;
+            &.g-sort-tab-item-icon-item_selected {
+                border-bottom-color: $g-danger-color;
+            }
+        }
     }
 }

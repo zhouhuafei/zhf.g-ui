@@ -1,10 +1,9 @@
 // 标题
 .g-title {
-    height: px2rem(40);
-    font-size: px2rem($g-font-size-default);
-    color: #000;
+    @extend .g-reset_font;
     display: flex;
     align-items: center;
+    height: px2rem(40);
     &:before, &:after {
         content: '';
         display: block;
