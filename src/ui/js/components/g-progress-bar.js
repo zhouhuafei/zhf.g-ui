@@ -37,11 +37,9 @@ class Sub extends Super {
         self.canvasContext = self.canvas.getContext('2d');
         self.radian = Math.PI / 180; // 弧度
         self.canvasSetVar(); // 设置变量
-        self.canvasDrawCircle(); // 画圆
         self.canvasSetScale(0); // 设置比例
         window.addEventListener('resize', function () {
             self.canvasSetVar(); // 设置变量
-            self.canvasDrawCircle(); // 画圆
             self.canvasSetScale(self.canvasScaleNum || 0); // 设置比例
         });
     }
@@ -52,7 +50,6 @@ class Sub extends Super {
         const canvasContext = this.canvasContext;
         this.canvasW = moduleDom.offsetWidth;
         this.canvasH = moduleDom.offsetHeight;
-        console.log(getComputedStyle(moduleDom).borderWidth);
         canvas.width = this.canvasW; // 宽
         canvas.height = this.canvasH; // 高
         this.canvasRadius = this.canvasW / 2; // 半径
