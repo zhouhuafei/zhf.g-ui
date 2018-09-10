@@ -13,6 +13,14 @@
         color: $g-font-color-auxiliary;
         &.g-sort-tab-item_active {
             color: $g-font-color-default;
+            .g-sort-tab-item-icon-item {
+                &:first-of-type.g-sort-tab-item-icon-item_active {
+                    border-bottom-color: $g-danger-color;
+                }
+                &:last-of-type.g-sort-tab-item-icon-item_active {
+                    border-top-color: $g-danger-color;
+                }
+            }
         }
     }
     .g-sort-tab-item-icon {
@@ -30,15 +38,9 @@
         margin: px2rem(1) 0;
         &:first-of-type {
             border-bottom-color: $g-font-color-auxiliary;
-            &.g-sort-tab-item-icon-item_active {
-                border-bottom-color: $g-danger-color;
-            }
         }
         &:last-of-type {
             border-top-color: $g-font-color-auxiliary;
-            &.g-sort-tab-item-icon-item_active {
-                border-top-color: $g-danger-color;
-            }
         }
     }
 }

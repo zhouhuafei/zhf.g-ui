@@ -52,7 +52,7 @@ class Sub extends Super {
         items.forEach(function (v, i) {
             innerHTML += `
                 <div class="g-sort-tab-item ${defaultIndex === i ? 'g-sort-tab-item_active' : ''}">
-                    <div class="g-sort-tab-item-text" data-name="${v.name}">${v.text}</div>
+                    <div class="g-sort-tab-item-text">${v.text}</div>
                     ${v.hasSort ? `<div class="g-sort-tab-item-icon">
                         <div class="g-sort-tab-item-icon-item ${defaultSortMethod === 'asc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
                         <div class="g-sort-tab-item-icon-item ${defaultSortMethod === 'desc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
@@ -72,6 +72,25 @@ class Sub extends Super {
 
     // (功)(覆)功能(覆盖超类型)
     power() {
+        const callback = this.opts.callback;
+        const moduleDom = this.moduleDom;
+        const items = moduleDom.querySelectorAll('.g-sort-tab-item');
+        items.forEach(function (v) {
+            v.addEventListener('click', function () {
+                // const hasActive = this.querySelector('.g-sort-tab-item-icon-item_active');
+                // if (hasActive) {
+                //     hasActive.classList.remove('g-sort-tab-item-icon-item_active');
+                // }
+                // items.forEach(function (v2) {
+                //     v2.classList.remove('g-sort-tab-item_active');
+                // });
+                // items.querySelectorAll('.g-sort-tab-item-icon-item').forEach(function (v3) {
+                //     v3.classList.remove('g-sort-tab-item-icon-item_active');
+                // });
+                // this.classList.add('g-sort-tab-item_active');
+                // callback.click({});
+            });
+        });
     }
 }
 
