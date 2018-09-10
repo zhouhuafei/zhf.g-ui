@@ -1,0 +1,78 @@
+const extend = require('zhf.extend'); // 对象的扩展
+const createElement = require('zhf.create-element'); // 创建元素
+const Super = require('../components-super/g-super-es6'); // 超类型(子类型继承的对象)
+
+// 子类型
+class Sub extends Super {
+    constructor(json) {
+        super(extend({
+            // 回调
+            callback: {
+                click: function (json) {
+                }
+            },
+            // 配置
+            config: {
+                items: [],
+                /*
+                items: [
+                    {
+                        name: 'scale',
+                        text: '比例',
+                        hasSort: true,
+                    },
+                    {
+                        name: 'profit',
+                        text: '收益',
+                        hasSort: true,
+                    },
+                    {
+                        name: 'price',
+                        text: '价格',
+                        hasSort: true,
+                    },
+                ],
+                */
+                defaultIndex: 0,
+                defaultSortMethod: 'asc', // asc升序 desc降序
+            },
+        }, json));
+    }
+
+    // (建)(覆)内部模块的创建(覆盖超类型)
+    moduleDomCreate() {
+        let innerHTML = '';
+        const config = this.opts.config;
+        const items = config.items || [];
+        const defaultIndex = config.defaultIndex;
+        const defaultSortMethod = config.defaultSortMethod;
+        if (!items.length) {
+            return;
+        }
+        items.forEach(function (v, i) {
+            innerHTML += `
+                <div class="g-sort-tab-item ${defaultIndex === i ? 'g-sort-tab-item_active' : ''}">
+                    <div class="g-sort-tab-item-text" data-name="${v.name}">${v.text}</div>
+                    ${v.hasSort ? `<div class="g-sort-tab-item-icon">
+                        <div class="g-sort-tab-item-icon-item ${defaultSortMethod === 'asc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
+                        <div class="g-sort-tab-item-icon-item ${defaultSortMethod === 'desc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
+                    </div>` : ''}
+                </div>
+            `;
+        });
+        this.moduleDom = createElement({
+            style: this.opts.config.moduleDomStyle,
+            customAttribute: this.opts.config.moduleDomCustomAttribute,
+            attribute: {
+                className: 'g-sort-tab',
+                innerHTML: innerHTML,
+            },
+        });
+    }
+
+    // (功)(覆)功能(覆盖超类型)
+    power() {
+    }
+}
+
+module.exports = Sub;

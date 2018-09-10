@@ -21,9 +21,10 @@ class Sub extends Super {
             style: this.opts.config.moduleDomStyle,
             customAttribute: this.opts.config.moduleDomCustomAttribute,
             attribute: {
-                className: 'g-sub-type-es6',
+                className: 'g-progress-bar',
                 innerHTML: `
-                    <div class="g-sub-type-es6-text" style="text-align: center;">周华飞爱侯丽杰,侯丽杰爱周华飞sub-es6</div>
+                    <canvas class="g-progress-bar-canvas"></canvas>
+                    <div class="g-progress-bar-text">0%</div>    
                 `,
             },
         });

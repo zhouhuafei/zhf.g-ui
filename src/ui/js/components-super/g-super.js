@@ -121,7 +121,7 @@ Super.prototype.moduleDomCreate = function () {
 Super.prototype.moduleDomRender = function () {
     const callback = this.opts.callback;
     const config = this.opts.config;
-    if (config.moduleDomIsRender && this.wrapDom) {
+    if (config.moduleDomIsRender && this.wrapDom && this.moduleDom) {
         callback.moduleDomRenderBefore(this);
         const renderMethod = config.moduleDomRenderMethod;
         if (renderMethod.method === 'insertBefore') {

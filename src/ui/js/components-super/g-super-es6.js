@@ -1,11 +1,12 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const applications = require('zhf.applications'); // 应用方法集合
+const extend = require('zhf.extend'); // 对象的扩展
+const createElement = require('zhf.create-element'); // 创建元素
+const getDomArray = require('zhf.get-dom-array'); // 创建元素
 
 // 底层构造函数
 class Super {
     constructor(json) {
         // 函数外部传来的参数
-        this.opts = tools.extend(
+        this.opts = extend(
             // 内部默认参数
             {
                 // 父级
@@ -106,7 +107,7 @@ class Super {
 
     // (建)(覆)内部模块的创建(这个方法需要在子类型里被覆盖掉)
     moduleDomCreate() {
-        this.moduleDom = applications.createElement({
+        this.moduleDom = createElement({
             style: this.opts.config.moduleDomStyle,
             customAttribute: this.opts.config.moduleDomCustomAttribute,
             attribute: {
@@ -122,11 +123,11 @@ class Super {
     moduleDomRender() {
         const callback = this.opts.callback;
         const config = this.opts.config;
-        if (config.moduleDomIsRender && this.wrapDom) {
+        if (config.moduleDomIsRender && this.wrapDom && this.moduleDom) {
             callback.moduleDomRenderBefore(this);
             const renderMethod = config.moduleDomRenderMethod;
             if (renderMethod.method === 'insertBefore') {
-                const dom = applications.getDomArray(renderMethod.child)[0];
+                const dom = getDomArray(renderMethod.child)[0];
                 if (dom) {
                     this.wrapDom.insertBefore(this.moduleDom, dom);
                 } else {
@@ -188,7 +189,7 @@ class Super {
     wrapDomGet() {
         const callback = this.opts.callback;
         callback.wrapDomGetBefore(this);
-        this.wrapDom = applications.getDomArray(this.opts.wrap)[0];
+        this.wrapDom = getDomArray(this.opts.wrap)[0];
         callback.wrapDomGetAfter(this);
     }
 

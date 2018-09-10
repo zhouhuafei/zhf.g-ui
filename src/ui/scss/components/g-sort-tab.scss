@@ -37,7 +37,7 @@
         &:last-of-type {
             border-top-color: $g-font-color-auxiliary;
             &.g-sort-tab-item-icon-item_active {
-                border-bottom-color: $g-danger-color;
+                border-top-color: $g-danger-color;
             }
         }
     }

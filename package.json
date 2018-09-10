@@ -52,6 +52,8 @@
         "webpack-dev-server": "^3.1.7"
     },
     "dependencies": {
-        "zhf.extend": "^2.0.3"
+        "zhf.create-element": "^1.0.1",
+        "zhf.extend": "^2.0.3",
+        "zhf.get-dom-array": "^1.0.4"
     }
 }
