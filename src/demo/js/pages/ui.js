@@ -36,7 +36,15 @@ new SortTab({
 });
 
 const ProgressBar = require('../../../ui/js/components/g-progress-bar'); // 进度条
-new ProgressBar({
+const progressBar = new ProgressBar({
     wrap: '.progress-bar',
 });
+let canvasSetScaleNum = 0;
+const canvasSetScaleTimer = setInterval(function () {
+    if (canvasSetScaleNum === 30) {
+        clearInterval(canvasSetScaleTimer);
+    }
+    progressBar.canvasSetScale(canvasSetScaleNum); // 0 - 100
+    canvasSetScaleNum++;
+}, 60);
 
