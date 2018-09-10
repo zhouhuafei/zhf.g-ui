@@ -4,6 +4,7 @@
     display: flex;
     height: px2rem(40);
     background: #ffffff;
+    user-select: none;
     .g-sort-tab-item {
         width: 0;
         flex: 1;
