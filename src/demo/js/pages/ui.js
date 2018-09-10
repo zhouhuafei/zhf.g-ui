@@ -15,13 +15,13 @@ new SortTab({
     config: {
         items: [
             {
-                name: 'scale',
-                text: '比例',
-                hasSort: true,
+                name: 'synthesize',
+                text: '综合',
+                hasSort: false,
             },
             {
-                name: 'profit',
-                text: '收益',
+                name: 'sale',
+                text: '销量',
                 hasSort: true,
             },
             {
@@ -30,8 +30,8 @@ new SortTab({
                 hasSort: true,
             },
         ],
-        defaultIndex: 1,
-        defaultSortMethod: 'desc', // asc升序 desc降序
+        defaultIndex: 0, // 默认索引
+        defaultSortMethod: 'asc', // asc升序 desc降序
     },
 });
 

@@ -17,13 +17,13 @@ class Sub extends Super {
                 /*
                 items: [
                     {
-                        name: 'scale',
-                        text: '比例',
-                        hasSort: true,
+                        name: 'synthesize',
+                        text: '综合',
+                        hasSort: false,
                     },
                     {
-                        name: 'profit',
-                        text: '收益',
+                        name: 'sale',
+                        text: '销量',
                         hasSort: true,
                     },
                     {
@@ -51,11 +51,11 @@ class Sub extends Super {
         }
         items.forEach(function (v, i) {
             innerHTML += `
-                <div class="g-sort-tab-item ${defaultIndex === i ? 'g-sort-tab-item_active' : ''}">
+                <div data-name="${v.name}" class="g-sort-tab-item ${defaultIndex === i ? 'g-sort-tab-item_active' : ''}">
                     <div class="g-sort-tab-item-text">${v.text}</div>
                     ${v.hasSort ? `<div class="g-sort-tab-item-icon">
-                        <div class="g-sort-tab-item-icon-item ${defaultSortMethod === 'asc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
-                        <div class="g-sort-tab-item-icon-item ${defaultSortMethod === 'desc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
+                        <div data-sort-method="asc" class="g-sort-tab-item-icon-item ${defaultSortMethod === 'asc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
+                        <div data-sort-method="desc" class="g-sort-tab-item-icon-item ${defaultSortMethod === 'desc' && defaultIndex === i ? 'g-sort-tab-item-icon-item_active' : ''}"></div>
                     </div>` : ''}
                 </div>
             `;
@@ -72,23 +72,46 @@ class Sub extends Super {
 
     // (功)(覆)功能(覆盖超类型)
     power() {
-        const callback = this.opts.callback;
+        const opts = this.opts;
+        const config = opts.config;
+        const callback = opts.callback;
+        const defaultSortMethod = config.defaultSortMethod;
         const moduleDom = this.moduleDom;
         const items = moduleDom.querySelectorAll('.g-sort-tab-item');
+        const itemClass = 'g-sort-tab-item';
+        const itemActiveClass = 'g-sort-tab-item_active';
+        const sortClass = 'g-sort-tab-item-icon-item';
+        const sortActiveClass = 'g-sort-tab-item-icon-item_active';
         items.forEach(function (v) {
             v.addEventListener('click', function () {
-                // const hasActive = this.querySelector('.g-sort-tab-item-icon-item_active');
-                // if (hasActive) {
-                //     hasActive.classList.remove('g-sort-tab-item-icon-item_active');
-                // }
-                // items.forEach(function (v2) {
-                //     v2.classList.remove('g-sort-tab-item_active');
-                // });
-                // items.querySelectorAll('.g-sort-tab-item-icon-item').forEach(function (v3) {
-                //     v3.classList.remove('g-sort-tab-item-icon-item_active');
-                // });
-                // this.classList.add('g-sort-tab-item_active');
-                // callback.click({});
+                if (this.classList.contains(itemActiveClass)) {
+                    const sortActiveDom = this.querySelector(`.${sortActiveClass}`);
+                    if (sortActiveDom) {
+                        sortActiveDom.classList.remove(sortActiveClass);
+                        sortActiveDom.nextElementSibling && sortActiveDom.nextElementSibling.classList.add(sortActiveClass);
+                        sortActiveDom.previousElementSibling && sortActiveDom.previousElementSibling.classList.add(sortActiveClass);
+                    }
+                } else {
+                    moduleDom.querySelectorAll(`.${itemClass}`).forEach(function (v2) {
+                        v2.classList.remove(itemActiveClass);
+                        v2.querySelectorAll(`.${sortClass}`).forEach(function (v3) {
+                            v3.classList.remove(sortActiveClass);
+                        });
+                    });
+                    this.classList.add(itemActiveClass);
+                    const sortDomAll = this.querySelectorAll(`.${sortClass}`);
+                    if (defaultSortMethod === 'asc') {
+                        sortDomAll[0] && sortDomAll[0].classList.add(sortActiveClass);
+                    } else {
+                        sortDomAll[1] && sortDomAll[1].classList.add(sortActiveClass);
+                    }
+                }
+                const itemActiveDom = moduleDom.querySelector(`.${itemActiveClass}`);
+                const sortActiveDom = itemActiveDom.querySelector(`.${sortActiveClass}`);
+                callback.click({
+                    name: itemActiveDom.dataset.name,
+                    sortMethod: sortActiveDom ? sortActiveDom.dataset.sortMethod : '',
+                });
             });
         });
     }
