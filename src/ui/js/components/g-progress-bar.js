@@ -32,6 +32,13 @@ class Sub extends Super {
 
     // (功)(覆)功能(覆盖超类型)
     power() {
+        const moduleDom = this.moduleDom;
+        const canvas = moduleDom.querySelector('.g-progress-bar-canvas');
+        const canvasW = moduleDom.offsetWidth;
+        const canvasH = moduleDom.offsetHeight;
+        canvas.width = canvasW;
+        canvas.height = canvasH;
+        const canvasCenterXY = canvasW / 2;
     }
 }
 

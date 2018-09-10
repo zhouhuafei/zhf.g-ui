@@ -4,6 +4,14 @@
     @extend .g-xy-center_flex;
     width: px2rem(60);
     height: px2rem(60);
-    border: 1px solid $g-brand-color;
-    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    .g-progress-bar-text {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        @extend .g-xy-center_flex;
+    }
 }
