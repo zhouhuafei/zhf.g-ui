@@ -77,3 +77,10 @@ new Component({
     data: {}, // 组件数据
 });
 ```
+
+# 待续...
+* 找几款看起来舒服且能和iconfont图标对齐的字体。
+    - mac："Helvetica Neue", "Helvetica"
+    - ios：
+    - windows：
+    - android：
