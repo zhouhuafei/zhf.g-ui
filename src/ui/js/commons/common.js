@@ -11,7 +11,7 @@ module.exprots = {
     Navigation: require('../components/g-navigation'),
     NoData: require('../components/g-no-data'),
     Pagination: require('../components/g-pagination'),
-    Popover: require('../components/g-popover'), // 待修改...
+    Popover: require('../components/g-popover'), // 修改，待续...
     ProgressBar: require('../components/g-progress-bar'),
     RadioSwitch: require('../components/g-radio-switch'),
     SortTab: require('../components/g-sort-tab'),
@@ -20,6 +20,6 @@ module.exprots = {
     SubEs6: require('../components/g-sub-es6'),
     Table: require('../components/g-table'),
     Tooltip: require('../components/g-tooltip'),
-    TooltipApp: require('../components/g-tooltip-app'), // 待修改...
-    Validate: require('../components/g-validate'),
+    TooltipApp: require('../components/g-tooltip-app'), // 修改，待续...
+    Validate: require('../components/g-validate'), // 修改，待续...
 };
