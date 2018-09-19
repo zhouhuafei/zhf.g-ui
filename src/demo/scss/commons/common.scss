@@ -10,5 +10,4 @@ body {
     @return $px / $psd * 10rem;
 }
 
-@import "../../../ui/scss/fonts/iconfont.css"; // 字体图标，需要单独引入，否则打包会报错。
 @import "../../../ui/scss/commons/g-common"; // 组件，所有的组件集合。
