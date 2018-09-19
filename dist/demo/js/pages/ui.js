@@ -167,7 +167,8 @@
 __webpack_require__(/*! ../../scss/pages/ui.scss */ "./src/demo/scss/pages/ui.scss"); // 当前页的样式
 var common = __webpack_require__(/*! ../commons/common */ "./src/demo/js/commons/common.js"); // 公用的js，会被提取成this-is-global-file-common.js
 
-var SortTab = __webpack_require__(/*! ../../../ui/js/components/g-sort-tab */ "./src/ui/js/components/g-sort-tab.js"); // 排序tab
+// 功能组件 - 排序tab
+var SortTab = __webpack_require__(/*! ../../../ui/js/components/g-sort-tab */ "./src/ui/js/components/g-sort-tab.js");
 new SortTab({
     // 容器
     wrap: '.sort-tab',
@@ -197,7 +198,8 @@ new SortTab({
     }
 });
 
-var ProgressBar = __webpack_require__(/*! ../../../ui/js/components/g-progress-bar */ "./src/ui/js/components/g-progress-bar.js"); // 进度条
+// 功能组件 - 进度条
+var ProgressBar = __webpack_require__(/*! ../../../ui/js/components/g-progress-bar */ "./src/ui/js/components/g-progress-bar.js");
 var progressBar = new ProgressBar({
     wrap: '.progress-bar'
 });

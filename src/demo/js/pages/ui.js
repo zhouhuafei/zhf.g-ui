@@ -1,7 +1,8 @@
 require('../../scss/pages/ui.scss'); // 当前页的样式
 const common = require('../commons/common'); // 公用的js，会被提取成this-is-global-file-common.js
 
-const SortTab = require('../../../ui/js/components/g-sort-tab'); // 排序tab
+// 功能组件 - 排序tab
+const SortTab = require('../../../ui/js/components/g-sort-tab');
 new SortTab({
     // 容器
     wrap: '.sort-tab',
@@ -35,7 +36,8 @@ new SortTab({
     },
 });
 
-const ProgressBar = require('../../../ui/js/components/g-progress-bar'); // 进度条
+// 功能组件 - 进度条
+const ProgressBar = require('../../../ui/js/components/g-progress-bar');
 const progressBar = new ProgressBar({
     wrap: '.progress-bar',
 });
@@ -47,4 +49,3 @@ const canvasSetScaleTimer = setInterval(function () {
     progressBar.canvasSetScale(canvasSetScaleNum); // 0 - 100
     canvasSetScaleNum++;
 }, 60);
-
