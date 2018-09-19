@@ -84,3 +84,4 @@ new Component({
     - ios：
     - windows：
     - android：
+* tooltip组件移除。
