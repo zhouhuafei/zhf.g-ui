@@ -1,5 +1,6 @@
 // 表单
 .g-form-wrap {
+    @extend .g-reset_font;
     &.g-form-wrap_no-margin {
         .g-form {
             &:first-of-type {

@@ -1,4 +1,5 @@
 .g-radio-switch {
+    @extend .g-reset_font;
     $width-wrap: 44;
     $height-wrap: $width-wrap / 2;
     $width-height-round: $height-wrap - 2;

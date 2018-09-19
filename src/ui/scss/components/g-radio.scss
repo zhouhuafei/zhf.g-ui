@@ -1,5 +1,6 @@
 // 单选框
 .g-radio {
+    @extend .g-reset_font;
     display: flex;
     align-items: center;
     user-select: none;

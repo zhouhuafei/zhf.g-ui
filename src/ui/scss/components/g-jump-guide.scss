@@ -1,5 +1,6 @@
 // 登录,注册,改密的跳转引导
 .g-jump-guide {
+    @extend .g-reset_font;
     display: flex;
     align-items: center;
     justify-content: space-between;

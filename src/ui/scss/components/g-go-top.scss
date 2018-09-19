@@ -1,5 +1,6 @@
 // 返回顶部
 .g-go-top {
+    @extend .g-reset_font;
     $width-height: 30;
     position: fixed;
     left: 50%;

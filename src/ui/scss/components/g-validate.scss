@@ -1,5 +1,6 @@
 // 表单验证失败的提示
 .g-validate {
+    @extend .g-reset_font;
     $height: 16;
     $triangleW: 4;
     $bgc: rgba(250, 85, 85, 0.8);

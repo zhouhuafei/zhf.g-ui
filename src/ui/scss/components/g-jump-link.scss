@@ -1,4 +1,5 @@
 .g-jump-link {
+    @extend .g-reset_font;
     line-height: px2rem(24);
     text-align: center;
     font-size: px2rem($g-font-size_default);

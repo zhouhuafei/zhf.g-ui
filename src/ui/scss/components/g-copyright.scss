@@ -1,5 +1,6 @@
 // 版权
 .g-copyright {
+    @extend .g-reset_font;
     padding: px2rem(20) 0;
     display: flex;
     align-items: center;

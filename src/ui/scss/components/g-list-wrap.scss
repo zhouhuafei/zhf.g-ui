@@ -1,5 +1,6 @@
 // 列表
 .g-list-wrap {
+    @extend .g-reset_font;
     width: 100%;
     &.g-list-wrap_style-yes-radius {
         .g-list {

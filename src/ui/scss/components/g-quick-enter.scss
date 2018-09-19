@@ -1,5 +1,6 @@
 // 快捷入口
 .g-quick-enter {
+    @extend .g-reset_font;
     display: flex;
     align-items: center;
     justify-content: space-between;

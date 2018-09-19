@@ -1,5 +1,6 @@
 // 默认按钮(确认按钮)
 .g-button {
+    @extend .g-reset_font;
     font-size: px2rem($g-font-size_default);
     height: px2rem(40);
     background: $g-color_highlight;

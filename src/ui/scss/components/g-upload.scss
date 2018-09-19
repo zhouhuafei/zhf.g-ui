@@ -1,5 +1,6 @@
 // 上传图片
 .g-upload {
+    @extend .g-reset_font;
     $width-height: 80;
     width: px2rem($width-height);
     height: px2rem($width-height);

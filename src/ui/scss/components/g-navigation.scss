@@ -1,4 +1,5 @@
 .g-navigation {
+    @extend .g-reset_font;
     display: flex;
     flex-wrap: wrap;
     background: #ffffff;

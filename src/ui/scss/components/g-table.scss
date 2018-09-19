@@ -1,5 +1,6 @@
 // 表格
 .g-table {
+    @extend .g-reset_font;
     color: $g-font-color_default;
     text-align: center;
     background: #fff;

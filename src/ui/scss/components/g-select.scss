@@ -1,5 +1,6 @@
 // 下拉框
 .g-select {
+    @extend .g-reset_font;
     $mark-font-size: 12;
     $mark-width: 20;
     $select-padding-left: 10;

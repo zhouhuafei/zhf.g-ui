@@ -1,5 +1,6 @@
 // 多选框
 .g-checkbox {
+    @extend .g-reset_font;
     display: flex;
     align-items: center;
     user-select: none;

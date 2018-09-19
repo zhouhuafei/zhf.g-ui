@@ -1,5 +1,6 @@
 // 文本框
 textarea.g-textarea {
+    @extend .g-reset_font;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     resize: none;

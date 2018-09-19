@@ -1,4 +1,5 @@
 .g-popover {
+    @extend .g-reset_font;
     $triangleW: 8;
     $bg: rgba(255, 255, 255, 1);
     position: absolute;

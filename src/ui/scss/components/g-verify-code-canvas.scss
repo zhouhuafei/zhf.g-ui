@@ -1,5 +1,6 @@
 // 验证码
 .g-verify-code-canvas {
+    @extend .g-reset_font;
     width: px2rem(160);
     height: px2rem(40);
     img {

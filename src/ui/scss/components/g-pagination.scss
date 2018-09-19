@@ -1,4 +1,5 @@
 .g-pagination {
+    @extend .g-reset_font;
     $height: 24;
     padding: px2rem(10) 0;
     height: px2rem($height);

@@ -1,5 +1,6 @@
 // 没有数据
 .g-no-data {
+    @extend .g-reset_font;
     display: flex;
     flex-direction: column;
     align-items: center;

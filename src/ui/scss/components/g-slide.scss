@@ -1,4 +1,5 @@
 .g-slide {
+    @extend .g-reset_font;
     background: #fff;
     min-height: px2rem(50);
     height: inherit;

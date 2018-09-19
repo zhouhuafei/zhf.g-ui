@@ -1,5 +1,6 @@
 // 音频
 .g-audio {
+    @extend .g-reset_font;
     position: relative;
     .g-audio-icon {
         position: absolute;

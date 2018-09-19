@@ -1,5 +1,6 @@
 // 输入框
 input.g-input {
+    @extend .g-reset_font;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     outline: none;

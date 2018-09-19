@@ -1,5 +1,6 @@
 // 底部导航
 .g-footer-nav {
+    @extend .g-reset_font;
     $height: 44;
     width: inherit;
     height: px2rem($height);
