@@ -1,26 +1,15 @@
-/*----------------------function--------------------*/
-/*
-// px转rem(phone) 这个是给手机端用的。
-@function px2rem($px, $psd:320) {
-    @return $px / $psd * 10rem;
-}
-
-// px转px(phone) 这个是给手机端用的。当需要使用到px时，使用这个即可。pc端为什么不使用px2px而是重写了px2rem？原因是这样做pc组件和phone组件互转时比较方便。
-@function px2px($px) {
-    @return $px * 1px;
-}
-*/
-
-// px转rem(pc) 这个是给电脑端用的。
-@function px2rem($px) {
-    @if $px == 0 {
-        @return 0;
-    } @else {
-        @return $px * 1px;
-    }
-}
-
 /*----------------------var--------------------*/
+// 环境
+$g-is_h5: true; // 是否是h5(默认h5)(可自定义)
+
+// Alert和Confirm
+$g-alert_width: 240;
+$g-confirm_width: 280;
+@if ($g-is_h5 == false) { // pc
+    $g-alert_width: $g-alert_width * 2;
+    $g-confirm_width: $g-confirm_width * 2;
+}
+
 // 背景
 $g-background-color_floor: #f4f4f4; // 底色(自定义)
 $g-background-color_default: #bbbbbb; // 默认(自定义)
@@ -49,6 +38,28 @@ $g-color_select: #409eff; // 自定义单选按钮和自定义多选按钮等被
 $g-color_create: #06bf04; // 新建(创建)的颜色
 $g-color_cancel: #888d99; // 取消的颜色，有待思考命名是否合理待续...
 $g-color_dark: #252834; // 菜单的颜色，有待思考命名是否合理待续...
+
+/*----------------------function--------------------*/
+/*
+// px转rem(phone) 这个是给手机端用的。
+@function px2rem($px, $psd:320) {
+    @return $px / $psd * 10rem;
+}
+
+// px转px(phone) 这个是给手机端用的。当需要使用到px时，使用这个即可。pc端为什么不使用px2px而是重写了px2rem？原因是这样做pc组件和phone组件互转时比较方便。
+@function px2px($px) {
+    @return $px * 1px;
+}
+*/
+
+// px转rem(pc) 这个是给电脑端用的。
+@function px2rem($px) {
+    @if $px == 0 {
+        @return 0;
+    } @else {
+        @return $px * 1px;
+    }
+}
 
 /*----------------------mixin--------------------*/
 // 清除浮动
