@@ -42,7 +42,7 @@ src
     - 如果是320的设计图，1rem就是32px。
     - 如果是640的设计图，1rem就是64px。
 * 字体图标格式：```<span class="iconfont icon-g-xxx"></span>```。
-* css命名规范：使用长链接命名方式，就是使用中划线一直连接下去，修饰符使用下划线进行链接。
+* css命名规范1：使用长链接命名方式，就是使用中划线一直连接下去，修饰符使用下划线进行链接。
 ```
 .g-components .g-components-header {}
 .g-components .g-components-header-item {}
@@ -62,6 +62,10 @@ src
 .g-components .g-components-header-item.g-components-header-item_money-symbol {}
 .g-components .g-components-header-item.g-components-header-item_money-big {}
 .g-components .g-components-header-item.g-components-header-item_money-small {}
+```
+* css命名规范2：下划线同时具备值的作用。
+```
+.g-display_flex {}
 ```
 
 # 功能组件 - 传参规则
