@@ -1,5 +1,6 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const applications = require('zhf.applications'); // 应用方法集合
+const extend = require('zhf.extend'); // 对象的扩展
+const createElement = require('zhf.create-element'); // 创建元素
+const getDomArray = require('zhf.get-dom-array'); // 创建元素
 
 // 底层构造函数
 function Super(json) {

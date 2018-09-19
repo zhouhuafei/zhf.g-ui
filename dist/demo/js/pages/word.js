@@ -147,7 +147,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./src/demo/js/pages/word.js","this-is-global-file-vendor","this-is-global-file-common"]);
+/******/ 	deferredModules.push(["./src/demo/js/pages/word.js","this-is-global-file-vendor","this-is-global-file-common","ui~word"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -164,12 +164,9 @@
 "use strict";
 
 
-__webpack_require__(/*! ../commons/common */ "./src/demo/js/commons/common.js"); // 公用的js，会被提取成this-is-global-file-common.js
 __webpack_require__(/*! ../../scss/pages/word.scss */ "./src/demo/scss/pages/word.scss"); // 当前页的样式
-__webpack_require__(/*! zhf.extend */ "./node_modules/zhf.extend/dist/index.min.js");
+var common = __webpack_require__(/*! ../commons/common */ "./src/demo/js/commons/common.js"); // 公用的js，会被提取成this-is-global-file-common.js
 console.log('word');
-console.log('word1');
-console.log('word2');
 
 /***/ }),
 

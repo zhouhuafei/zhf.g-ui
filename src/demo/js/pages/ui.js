@@ -1,5 +1,5 @@
-require('../commons/common'); // 公用的js
 require('../../scss/pages/ui.scss'); // 当前页的样式
+const common = require('../commons/common'); // 公用的js，会被提取成this-is-global-file-common.js
 
 const SortTab = require('../../../ui/js/components/g-sort-tab'); // 排序tab
 new SortTab({
@@ -9,7 +9,7 @@ new SortTab({
     callback: {
         click: function (json) {
             console.log(json);
-        }
+        },
     },
     // 配置
     config: {
