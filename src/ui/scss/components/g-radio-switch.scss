@@ -16,7 +16,7 @@
         height: inherit;
         border-radius: px2rem($width-wrap);
         position: relative;
-        background: $g-background-color-default;
+        background: $g-background-color_default;
         .g-radio-switch-body-round {
             width: px2rem($width-height-round);
             height: px2rem($width-height-round);
@@ -33,13 +33,13 @@
     }
     &.g-radio-switch_active {
         .g-radio-switch-body {
-            background: $g-highlight-color;
+            background: $g-color_highlight;
             .g-radio-switch-body-round {
                 left: px2rem($left-round_active);
             }
         }
         .g-radio-switch-text {
-            color: $g-highlight-color;
+            color: $g-color_highlight;
         }
     }
 }

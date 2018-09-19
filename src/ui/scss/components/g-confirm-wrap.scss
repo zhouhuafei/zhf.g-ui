@@ -8,7 +8,7 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    font-size: px2rem($g-font-size-default);
+    font-size: px2rem($g-font-size_default);
     &.g-confirm-wrap_center {
         align-items: center;
     }
@@ -33,7 +33,7 @@
         position: relative;
         z-index: 501;
         .g-confirm-header {
-            background: $g-highlight-color;
+            background: $g-color_highlight;
             color: #ffffff;
             height: px2rem($height);
             box-sizing: border-box;
@@ -55,7 +55,7 @@
                 .g-confirm-body-system-icon {
                     margin-right: px2rem(6);
                     font-size: px2rem(24);
-                    color: $g-warning-color;
+                    color: $g-color_warning;
                 }
                 .g-confirm-body-system-text {
                     line-height: 1.2;

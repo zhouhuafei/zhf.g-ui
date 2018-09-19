@@ -37,12 +37,12 @@
         justify-content: center;
         .g-slide-header-item {
             margin: 0 px2rem(4);
-            background-color: $g-background-color-default;
+            background-color: $g-background-color_default;
             width: px2rem($height / 2);
             height: px2rem($height / 2);
             border-radius: 50%;
             &.on {
-                background-color: $g-highlight-color;
+                background-color: $g-color_highlight;
             }
         }
     }

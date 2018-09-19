@@ -1,20 +1,20 @@
 .g-jump-link {
     line-height: px2rem(24);
     text-align: center;
-    font-size: px2rem($g-font-size-default);
+    font-size: px2rem($g-font-size_default);
     .g-jump-link-title {
-        color: $g-highlight-color;
+        color: $g-color_highlight;
     }
     .g-jump-link-body {
         display: flex;
         .g-jump-link-body-seconds {
-            color: $g-highlight-color;
+            color: $g-color_highlight;
         }
         .g-jump-link-body-page-title {
-            color: $g-highlight-color;
+            color: $g-color_highlight;
         }
     }
     .g-jump-link-footer {
-        color: $g-highlight-color;
+        color: $g-color_highlight;
     }
 }

@@ -13,7 +13,7 @@
         z-index: 3;
         bottom: px2rem(-1);
         box-sizing: border-box;
-        border-top: px2rem(1) solid $g-border-color-default;
+        border-top: px2rem(1) solid $g-border-color_default;
         background: #fff;
         .g-footer-nav-body-item {
             flex: 1;
@@ -23,7 +23,7 @@
             flex-direction: column;
             position: relative;
             height: 100%;
-            color: $g-font-color-default;
+            color: $g-font-color_default;
             .g-footer-nav-body-item-icon {
                 $size: 20;
                 width: px2rem($size);
@@ -40,14 +40,14 @@
                 width: px2rem($width-height);
                 height: px2rem($width-height);
                 border-radius: 50%;
-                background: $g-highlight-color;
+                background: $g-color_highlight;
                 position: absolute;
                 right: px2rem(4);
                 top: px2rem(4);
             }
             &.g-footer-nav-body-item_active {
                 .g-footer-nav-body-item-icon, .g-footer-nav-body-item-text {
-                    color: $g-highlight-color;
+                    color: $g-color_highlight;
                 }
             }
         }

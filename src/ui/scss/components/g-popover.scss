@@ -4,7 +4,7 @@
     position: absolute;
     z-index: 9;
     display: flex;
-    font-size: px2rem($g-font-size-default);
+    font-size: px2rem($g-font-size_default);
     /* 水平居上 */
     &.g-popover_top-left {
         flex-direction: column;
@@ -136,12 +136,12 @@
         border-radius: px2rem(6);
         background: $bg;
         color: rgba(0, 0, 0, 1);
-        border: 1px solid $g-border-color-default;
+        border: 1px solid $g-border-color_default;
     }
     .g-popover-icon {
         width: px2rem($triangleW);
         height: px2rem($triangleW);
-        border: 1px solid $g-border-color-default;
+        border: 1px solid $g-border-color_default;
         border-top: none;
         border-left: none;
         background: #fff;

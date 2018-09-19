@@ -11,21 +11,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: $g-font-color-auxiliary;
+        color: $g-font-color_auxiliary;
         &.g-sort-tab-item_active {
-            color: $g-font-color-default;
+            color: $g-font-color_default;
             .g-sort-tab-item-icon-item {
                 &:first-of-type.g-sort-tab-item-icon-item_active {
-                    border-bottom-color: $g-danger-color;
+                    border-bottom-color: $g-color_danger;
                 }
                 &:last-of-type.g-sort-tab-item-icon-item_active {
-                    border-top-color: $g-danger-color;
+                    border-top-color: $g-color_danger;
                 }
             }
         }
     }
     .g-sort-tab-item-icon {
-        color: $g-font-color-auxiliary;
+        color: $g-font-color_auxiliary;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -38,10 +38,10 @@
         border: px2rem(4) solid transparent;
         margin: px2rem(1) 0;
         &:first-of-type {
-            border-bottom-color: $g-font-color-auxiliary;
+            border-bottom-color: $g-font-color_auxiliary;
         }
         &:last-of-type {
-            border-top-color: $g-font-color-auxiliary;
+            border-top-color: $g-font-color_auxiliary;
         }
     }
 }

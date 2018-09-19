@@ -1,12 +1,12 @@
 // 表格
 .g-table {
-    color: $g-font-color-default;
+    color: $g-font-color_default;
     text-align: center;
     background: #fff;
     .g-table-row {
         display: flex;
         min-height: px2rem(44);
-        border-bottom: px2rem(1) solid $g-border-color-default;
+        border-bottom: px2rem(1) solid $g-border-color_default;
         &:nth-of-type(2n) {
             background: rgba(0, 0, 255, 0.04);
         }
@@ -31,8 +31,8 @@
         }
     }
     .g-table-header {
-        background: $g-highlight-color;
+        background: $g-color_highlight;
         color: #ffffff;
-        border-top: px2rem(1) solid $g-border-color-default;
+        border-top: px2rem(1) solid $g-border-color_default;
     }
 }

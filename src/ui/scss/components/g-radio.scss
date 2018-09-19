@@ -32,17 +32,17 @@
             height: inherit;
             background: inherit;
             border-radius: inherit;
-            border: px2rem(1) solid $g-border-color-default;
+            border: px2rem(1) solid $g-border-color_default;
             transition: 0.2s;
             &:checked {
-                border-color: $g-highlight-color;
+                border-color: $g-color_highlight;
                 & + .g-radio-body-mark {
                     transform: scale(1);
                 }
             }
             &:disabled {
-                background: $g-background-color-disabled;
-                border-color: $g-border-color-disabled;
+                background: $g-background-color_disabled;
+                border-color: $g-border-color_disabled;
                 cursor: not-allowed;
             }
         }
@@ -57,7 +57,7 @@
             top: 0;
             width: inherit;
             height: inherit;
-            color: $g-highlight-color;
+            color: $g-color_highlight;
             font-size: px2rem(16);
         }
     }

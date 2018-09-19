@@ -20,7 +20,7 @@
             flex-direction: column;
             align-items: center;
             font-size: px2rem($width-height);
-            color: $g-highlight-color;
+            color: $g-color_highlight;
         }
         .g-navigation-item-text {
             font-size: px2rem(12);
@@ -31,7 +31,7 @@
             width: px2rem($width-height);
             height: px2rem($width-height);
             border-radius: 50%;
-            background: $g-highlight-color;
+            background: $g-color_highlight;
             position: absolute;
             right: px2rem(4);
             top: px2rem(4);

@@ -5,7 +5,7 @@
     position: absolute;
     z-index: 9;
     display: flex;
-    font-size: px2rem($g-font-size-default);
+    font-size: px2rem($g-font-size_default);
     &.g-tooltip_top-left {
         flex-direction: column;
         align-items: flex-start;

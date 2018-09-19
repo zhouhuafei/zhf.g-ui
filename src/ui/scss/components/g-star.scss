@@ -7,10 +7,10 @@
     align-items: center;
     justify-content: center;
     .g-star-item {
-        color: $g-ignore-color;
+        color: $g-color_ignore;
         font-size: px2rem(36);
         &.g-star-item_active {
-            color: $g-highlight-color;
+            color: $g-color_highlight;
         }
     }
 }
