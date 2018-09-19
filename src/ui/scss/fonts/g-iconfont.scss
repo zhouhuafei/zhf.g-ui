@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'iconfont';  /* project id 814235 */
-    src: url('//at.alicdn.com/t/font_814235_sk303tsdgx.eot');
-    src: url('//at.alicdn.com/t/font_814235_sk303tsdgx.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_814235_sk303tsdgx.woff') format('woff'),
-    url('//at.alicdn.com/t/font_814235_sk303tsdgx.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_814235_sk303tsdgx.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_814235_9oiaxw4oxk.eot');
+    src: url('//at.alicdn.com/t/font_814235_9oiaxw4oxk.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_814235_9oiaxw4oxk.woff') format('woff'),
+    url('//at.alicdn.com/t/font_814235_9oiaxw4oxk.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_814235_9oiaxw4oxk.svg#iconfont') format('svg');
 }
 
 .g-iconfont {
@@ -14,6 +14,26 @@
     -moz-osx-font-smoothing: grayscale;
     font-size: inherit;
     line-height: 1;
+}
+
+.g-icon-success:before {
+    content: "\e673";
+}
+
+.g-icon-failure:before {
+    content: "\e672";
+}
+
+.g-icon-warning:before {
+    content: "\e670";
+}
+
+.g-icon-more:before {
+    content: "\e675";
+}
+
+.g-icon-delete:before {
+    content: "\e631";
 }
 
 .g-icon-loading:before {
