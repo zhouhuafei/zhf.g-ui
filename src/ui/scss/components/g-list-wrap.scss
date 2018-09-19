@@ -16,6 +16,7 @@
         }
     }
     .g-list {
+        @extend .g-reset_a;
         display: block;
         padding: px2rem(10) px2rem(10);
         margin-bottom: px2rem(10);

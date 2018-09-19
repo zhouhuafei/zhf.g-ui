@@ -14,10 +14,10 @@ const Sub = constructorInherit(Super, {
     },
     // 数据
     data: {
-        icon: 'icon-no-data',
+        icon: 'g-icon-no-data',
         text: '没有数据',
         button: {
-            icon: 'icon-home',
+            icon: 'g-icon-home',
             text: '回首页',
             href: '/',
         },
@@ -29,7 +29,7 @@ Sub.prototype.moduleDomCreate = function () {
     const data = this.opts.data;
     let buttonIconHtml = '';
     if (this.opts.config.button.isShowIcon) {
-        buttonIconHtml = `<div class="g-button-icon iconfont ${data.button.icon}"></div>`;
+        buttonIconHtml = `<div class="g-button-icon g-iconfont ${data.button.icon}"></div>`;
     }
     this.moduleDom = createElement({
         style: this.opts.config.moduleDomStyle,
@@ -37,7 +37,7 @@ Sub.prototype.moduleDomCreate = function () {
         attribute: {
             className: 'g-no-data',
             innerHTML: `
-                <div class="g-no-data-icon iconfont ${data.icon}"></div>
+                <div class="g-no-data-icon g-iconfont ${data.icon}"></div>
                 <div class="g-no-data-text">${data.text}</div>
                 <a class="g-no-data-button g-button" href="${data.button.href}">
                     ${buttonIconHtml}

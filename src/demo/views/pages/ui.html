@@ -19,9 +19,344 @@
         </script>
     </head>
     <body>
-        <div class="g-title">功能组件 - 排序切换</div>
-        <div class="sort-tab"></div>
-        <div class="g-title">功能组件 - 进度条</div>
-        <div class="progress-bar"></div>
+        <form action="" data-method="get">
+            <div class="g-title">布局组件 - 列表系列</div>
+            <div class="g-list-wrap">
+                <a href="" class="g-list js-g-tooltip" data-title="功能组件(g-tooltip) - 点击进入首页">
+                    <div class="g-list-body">
+                        <div class="g-list-body">
+                            <div class="g-list-body-logo iconfont icon-home"></div>
+                            <div class="g-list-body-text">首页</div>
+                        </div>
+                        <div class="g-list-body">
+                            <div class="g-list-body-value">有新的消息</div>
+                            <div class="g-list-body-icon iconfont icon-more"></div>
+                        </div>
+                    </div>
+                    <div class="g-list-footer">首页啥都没有</div>
+                </a>
+                <a href="" class="g-list js-g-tooltip" data-title="功能组件(g-tooltip) - 点击进入网站信息页面">
+                    <div class="g-list-body">
+                        <div class="g-list-body">
+                            <div class="g-list-body-logo iconfont icon-home"></div>
+                            <div class="g-list-body-text">网站信息</div>
+                        </div>
+                        <div class="g-list-body">
+                            <div class="g-list-body-value">99</div>
+                            <div class="g-list-body-icon iconfont icon-more"></div>
+                        </div>
+                    </div>
+                    <div class="g-list-footer">网站信息页有网站的基础信息</div>
+                </a>
+            </div>
+            <div class="g-title">布局组件 - 表单系列</div>
+            <div class="g-form-wrap">
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">金额:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-symbol iconfont icon-rmb"></div>
+                            <div class="g-form-body-content-main">
+                                <input placeholder="请输入" class="g-input js-validate-form" data-validate="no-empty no-zero yes-positive-integer" data-hint="本项必填 本项不可为零 请输入正整数" type="text">
+                            </div>
+                            <div class="g-form-body-content-icon iconfont icon-clear"></div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">搜索:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-symbol iconfont icon-search"></div>
+                            <div class="g-form-body-content-main">
+                                <input class="g-input js-validate-form" data-validate="no-empty no-zero yes-positive-integer" data-hint="本项必填 本项不可为零 请输入正整数" type="text" name="website-search" value="" placeholder="请输入搜索内容">
+                            </div>
+                            <div class="g-form-body-content-icon iconfont icon-clear"></div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">手机:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-symbol iconfont icon-tel"></div>
+                            <div class="g-form-body-content-main">
+                                <input class="g-input js-validate-form js-g-positive-integer" data-validate="no-empty no-zero yes-positive-integer yes-phone" data-hint="本项必填 本项不可为零 请输入正整数 手机号码格式错误" type="tel" name="website-phone" value="" placeholder="请输入手机号码">
+                            </div>
+                            <div class="g-form-body-content-icon iconfont icon-clear"></div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">性别:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-main g-form-body-content-main_more-row">
+                                <label class="g-radio">
+                                            <span class="g-radio-body">
+                                                <input title="" class="g-radio-body-main js-validate-form" data-event="change" data-validate="no-empty" data-hint="本项必选" type="radio" name="sex" value="male">
+                                                <span class="g-radio-body-mark iconfont icon-radio"></span>
+                                            </span>
+                                    <span class="g-radio-text">男</span>
+                                </label>
+                                <label class="g-radio">
+                                            <span class="g-radio-body">
+                                                <input title="" class="g-radio-body-main js-validate-form" data-event="change" data-validate="no-empty" data-hint="本项必选" type="radio" name="sex" value="female">
+                                                <span class="g-radio-body-mark iconfont icon-radio"></span>
+                                            </span>
+                                    <span class="g-radio-text">女</span>
+                                </label>
+                                <label class="g-radio">
+                                            <span class="g-radio-body">
+                                                <input disabled="disabled" title="" class="g-radio-body-main js-validate-form" data-event="change" data-validate="no-empty" data-hint="本项必选" type="radio" name="sex" value="female">
+                                                <span class="g-radio-body-mark iconfont icon-radio"></span>
+                                            </span>
+                                    <span class="g-radio-text">不男不女</span>
+                                </label>
+                            </div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">属性:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-main g-form-body-content-main_more-row">
+                                <label class="g-checkbox">
+                                            <span class="g-checkbox-body">
+                                                <input checked="checked" title="" class="g-checkbox-body-main js-validate-form" data-event="change" data-validate="no-empty yes-limit-length-2" data-hint="本项必选 仅能选择2个" type="checkbox" name="hobby[]" value="pingpangqiu">
+                                                <span class="g-checkbox-body-mark iconfont icon-checkbox"></span>
+                                            </span>
+                                    <span class="g-checkbox-text">金</span>
+                                </label>
+                                <label class="g-checkbox">
+                                            <span class="g-checkbox-body">
+                                                <input checked="checked" title="" class="g-checkbox-body-main js-validate-form" data-event="change" data-validate="no-empty yes-limit-length-2" data-hint="本项必选 仅能选择2个" type="checkbox" name="hobby[]" value="lanqiu">
+                                                <span class="g-checkbox-body-mark iconfont icon-checkbox"></span>
+                                            </span>
+                                    <span class="g-checkbox-text">木</span>
+                                </label>
+                                <label class="g-checkbox">
+                                            <span class="g-checkbox-body">
+                                                <input checked="checked" title="" class="g-checkbox-body-main js-validate-form" data-event="change" data-validate="no-empty yes-limit-length-2" data-hint="本项必选 仅能选择2个" type="checkbox" name="hobby[]" value="zuqiu">
+                                                <span class="g-checkbox-body-mark iconfont icon-checkbox"></span>
+                                            </span>
+                                    <span class="g-checkbox-text">水</span>
+                                </label>
+                                <label class="g-checkbox">
+                                            <span class="g-checkbox-body">
+                                                <input title="" class="g-checkbox-body-main js-validate-form" data-event="change" data-validate="no-empty yes-limit-length-2" data-hint="本项必选 仅能选择2个" type="checkbox" name="hobby[]" value="zuqiu">
+                                                <span class="g-checkbox-body-mark iconfont icon-checkbox"></span>
+                                            </span>
+                                    <span class="g-checkbox-text">火</span>
+                                </label>
+                                <label class="g-checkbox">
+                                            <span class="g-checkbox-body">
+                                                <input disabled="disabled" title="" class="g-checkbox-body-main js-validate-form" data-event="change" data-validate="no-empty yes-limit-length-2" data-hint="本项必选 仅能选择2个" type="checkbox" name="hobby[]" value="zuqiu">
+                                                <span class="g-checkbox-body-mark iconfont icon-checkbox"></span>
+                                            </span>
+                                    <span class="g-checkbox-text">土</span>
+                                </label>
+                            </div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">爱好:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-main">
+                                    <span class="g-select">
+                                        <select class="g-select-body js-validate-form" data-event="change" data-validate="no-empty" data-hint="本项必选" name="" title="请选择你喜欢的球类">
+                                            <option value="">请选择你喜欢的球类</option>
+                                            <option value="1">乒乓球</option>
+                                            <option value="2">篮球</option>
+                                        </select>
+                                        <span class="g-select-mark iconfont icon-select"></span>
+                                    </span>
+                            </div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">网站logo:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-main g-form-body-content-main_more-row">
+                                <label class="g-upload g-upload_active js-popover">
+                                    <input class="g-upload-input" accept="image/gif, image/jpeg, image/png" type="file">
+                                    <input type="hidden" name="website-logo">
+                                    <span class="g-upload-icon iconfont icon-upload-img"></span>
+                                    <span class="g-upload-show"></span>
+                                    <span class="g-upload-text">640*640</span>
+                                    <span class="g-upload-opts">
+                                                <span class="g-upload-opts-item iconfont icon-delete"></span>
+                                            </span>
+                                </label>
+                                <label class="g-upload g-upload_active js-popover">
+                                    <input class="g-upload-input" accept="image/gif, image/jpeg, image/png" type="file">
+                                    <input type="hidden" name="website-logo">
+                                    <span class="g-upload-icon iconfont icon-upload-img"></span>
+                                    <span class="g-upload-show"></span>
+                                    <span class="g-upload-text">640*640</span>
+                                    <span class="g-upload-opts">
+                                                <span class="g-upload-opts-item iconfont icon-delete"></span>
+                                            </span>
+                                </label>
+                                <label class="g-upload js-popover">
+                                    <input class="g-upload-input js-validate-form js-upload-input" data-event="change" data-validate="no-empty yes-limit-length-1" data-hint="本项必传 最多上传1张图片" data-value="true" accept="image/gif, image/jpeg, image/png" type="file">
+                                    <input type="hidden" name="">
+                                    <span class="g-upload-icon iconfont icon-upload-img"></span>
+                                    <span class="g-upload-show"></span>
+                                    <span class="g-upload-text">640*640</span>
+                                    <span class="g-upload-opts">
+                                                <span class="g-upload-opts-item iconfont icon-delete"></span>
+                                            </span>
+                                </label>
+                            </div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                    <div class="g-form-footer">
+                        <div class="g-form-footer-item">
+                            <div class="g-margin-right-5">是否显示：</div>
+                            <label class="g-radio g-margin-right-10">
+                                        <span class="g-radio-body">
+                                            <input checked="checked" title="" class="g-radio-body-main" type="radio" name="is-show" value="yes">
+                                            <span class="g-radio-body-mark iconfont icon-radio"></span>
+                                        </span>
+                                <span class="g-radio-text">是</span>
+                            </label>
+                            <label class="g-radio">
+                                        <span class="g-radio-body">
+                                            <input title="" class="g-radio-body-main" type="radio" name="is-show" value="no">
+                                            <span class="g-radio-body-mark iconfont icon-radio"></span>
+                                        </span>
+                                <span class="g-radio-text">否</span>
+                            </label>
+                        </div>
+                        <div class="g-form-footer-item g-font-color-warning">
+                            <div class="g-margin-right-5">建议尺寸：</div>
+                            <div>640*640（这里是补充信息，对此项进行补充说明）。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">留言:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-main">
+                                <textarea class="g-textarea js-validate-form" data-validate="no-empty no-zero yes-positive-integer no-999" data-hint="本项必填 本项不可为零 请输入正整数 不允许是999" placeholder="请输入">999</textarea>
+                            </div>
+                            <div class="g-form-body-content-limit">0/100</div>
+                            <div class="g-form-body-content-icon iconfont icon-clear"></div>
+                            <div class="g-form-body-content-icon g-form-body-content-hint iconfont icon-required"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="g-form">
+                    <div class="g-form-body">
+                        <div class="g-form-body-text">信息展示:</div>
+                        <div class="g-form-body-content">
+                            <div class="g-form-body-content-main">
+                                <div class="g-form-body-content-main-info">信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示信息展示</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="g-title">布局组件 - 按钮系列</div>
+            <div class="g-display-flex g-align-items-center g-margin-top-10">
+                <input class="g-button g-button_small g-margin-right-10" type="submit" value="submit">
+                <div class="g-button g-button_small g-button_disabled g-margin-right-10">禁用</div>
+                <div class="g-button g-button_small g-button_cancel g-margin-right-10">取消</div>
+                <div class="g-button g-button_small g-button_create g-margin-right-10">
+                    <div class="g-button-icon iconfont icon-plus"></div>
+                    <div class="g-button-text">新建</div>
+                </div>
+                <div class="g-button g-button_small js-save">保存</div>
+            </div>
+            <div class="g-display-flex g-align-items-center g-margin-top-10">
+                <input class="g-button g-margin-right-10" type="submit" value="submit">
+                <div class="g-button g-button_disabled g-margin-right-10">禁用</div>
+                <div class="g-button g-button_cancel g-margin-right-10">取消</div>
+                <div class="g-button g-button_create g-margin-right-10">
+                    <div class="g-button-icon iconfont icon-plus"></div>
+                    <div class="g-button-text">新建</div>
+                </div>
+                <div class="g-button js-save">保存</div>
+            </div>
+            <div class="g-display-flex g-align-items-center g-margin-top-10">
+                <input class="g-button g-button_hollow g-button_small g-margin-right-10" type="submit" value="submit">
+                <div class="g-button g-button_hollow g-button_small g-button_disabled g-margin-right-10">禁用</div>
+                <div class="g-button g-button_hollow g-button_small g-button_cancel g-margin-right-10">取消</div>
+                <div class="g-button g-button_hollow g-button_small g-button_create g-margin-right-10">
+                    <div class="g-button-icon iconfont icon-plus"></div>
+                    <div class="g-button-text">新建</div>
+                </div>
+                <div class="g-button g-button_hollow g-button_small js-save">保存</div>
+            </div>
+            <div class="g-display-flex g-align-items-center g-margin-top-10">
+                <input class="g-button g-button_hollow g-margin-right-10" type="submit" value="submit">
+                <div class="g-button g-button_hollow g-button_disabled g-margin-right-10">禁用</div>
+                <div class="g-button g-button_hollow g-button_cancel g-margin-right-10">取消</div>
+                <div class="g-button g-button_hollow g-button_create g-margin-right-10">
+                    <div class="g-button-icon iconfont icon-plus"></div>
+                    <div class="g-button-text">新建</div>
+                </div>
+                <div class="g-button g-button_hollow js-save">保存</div>
+            </div>
+            <div class="g-display-flex g-align-items-center g-margin-top-10">
+                <div class="g-button g-button_small g-button_create g-margin-right-10 g-flex-0">
+                    <div class="g-button-icon iconfont icon-plus"></div>
+                    <div class="g-button-text">新建</div>
+                </div>
+                <div class="g-button g-button_create g-margin-right-10 g-flex-0">
+                    <div class="g-button-icon iconfont icon-plus"></div>
+                    <div class="g-button-text">新建商品</div>
+                </div>
+                <div class="g-button g-button_small g-flex-0">
+                    <div class="g-button-icon iconfont icon-plus"></div>
+                    <div class="g-button-text">保存</div>
+                </div>
+            </div>
+            <div class="g-title">功能组件 - 分页系列</div>
+            <div class="g-pagination">
+                <div class="g-pagination-btn g-pagination-btn-inactive">首页</div>
+                <div class="g-pagination-btn g-pagination-btn-inactive">上一页</div>
+                <div class="g-pagination-text">第</div>
+                <div class="g-pagination-now-page">
+                    <label class="g-select">
+                        <select class="g-select-body">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <span class="g-select-mark iconfont icon-select"></span>
+                    </label>
+                </div>
+                <div class="g-pagination-text">页</div>
+                <div class="g-pagination-btn">下一页</div>
+                <div class="g-pagination-btn">尾页</div>
+            </div>
+            <div class="g-title">功能组件 - 弹窗系列</div>
+            <div class="g-display-flex g-align-items-center">
+                <div class="g-button g-button_small g-margin-right-10">g-alert</div>
+                <div class="g-button g-button_small g-margin-right-10">g-confirm</div>
+                <div class="g-button g-button_small g-margin-right-10">g-message</div>
+                <div class="g-button g-button_small g-margin-right-10">g-popover</div>
+                <div class="g-button g-button_small g-margin-right-10">g-tooltip</div>
+            </div>
+            <div class="g-title">功能组件 - 排序切换</div>
+            <div class="sort-tab"></div>
+            <div class="g-title">功能组件 - 进度条</div>
+            <div class="progress-bar"></div>
+        </form>
     </body>
 </html>

@@ -16,7 +16,7 @@ const Sub = constructorInherit(Super, {
         //     routeName: 'home',
         //     href: '/',
         //     text: '首页',
-        //     icon: 'icon-home',
+        //     icon: 'g-icon-home',
         //     isHighlight: false,
         //     isShowMark: false
         // }
@@ -39,7 +39,7 @@ Sub.prototype.moduleDomCreate = function () {
         }
         moduleDomHtml += `
             <a class="g-footer-nav-body-item ${highlightClass}" href="${v.href}">
-                <div class="g-footer-nav-body-item-icon iconfont ${v.icon}"></div>
+                <div class="g-footer-nav-body-item-icon g-iconfont ${v.icon}"></div>
                 <div class="g-footer-nav-body-item-text">${v.text}</div>
                 ${markHtml}
             </a>

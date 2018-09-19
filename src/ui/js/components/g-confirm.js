@@ -21,12 +21,12 @@ const Sub = constructorInherit(Super, {
     config: {
         positionLocation: 'center', // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
         isShowClose: true, // 是否显示关闭按钮
-        closeContent: '<div class="iconfont icon-close"></div>', // 关闭按钮的内容
+        closeContent: '<div class="g-iconfont g-icon-close"></div>', // 关闭按钮的内容
         isShowHeader: true, // 是否显示头部
         headerContent: '提示:', // 头部内容
         isShowBody: true, // 是否显示主体
         isShowIcon: false, // 是否显示icon
-        icon: 'icon-warning', // icon的类型
+        icon: 'g-icon-warning', // icon的类型
         isCustom: false, // 是否自定义
         content: '<div>确定要执行这个操作?</div>', // 主体内容
         isShowFooter: true, // 是否显示尾部
@@ -68,7 +68,7 @@ Sub.prototype.renderConfirm = function () {
     if (config.isShowBody) {
         let htmlIcon = '';
         if (config.isShowIcon) {
-            htmlIcon = `<div class="g-confirm-body-system-icon iconfont ${config.icon}"></div>`;
+            htmlIcon = `<div class="g-confirm-body-system-icon g-iconfont ${config.icon}"></div>`;
         }
         let bodyClass = 'g-confirm-body-system';
         let bodyContent = `

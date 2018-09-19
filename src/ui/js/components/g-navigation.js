@@ -16,31 +16,31 @@ const Sub = constructorInherit(Super, {
             /*
             {
                 href: route,
-                icon: 'icon-home',
+                icon: 'g-icon-home',
                 text: '首页',
                 isShowMark: false,
             },
             {
                 href: `${route}dev-globals/`,
-                icon: 'icon-dev',
+                icon: 'g-icon-dev',
                 text: '开发全局',
                 isShowMark: false,
             },
             {
                 href: `${route}dev-components/`,
-                icon: 'icon-dev',
+                icon: 'g-icon-dev',
                 text: '开发组件',
                 isShowMark: false,
             },
             {
                 href: `${route}dev-words/`,
-                icon: 'icon-dev',
+                icon: 'g-icon-dev',
                 text: '开发词汇',
                 isShowMark: false,
             },
             {
                 href: `${route}mine/`,
-                icon: 'icon-mine',
+                icon: 'g-icon-mine',
                 text: '我的',
                 isShowMark: false,
             },
@@ -61,7 +61,7 @@ Sub.prototype.moduleDomCreate = function () {
         }
         html += `
             <a href="${v.href}" class="g-navigation-item">
-                <div class="g-navigation-item-icon iconfont ${v.icon}"></div>
+                <div class="g-navigation-item-icon g-iconfont ${v.icon}"></div>
                 <div class="g-navigation-item-text">${v.text}</div>
                 ${markHtml}
             </a>

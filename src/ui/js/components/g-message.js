@@ -16,7 +16,7 @@ const Sub = constructorInherit(Super, {
         time: 3000, // 展示的时间
         isShowIcon: false, // 是否显示icon
         isShowClose: true, // 是否显示关闭按钮
-        icon: 'icon-success', // icon的class
+        icon: 'g-icon-success', // icon的class
         content: '成功', // 内容信息
         positionLocation: 'top', // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
     },
@@ -45,11 +45,11 @@ Sub.prototype.renderAlert = function () {
     const config = this.opts.config;
     let htmlIcon = '';
     if (config.isShowIcon) {
-        htmlIcon = `<div class="g-message-icon iconfont ${config.icon}"></div>`;
+        htmlIcon = `<div class="g-message-icon g-iconfont ${config.icon}"></div>`;
     }
     let closeHtml = '';
     if (config.isShowClose) {
-        closeHtml = '<div class="g-message-close iconfont icon-close" ></div>';
+        closeHtml = '<div class="g-message-close g-iconfont g-icon-close" ></div>';
     }
     return `
         ${closeHtml}

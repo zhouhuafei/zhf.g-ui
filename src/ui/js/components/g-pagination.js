@@ -45,12 +45,12 @@ Sub.prototype.moduleDomCreate = function () {
                         <select class="g-select-body">
                             ${this.renderOption()}
                         </select>
-                        <span class="g-select-mark iconfont icon-select"></span>
+                        <span class="g-select-mark g-iconfont g-icon-select"></span>
                     </label>
                 </div>
                 <div class="g-pagination-text">页</div>
-                <a href="javascript:;" class="g-pagination-btn g-pagination-btn-inactive iconfont icon-prev"></a>
-                <a href="javascript:;" class="g-pagination-btn iconfont icon-next"></a>
+                <a href="javascript:;" class="g-pagination-btn g-pagination-btn-inactive g-iconfont g-icon-prev"></a>
+                <a href="javascript:;" class="g-pagination-btn g-iconfont g-icon-next"></a>
             `,
         },
     });
