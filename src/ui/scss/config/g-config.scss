@@ -1,4 +1,4 @@
-/*----------------------var--------------------*/
+/*----------【var】----------*/
 // 环境
 $g-is_h5: true; // 是否是h5(默认h5)(可自定义)
 
@@ -39,29 +39,20 @@ $g-color_create: #06bf04; // 新建(创建)的颜色
 $g-color_cancel: #888d99; // 取消的颜色，有待思考命名是否合理待续...
 $g-color_dark: #252834; // 菜单的颜色，有待思考命名是否合理待续...
 
-/*----------------------function--------------------*/
-/*
-// px转rem(phone) 这个是给手机端用的。
-@function px2rem($px, $psd:320) {
-    @return $px / $psd * 10rem;
-}
-
-// px转px(phone) 这个是给手机端用的。当需要使用到px时，使用这个即可。pc端为什么不使用px2px而是重写了px2rem？原因是这样做pc组件和phone组件互转时比较方便。
-@function px2px($px) {
-    @return $px * 1px;
-}
-*/
-
-// px转rem(pc) 这个是给电脑端用的。
-@function px2rem($px) {
-    @if $px == 0 {
+/*----------【function】----------*/
+// px转rem：如果是pc，则按照1比1进行转换，如果是h5，则将320像素宽度的设计图分成10份。
+@function px2rem($px, $psd:320, $split:10) {
+    @if ($px == 0) {
         @return 0;
     } @else {
+        @if ($g-is_h5) {
+            @return $px / $psd * $split * 1rem;
+        }
         @return $px * 1px;
     }
 }
 
-/*----------------------mixin--------------------*/
+/*----------【mixin】----------*/
 // 清除浮动
 @mixin g-clearfix() {
     &:after {
