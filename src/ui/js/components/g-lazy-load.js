@@ -1,9 +1,9 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const applications = require('zhf.applications'); // 应用方法集合
+const extend = require('zhf.extend'); // 对象的扩展
+const offset = require('zhf.offset');
 
 // 延迟加载
 function LazyLoad(json) {
-    this.opts = tools.extend({
+    this.opts = extend({
         element: '.g-lazy-load', // 哪些元素进行懒加载
         srcAttr: 'data-src', // 默认获取哪里的属性值当做src
         moreHeight: 0, // 多加载一部分高度的图片
@@ -27,7 +27,7 @@ LazyLoad.prototype.render = function () {
     const minTop = scrollTop - moreHeight;
     const maxTop = this.clientHeight + minTop + moreHeight;
     const src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUCB1jYAACAAAFAAGNu5vzAAAAAElFTkSuQmCC';
-    const aDom = applications.getDomArray(this.opts.element);
+    const aDom = getDomArray(this.opts.element);
     aDom.forEach(function (v) {
         if (v.tagName.toLowerCase() === 'img') {
             if (!v.getAttribute('src')) {
@@ -40,7 +40,7 @@ LazyLoad.prototype.render = function () {
     aDom.forEach(function (v) {
         // 排除那些被none掉的元素(被none掉的元素,通过offsetWidth和offsetHeight获取到的值是0)
         if (v.offsetWidth) {
-            const elementTop = applications.offset(v).top;
+            const elementTop = offset(v).top;
             const elementBottom = elementTop + v.offsetHeight;
             // 出现在可视区才进行处理
             if (elementBottom >= minTop && elementTop <= maxTop) {

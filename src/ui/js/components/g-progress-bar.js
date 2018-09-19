@@ -1,7 +1,7 @@
 const extend = require('zhf.extend'); // 对象的扩展
 const createElement = require('zhf.create-element'); // 创建元素
-const config = require('../config/config'); // 超类型(子类型继承的对象)
 const Super = require('../components-super/g-super-es6'); // 超类型(子类型继承的对象)
+const globalConfig = require('../config/g-config'); // 全局配置
 
 // 子类型
 class Sub extends Super {
@@ -40,7 +40,7 @@ class Sub extends Super {
         self.canvasSetVar(); // 设置变量
         self.canvasSetScale(0); // 设置比例
         window.addEventListener('resize', function () {
-            config.resetOutermostContainerMaxWidth(); // 重置最大宽度
+            globalConfig.resetOutermostContainerDomMaxWidth(); // 重置最大宽度
             self.canvasSetVar(); // 设置变量
             self.canvasSetScale(self.canvasScaleNum || 0); // 设置比例
         });
@@ -59,7 +59,7 @@ class Sub extends Super {
         canvasContext.rotate(-90 * this.radian); // 旋转90弧度
         this.canvasCenterX = 0; // 中心点x
         this.canvasCenterY = 0; // 中心点y
-        this.canvasBorderW = config.px2remCanvas(5); // 边框
+        this.canvasBorderW = globalConfig.px2remCanvas(5); // 边框
     }
 
     canvasDrawCircle(strokeStyle, angle) { // 画圆

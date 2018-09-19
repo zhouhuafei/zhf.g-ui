@@ -4,7 +4,7 @@ const applications = require('zhf.applications'); // 应用方法集合
 // 底层构造函数
 function Super(json) {
     // 函数外部传来的参数
-    this.opts = tools.extend(
+    this.opts = extend(
         // 内部默认参数
         {
             // 父级
@@ -105,7 +105,7 @@ Super.prototype.power = function () {
 
 // (建)(覆)内部模块的创建(这个方法需要在子类型里被覆盖掉)
 Super.prototype.moduleDomCreate = function () {
-    this.moduleDom = applications.createElement({
+    this.moduleDom = createElement({
         style: this.opts.config.moduleDomStyle,
         customAttribute: this.opts.config.moduleDomCustomAttribute,
         attribute: {
@@ -125,7 +125,7 @@ Super.prototype.moduleDomRender = function () {
         callback.moduleDomRenderBefore(this);
         const renderMethod = config.moduleDomRenderMethod;
         if (renderMethod.method === 'insertBefore') {
-            const dom = applications.getDomArray(renderMethod.child)[0];
+            const dom = getDomArray(renderMethod.child)[0];
             if (dom) {
                 this.wrapDom.insertBefore(this.moduleDom, dom);
             } else {
@@ -187,7 +187,7 @@ Super.prototype.moduleDomShow = function () {
 Super.prototype.wrapDomGet = function () {
     const callback = this.opts.callback;
     callback.wrapDomGetBefore(this);
-    this.wrapDom = applications.getDomArray(this.opts.wrap)[0];
+    this.wrapDom = getDomArray(this.opts.wrap)[0];
     callback.wrapDomGetAfter(this);
 };
 

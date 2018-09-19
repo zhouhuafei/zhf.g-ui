@@ -1,9 +1,9 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const DialogTooltip = require('../components-dom/g-dialog-tooltip'); // 工具提示框(文本提示框)
+const extend = require('zhf.extend'); // 对象的扩展
+const Tooltip = require('./g-tooltip'); // 工具提示框(文本提示框)
 
 // 工具提示框(文本提示框)的应用
 function Sub(opts) {
-    this.opts = tools.extend({
+    this.opts = extend({
         element: '.js-g-tooltip',
         eventType: 'mouseover',
         positionLocation: 'top-left', // 弹窗的定位位置('top-left'，'top-center'，'top-right')。
@@ -20,16 +20,16 @@ Sub.prototype.init = function () {
             ev.preventDefault();
             ev.stopPropagation();
             const dom = this;
-            clearTimeout(dom.gDialogTooltipMouseenterTimer);
-            if (!dom.gDialogTooltipMouseenter) {
-                dom.gDialogTooltipMouseenter = new DialogTooltip({
+            clearTimeout(dom.gTooltipMouseenterTimer);
+            if (!dom.gTooltipMouseenter) {
+                dom.gTooltipMouseenter = new Tooltip({
                     config: {
                         positionLocation: opts.positionLocation,
                         content: dom.dataset.title,
                         elementDom: dom,
                     },
                 });
-                const moduleDom = dom.gDialogTooltipMouseenter.moduleDom;
+                const moduleDom = dom.gTooltipMouseenter.moduleDom;
                 setCss(moduleDom, dom);
                 moduleDom.classList.add('g-opacity-0');
                 setTimeout(function () {
@@ -42,7 +42,7 @@ Sub.prototype.init = function () {
                     $(moduleDom).on('mouseenter', function (ev) {
                         ev.preventDefault();
                         ev.stopPropagation();
-                        clearTimeout(dom.gDialogTooltipMouseenterTimer);
+                        clearTimeout(dom.gTooltipMouseenterTimer);
                     });
                     $(moduleDom).on('mouseleave', function (ev) {
                         ev.preventDefault();
@@ -60,9 +60,9 @@ Sub.prototype.init = function () {
     }
 
     function moduleDomHide(dom) {
-        dom.gDialogTooltipMouseenterTimer = setTimeout(function () {
-            dom.gDialogTooltipMouseenter.moduleDomHide();
-            delete dom.gDialogTooltipMouseenter;
+        dom.gTooltipMouseenterTimer = setTimeout(function () {
+            dom.gTooltipMouseenter.moduleDomHide();
+            delete dom.gTooltipMouseenter;
         }, 60);
     }
 
@@ -70,20 +70,20 @@ Sub.prototype.init = function () {
         $(document).on('click', opts.element, function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
-            if (!this.gDialogTooltipClick) {
-                this.gDialogTooltipClick = new DialogTooltip({
+            if (!this.gTooltipClick) {
+                this.gTooltipClick = new Tooltip({
                     config: {
                         positionLocation: opts.positionLocation,
                         content: this.dataset.title,
                         elementDom: this,
                     },
                 });
-                setCss(this.gDialogTooltipClick.moduleDom, this);
+                setCss(this.gTooltipClick.moduleDom, this);
             } else {
-                if (this.gDialogTooltipClick.moduleDom.offsetWidth === 0) {
-                    this.gDialogTooltipClick.moduleDomShow();
+                if (this.gTooltipClick.moduleDom.offsetWidth === 0) {
+                    this.gTooltipClick.moduleDomShow();
                 } else {
-                    this.gDialogTooltipClick.moduleDomHide();
+                    this.gTooltipClick.moduleDomHide();
                 }
             }
         });

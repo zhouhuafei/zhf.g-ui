@@ -49,11 +49,17 @@
         "url-loader": "^1.1.1",
         "webpack": "^4.17.2",
         "webpack-cli": "^3.1.0",
-        "webpack-dev-server": "^3.1.7"
+        "webpack-dev-server": "^3.1.7",
+        "zhf.dom-add-position": "^1.0.5"
     },
     "dependencies": {
+        "zhf.check-str": "^1.1.0",
         "zhf.create-element": "^1.0.1",
         "zhf.extend": "^2.0.3",
-        "zhf.get-dom-array": "^1.0.4"
+        "zhf.get-dom-array": "^1.0.4",
+        "zhf.get-parent": "^1.0.0",
+        "zhf.offset": "^1.0.4",
+        "zhf.scroll-move-to": "^1.0.0",
+        "zhf.time-count-down": "^1.1.1"
     }
 }

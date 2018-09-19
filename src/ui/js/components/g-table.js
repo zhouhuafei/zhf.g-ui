@@ -1,9 +1,9 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const applications = require('zhf.applications'); // 应用方法集合
+const createElement = require('zhf.create-element'); // 创建元素
+const constructorInherit = require('zhf.create-element'); // 创建元素
 const Super = require('../components-super/g-super'); // 超类型(子类型继承的对象)
 
 // 子类型
-const Sub = tools.constructorInherit(Super, {
+const Sub = constructorInherit(Super, {
     // 回调
     callback: {},
     // 配置
@@ -18,7 +18,7 @@ const Sub = tools.constructorInherit(Super, {
 
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
-    this.moduleDom = applications.createElement({
+    this.moduleDom = createElement({
         style: this.opts.config.moduleDomStyle,
         customAttribute: this.opts.config.moduleDomCustomAttribute,
         attribute: {

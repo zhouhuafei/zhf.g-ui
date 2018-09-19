@@ -1,26 +1,26 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const DialogConfirm = require('./g-dialog-confirm'); // 弹窗
 const timeCountDown = require('zhf.time-count-down'); // 倒计时
+const Confirm = require('./g-confirm');
+
 
 // 专门为请求成功写的跳转链接弹窗
 class Super {
     constructor(opts) {
-        opts = tools.extend({
+        opts = extend({
             title: '操作成功',
             seconds: 3,
             pageTitle: '登录',
             href: 'javascript:;',
         }, opts);
-        const content = `<div class="g-dialog-jump-link">
-            <div class="g-dialog-jump-link-title">${opts.title}</div>
-            <div class="g-dialog-jump-link-body">
-                <div class="g-dialog-jump-link-body-seconds">${opts.seconds}</div>
+        const content = `<div class="g-jump-link">
+            <div class="g-jump-link-title">${opts.title}</div>
+            <div class="g-jump-link-body">
+                <div class="g-jump-link-body-seconds">${opts.seconds}</div>
                 <div>秒后自动跳转到</div>
-                <a href="${opts.href}" class="g-dialog-jump-link-body-page-title">${opts.pageTitle}页</a>
+                <a href="${opts.href}" class="g-jump-link-body-page-title">${opts.pageTitle}页</a>
             </div>
-            <a href="${opts.href}" class="g-dialog-jump-link-footer">点击此处手动跳转</a>
+            <a href="${opts.href}" class="g-jump-link-footer">点击此处手动跳转</a>
         </div>`;
-        const dialogConfirm = new DialogConfirm({
+        const oConfirm = new Confirm({
             config: {
                 positionLocation: 'center', // 弹窗的定位位置
                 isShowHeader: false, // 是否显示头部
@@ -41,7 +41,7 @@ class Super {
                 isHandHide: false, // 是否手动隐藏(一般只用于点击确认时)
             },
         });
-        const seconds = dialogConfirm.moduleDom.querySelector('.g-dialog-jump-link-body-seconds');
+        const seconds = oConfirm.moduleDom.querySelector('.g-jump-link-body-seconds');
         timeCountDown({
             seconds: opts.seconds,
             callback: {

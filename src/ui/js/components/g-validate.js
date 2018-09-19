@@ -1,12 +1,11 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const applications = require('zhf.applications'); // 应用方法集合
+const extend = require('zhf.extend'); // 工具方法集合
 const domAddPosition = require('zhf.dom-add-position');
-const checkStr = tools.checkStr;
-const getParent = applications.getParent;
-const getDomArray = applications.getDomArray;
+const checkStr = require('zhf.check-str');
+const getParent = require('zhf.get-parent');
+const getDomArray = require('zhf.get-dom-array');
 
 function ValidateForm(json) {
-    this.opts = tools.extend({
+    this.opts = extend({
         element: '',
         hintWrapClass: 'g-form', // 指定提示框的父级
         fileActiveClass: 'g-upload_active', // 文件或者图片上传成功之后的class，做限制个数需要这个
@@ -16,7 +15,7 @@ function ValidateForm(json) {
 }
 
 ValidateForm.prototype.init = function () {
-    this.hintClass = 'g-validate-form-hint';
+    this.hintClass = 'g-validate';
     this.render();
     if (this.opts.isBindEvent) {
         this.power();
@@ -33,11 +32,11 @@ ValidateForm.prototype.render = function () {
                 v.hintWrapDom = hintWrapDom;
             }
         }
-        if (!v.hintDom) { // 为了兼容未来动态创建的元素，此方法会被多次调用，但是这里却不能重新赋值，否则会导致引用消失，以至于renderHintAdd时修改hintDom内g-validate-form-hint-text的innerHTML失效。
+        if (!v.hintDom) { // 为了兼容未来动态创建的元素，此方法会被多次调用，但是这里却不能重新赋值，否则会导致引用消失，以至于renderHintAdd时修改hintDom内g-validate-text的innerHTML失效。
             v.hintDom = document.createElement('span');
             v.hintDom.innerHTML = `
-                <span class="g-validate-form-hint-text"></span>
-                <span class="g-validate-form-hint-icon"></span>
+                <span class="g-validate-text"></span>
+                <span class="g-validate-icon"></span>
             `;
             v.hintDom.classList.add(self.hintClass);
         }
@@ -45,9 +44,9 @@ ValidateForm.prototype.render = function () {
 };
 ValidateForm.prototype.getHintWrapDom = function (input) {
     const hintWrapClass = this.opts.hintWrapClass;
-    let parent = getParent(input, `.${hintWrapClass}`); // 把这个放上面，是为了少调用一次getParent方法，因为g-form布局用的居多，g-validate-form-hint-wrap没怎么使用。
+    let parent = getParent(input, `.${hintWrapClass}`); // 把这个放上面，是为了少调用一次getParent方法，因为g-form布局用的居多，g-validate-wrap没怎么使用。
     if (!parent) {
-        parent = getParent(input, '.g-validate-form-hint-wrap');
+        parent = getParent(input, '.g-validate-wrap');
     }
     if (!parent) {
         parent = input.parentNode;
@@ -58,7 +57,7 @@ ValidateForm.prototype.renderHintAdd = function (opts = {}) {
     const input = opts.input;
     const hintDom = input.hintDom;
     if (hintDom) {
-        hintDom.querySelector('.g-validate-form-hint-text').innerHTML = opts.txt;
+        hintDom.querySelector('.g-validate-text').innerHTML = opts.txt;
         const hintWrapDom = input.hintWrapDom;
         const hintDomIsExist = hintWrapDom.querySelector(`.${this.hintClass}`);
         if (hintWrapDom && !hintDomIsExist) {

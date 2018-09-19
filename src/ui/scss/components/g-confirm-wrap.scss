@@ -1,5 +1,5 @@
 // 确认框
-.g-dialog-confirm-wrap {
+.g-confirm-wrap {
     position: fixed;
     left: 0;
     top: 0;
@@ -9,30 +9,30 @@
     display: flex;
     justify-content: center;
     font-size: px2rem($g-font-size-default);
-    &.g-dialog-confirm-wrap_center {
+    &.g-confirm-wrap_center {
         align-items: center;
     }
-    &.g-dialog-confirm-wrap_bottom {
+    &.g-confirm-wrap_bottom {
         align-items: flex-end;
-        .g-dialog-confirm {
+        .g-confirm {
             width: 100%;
             border-radius: 0;
         }
     }
-    &.g-dialog-confirm-wrap_top {
+    &.g-confirm-wrap_top {
         align-items: flex-start;
-        .g-dialog-confirm {
+        .g-confirm {
             width: 100%;
             border-radius: 0;
         }
     }
-    .g-dialog-confirm {
+    .g-confirm {
         $height: 40;
         $width: 280*1.5;
         background: #fff;
         position: relative;
         z-index: 501;
-        .g-dialog-confirm-header {
+        .g-confirm-header {
             background: $g-highlight-color;
             color: #ffffff;
             height: px2rem($height);
@@ -44,29 +44,29 @@
             text-align: justify;
             overflow: hidden;
         }
-        .g-dialog-confirm-body {
-            .g-dialog-confirm-body-system {
+        .g-confirm-body {
+            .g-confirm-body-system {
                 width: px2rem($width);
                 min-height: px2rem($width / 3.2);
                 padding: px2rem(10);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                .g-dialog-confirm-body-system-icon {
+                .g-confirm-body-system-icon {
                     margin-right: px2rem(6);
                     font-size: px2rem(24);
                     color: $g-warning-color;
                 }
-                .g-dialog-confirm-body-system-text {
+                .g-confirm-body-system-text {
                     line-height: 1.2;
                 }
             }
-            .g-dialog-confirm-body-custom {
+            .g-confirm-body-custom {
             }
         }
-        .g-dialog-confirm-footer {
+        .g-confirm-footer {
             display: flex;
-            .g-dialog-confirm-footer-cancel, .g-dialog-confirm-footer-confirm {
+            .g-confirm-footer-cancel, .g-confirm-footer-confirm {
                 flex: 1;
                 display: flex;
                 align-items: center;
@@ -76,7 +76,7 @@
                 border-radius: 0;
             }
         }
-        .g-dialog-confirm-close {
+        .g-confirm-close {
             position: absolute;
             top: 0;
             right: 0;

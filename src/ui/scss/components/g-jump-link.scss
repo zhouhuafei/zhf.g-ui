@@ -1,20 +1,20 @@
-.g-dialog-jump-link {
+.g-jump-link {
     line-height: px2rem(24);
     text-align: center;
     font-size: px2rem($g-font-size-default);
-    .g-dialog-jump-link-title {
+    .g-jump-link-title {
         color: $g-highlight-color;
     }
-    .g-dialog-jump-link-body {
+    .g-jump-link-body {
         display: flex;
-        .g-dialog-jump-link-body-seconds {
+        .g-jump-link-body-seconds {
             color: $g-highlight-color;
         }
-        .g-dialog-jump-link-body-page-title {
+        .g-jump-link-body-page-title {
             color: $g-highlight-color;
         }
     }
-    .g-dialog-jump-link-footer {
+    .g-jump-link-footer {
         color: $g-highlight-color;
     }
 }

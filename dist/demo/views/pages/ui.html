@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            /* rem自适应 */
+            (function () {
+                function resetFontSize() {
+                    var fontSize = document.documentElement.clientWidth / 10;
+                    document.querySelector('html').style.fontSize = fontSize + 'px';
+                }
+
+                resetFontSize();
+                window.addEventListener('resize', resetFontSize);
+            })();
+        </script>
+    <link href="/css/chunks/this-is-global-file-common.css" rel="stylesheet"><link href="/css/pages/ui.css" rel="stylesheet"></head>
+    <body>
+        <div class="g-title">功能组件 - 排序切换</div>
+        <div class="sort-tab"></div>
+        <div class="g-title">功能组件 - 进度条</div>
+        <div class="progress-bar"></div>
+    <script type="text/javascript" src="/js/chunks/this-is-global-file-vendor.js"></script><script type="text/javascript" src="/js/chunks/this-is-global-file-common.js"></script><script type="text/javascript" src="/js/pages/ui.js"></script></body>
+</html>

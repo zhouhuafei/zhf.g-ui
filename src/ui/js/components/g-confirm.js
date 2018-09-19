@@ -1,9 +1,9 @@
-const tools = require('zhf.tools'); // 工具方法集合
-const applications = require('zhf.applications'); // 应用方法集合
+const createElement = require('zhf.create-element'); // 创建元素
+const constructorInherit = require('zhf.create-element'); // 创建元素
 const Super = require('../components-super/g-super'); // 超类型(子类型继承的对象)
 
 // 子类型
-const Sub = tools.constructorInherit(Super, {
+const Sub = constructorInherit(Super, {
     wrap: '.g-wrap',
     // 回调
     callback: {
@@ -44,14 +44,14 @@ const Sub = tools.constructorInherit(Super, {
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
     const config = this.opts.config;
-    const positionLocation = `g-dialog-confirm-wrap_${config.positionLocation}`;// 弹窗的定位位置
+    const positionLocation = `g-confirm-wrap_${config.positionLocation}`;// 弹窗的定位位置
     // 弹窗结构
     const html = this.renderConfirm();
-    this.moduleDom = applications.createElement({
+    this.moduleDom = createElement({
         style: config.moduleDomStyle,
         customAttribute: config.moduleDomCustomAttribute,
         attribute: {
-            className: `g-dialog-confirm-wrap ${positionLocation}`,
+            className: `g-confirm-wrap ${positionLocation}`,
             innerHTML: html,
         },
     });
@@ -62,25 +62,25 @@ Sub.prototype.renderConfirm = function () {
     const config = this.opts.config;
     let htmlHeader = '';
     if (config.isShowHeader) {
-        htmlHeader = `<div class="g-dialog-confirm-header">${config.headerContent}</div>`;
+        htmlHeader = `<div class="g-confirm-header">${config.headerContent}</div>`;
     }
     let htmlBody = '';
     if (config.isShowBody) {
         let htmlIcon = '';
         if (config.isShowIcon) {
-            htmlIcon = `<div class="g-dialog-confirm-body-system-icon iconfont ${config.icon}"></div>`;
+            htmlIcon = `<div class="g-confirm-body-system-icon iconfont ${config.icon}"></div>`;
         }
-        let bodyClass = 'g-dialog-confirm-body-system';
+        let bodyClass = 'g-confirm-body-system';
         let bodyContent = `
             ${htmlIcon}
-            <div class="g-dialog-confirm-body-system-text">${config.content}</div>
+            <div class="g-confirm-body-system-text">${config.content}</div>
         `;
         if (config.isCustom) {
-            bodyClass = 'g-dialog-confirm-body-custom';
+            bodyClass = 'g-confirm-body-custom';
             bodyContent = config.content;
         }
         htmlBody = `
-            <div class="g-dialog-confirm-body">
+            <div class="g-confirm-body">
                 <div class="${bodyClass}">
                     ${bodyContent}
                 </div>
@@ -91,17 +91,17 @@ Sub.prototype.renderConfirm = function () {
     if (config.isShowFooter) {
         let htmlCancel = '';
         if (config.isShowCancel) {
-            htmlCancel = `<div class="g-button g-button_cancel g-dialog-confirm-footer-cancel">${config.cancelContent}</div>`;
+            htmlCancel = `<div class="g-button g-button_cancel g-confirm-footer-cancel">${config.cancelContent}</div>`;
         }
         let htmlConfirm = '';
         if (config.isShowConfirm) {
-            htmlConfirm = `<div class="g-button g-dialog-confirm-footer-confirm">${config.confirmContent}</div>`;
+            htmlConfirm = `<div class="g-button g-confirm-footer-confirm">${config.confirmContent}</div>`;
         }
-        htmlFooter = `<div class="g-dialog-confirm-footer">${htmlCancel}${htmlConfirm}</div>`;
+        htmlFooter = `<div class="g-confirm-footer">${htmlCancel}${htmlConfirm}</div>`;
     }
     let htmlClose = '';
     if (config.isShowClose) {
-        htmlClose = `<div class="g-dialog-confirm-close">${config.closeContent}</div>`;
+        htmlClose = `<div class="g-confirm-close">${config.closeContent}</div>`;
     }
     let htmlMask = '';
     if (config.isShowMask) {
@@ -109,7 +109,7 @@ Sub.prototype.renderConfirm = function () {
     }
     return `
         ${htmlMask}
-        <div class="g-dialog-confirm">
+        <div class="g-confirm">
             ${htmlHeader}
             ${htmlBody}
             ${htmlFooter}
@@ -124,7 +124,7 @@ Sub.prototype.power = function () {
     const config = this.opts.config;
     const callback = this.opts.callback;
     // 关闭
-    const close = this.moduleDom.querySelector('.g-dialog-confirm-close');
+    const close = this.moduleDom.querySelector('.g-confirm-close');
     if (close) {
         close.addEventListener('click', function () {
             self.moduleDomHide();
@@ -132,7 +132,7 @@ Sub.prototype.power = function () {
         });
     }
     // 取消
-    const cancel = this.moduleDom.querySelector('.g-dialog-confirm-footer-cancel');
+    const cancel = this.moduleDom.querySelector('.g-confirm-footer-cancel');
     if (cancel) {
         cancel.addEventListener('click', function () {
             self.moduleDomHide();
@@ -140,7 +140,7 @@ Sub.prototype.power = function () {
         });
     }
     // 确认
-    const confirm = this.moduleDom.querySelector('.g-dialog-confirm-footer-confirm');
+    const confirm = this.moduleDom.querySelector('.g-confirm-footer-confirm');
     if (confirm) {
         confirm.addEventListener('click', function () {
             if (!config.isHandHide) {
