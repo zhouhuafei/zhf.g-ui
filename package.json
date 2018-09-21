@@ -1,5 +1,5 @@
 {
-    "name": "zhf.g-ui_vue",
+    "name": "zhf.g-ui",
     "version": "1.0.0",
     "description": "一套原生js写的ui框架",
     "main": "./src/ui/js/commons/g-common.js",
@@ -11,14 +11,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/zhouhuafei/zhf.g-ui_vue.git"
+        "url": "git+https://github.com/zhouhuafei/zhf.g-ui.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/zhouhuafei/zhf.g-ui_vue/issues"
+        "url": "https://github.com/zhouhuafei/zhf.g-ui/issues"
     },
-    "homepage": "https://github.com/zhouhuafei/zhf.g-ui_vue#readme",
+    "homepage": "https://github.com/zhouhuafei/zhf.g-ui#readme",
     "devDependencies": {
         "autoprefixer": "^9.1.5",
         "babel-core": "^6.26.3",
