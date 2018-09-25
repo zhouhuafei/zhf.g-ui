@@ -2,8 +2,9 @@
 // 环境
 $g-is_h5: true; // 是否是h5(默认h5)(可自定义)
 
-// Alert，Confirm，Message。
-$g-alert_width: 240;
+// Message，Alert，Confirm。
+$g-message_width: 240;
+$g-alert_width: 260;
 $g-confirm_width: 280;
 @if ($g-is_h5 == false) { // pc
     $g-alert_width: $g-alert_width * 2;
