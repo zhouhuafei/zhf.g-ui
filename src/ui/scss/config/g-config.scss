@@ -2,7 +2,7 @@
 // 环境
 $g-is_h5: true; // 是否是h5(默认h5)(可自定义)
 
-// Alert和Confirm
+// Alert，Confirm，Message。
 $g-alert_width: 240;
 $g-confirm_width: 280;
 @if ($g-is_h5 == false) { // pc
