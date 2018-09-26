@@ -56,6 +56,7 @@
         "zhf.constructor-inherit": "^1.0.0",
         "zhf.create-element": "^1.0.1",
         "zhf.dom-add-position": "^1.0.5",
+        "zhf.dom-components-super": "^1.1.2",
         "zhf.extend": "^2.0.3",
         "zhf.get-dom-array": "^1.0.4",
         "zhf.get-parent": "^1.0.0",
