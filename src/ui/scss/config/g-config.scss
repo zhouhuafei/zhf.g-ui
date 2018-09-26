@@ -10,8 +10,8 @@ $g-alert_width: 260 !default;
 $g-confirm_width: 280 !default;
 $g-pc-scale: 2 !default; // 如果是pc，则缩放比例是多少？默认放大2倍。
 @if ($g-is_h5 == false) { // pc
-    $g-alert_width: $g-alert_width * 2;
-    $g-confirm_width: $g-confirm_width * 2;
+    $g-alert_width: $g-alert_width * $g-pc-scale;
+    $g-confirm_width: $g-confirm_width * $g-pc-scale;
 }
 
 // 背景
