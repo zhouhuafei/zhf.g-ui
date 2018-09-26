@@ -1,6 +1,7 @@
 /*----------【var】----------*/
 // 环境
 $g-is_h5: true !default; // 是否是h5(默认h5)(可自定义)
+$g-is_mp: false !default; // 是否是小程序(默认不是)
 $g-psd_width: 320 !default; // 设计图的宽度(默认为320宽度的设计图。)
 $g-psd_split: 10 !default; // 设计图的切割份数(将320的设计图切割成10份，1rem可以换算为32px。)
 
@@ -21,6 +22,7 @@ $g-background-color_disabled: #e6e6e6 !default; // 禁用(自定义)
 $g-background-color_block: #ffffff !default; // 内容区块的背景色调(自定义)
 
 // 字体
+$g-font-family: "Helvetica Neue", "Helvetica" !default; // 字体
 $g-font-size_default: 12 !default; // 默认字体大小12px(自定义)
 $g-font-color_default: #333333 !default; // 默认(自定义)
 $g-font-color_disabled: #c1c1c1 !default; // 禁用(自定义)
@@ -45,12 +47,15 @@ $g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否�
 
 /*----------【function】----------*/
 // px转rem：如果是pc，则按照1比1进行转换，如果是h5，则将320像素宽度的设计图分成10份。
-@function px2rem($px, $psd:320, $split:10) {
+@function px2rem($px, $psd:$g-psd_width, $split:$g-psd_split) {
     @if ($px == 0) {
         @return 0;
     } @else {
         @if ($g-is_h5) {
             @return $px / $psd * $split * 1rem;
+        }
+        @if ($g-is_mp) {
+            @return $px * 750 / $psd * 1rpx;
         }
         @return $px * 1px;
     }
