@@ -1,7 +1,7 @@
 require('../../scss/pages/ui.scss'); // 当前页的样式
 
 // 功能组件 - 排序tab
-const SortTab = require('../../../ui/js/components/g-sort-tab');
+const SortTab = require('../../../ui/js/components-dom/g-sort-tab');
 new SortTab({
     // 容器
     wrap: '.sort-tab',
@@ -36,7 +36,7 @@ new SortTab({
 });
 
 // 功能组件 - 进度条
-const ProgressBar = require('../../../ui/js/components/g-progress-bar');
+const ProgressBar = require('../../../ui/js/components-dom/g-progress-bar');
 const progressBar = new ProgressBar({
     wrap: '.progress-bar',
 });
