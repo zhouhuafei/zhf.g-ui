@@ -1,11 +1,14 @@
 /*----------【var】----------*/
 // 环境
 $g-is_h5: true !default; // 是否是h5(默认h5)(可自定义)
+$g-psd_width: 320 !default; // 设计图的宽度(默认为320宽度的设计图。)
+$g-psd_split: 10 !default; // 设计图的切割份数(将320的设计图切割成10份，1rem可以换算为32px。)
 
 // Message，Alert，Confirm。
 $g-message_width: 240 !default;
 $g-alert_width: 260 !default;
 $g-confirm_width: 280 !default;
+$g-pc-scale: 2 !default; // 如果是pc，则缩放比例是多少？默认放大2倍。
 @if ($g-is_h5 == false) { // pc
     $g-alert_width: $g-alert_width * 2;
     $g-confirm_width: $g-confirm_width * 2;
