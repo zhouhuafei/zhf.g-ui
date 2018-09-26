@@ -53,13 +53,6 @@ module.exports = function (env, argv) {
             chunks: ['ui', 'this-is-global-file-common', 'this-is-global-file-vendor'],
             minify: configEnvironment.minView, // 压缩视图模板文件
         }),
-        new HtmlWebpackPlugin({ // word单词页，此处应该循环处理
-            template: `./src/demo/views/pages/word.html`, // 入口模板
-            filename: `views/pages/word.html`, // 出口模板
-            // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)。webpack4中和priority属性值有关(等级高的优先引入)。
-            chunks: ['word', 'this-is-global-file-common', 'this-is-global-file-vendor'],
-            minify: configEnvironment.minView, // 压缩视图模板文件
-        }),
         // 插件----提取css样式到文件
         new MiniCssExtractPlugin({
             filename: `css/pages/[name].${configEnvironment.contenthash}css`,
@@ -93,7 +86,6 @@ module.exports = function (env, argv) {
         // 入口----配置
         entry: {
             'ui': './src/demo/js/pages/ui.js', // ui样式页，此处应该循环处理
-            'word': './src/demo/js/pages/word.js', // word单词页，此处应该循环处理
         },
         // 出口----配置
         output: {

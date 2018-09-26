@@ -1,49 +1,13 @@
-.ui {
-    width: 100px;
-    height: 100px;
-}
-.ui1 {
-    width: 100px;
-    height: 100px;
-}
-.ui2 {
-    width: 100px;
-    height: 100px;
-}
-.ui3 {
-    width: 100px;
-    height: 100px;
-}
-.ui4 {
-    width: 100px;
-    height: 100px;
-}
-.ui5 {
-    width: 100px;
-    height: 100px;
-}
-.ui6 {
-    width: 100px;
-    height: 100px;
-}
-.ui7 {
-    width: 100px;
-    height: 100px;
-}
-.ui8 {
-    width: 100px;
-    height: 100px;
-}
-.ui9 {
-    width: 100px;
-    height: 100px;
-}
-.ui10 {
-    width: 100px;
-    height: 100px;
-}
-.ui11 {
-    width: 100px;
-    height: 100px;
+/* 清零样式 */
+body {
+    background: #f4f4f4;
+    margin: 0;
 }
 
+/* g-ui样式 */
+@import "../../../ui/scss/config/g-config"; // 先引入配置(必须引入，亦可使用自定义的配置来覆盖这份配置)。
+@function px2rem($px, $psd:320) { // 覆盖px2rem函数
+    @return $px / $psd * 10rem;
+}
+
+@import "../../../ui/scss/commons/g-common"; // 组件，所有的组件集合。
