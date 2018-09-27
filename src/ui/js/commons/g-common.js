@@ -1,4 +1,4 @@
-module.exprots = {
+module.exports = {
     Confirm: require('../components/g-confirm'),
     Copyright: require('../components/g-copyright'),
     FooterNav: require('../components/g-footer-nav'),
