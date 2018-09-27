@@ -4,10 +4,11 @@ body {
     margin: 0;
 }
 
-/* g-ui样式 */
-@import "../../../ui/scss/config/g-config"; // 先引入配置(必须引入，亦可使用自定义的配置来覆盖这份配置)。
-@function px2rem($px, $psd:320) { // 覆盖px2rem函数
-    @return $px / $psd * 10rem;
-}
+// 样式按需引入
+/*
+@import "../../../ui/scss/base/g-base"; // 基础样式，必须引入。
+@import "../../../ui/scss/components/g-sort-tab"; // 排序tab的样式
+*/
 
+// 样式全部引入
 @import "../../../ui/scss/commons/g-common"; // 组件，所有的组件集合。
