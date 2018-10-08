@@ -155,13 +155,18 @@ Vue.use(SortTab);
 // vue系列组件全部引入
 import app from './app.vue';
 
-const gSortTab = require('../../../../../src/js/components_vue/g-sort-tab/index');
+const gSortTab = from '../../../../../src/js/components_vue/g-sort-tab/src/main.vue';
 
 Vue.component('g-sort-tab', gSortTab);
 
-require('../../../../../src/js/commons_vue/g-common');
+// require('../../../../../src/js/commons_vue/g-common');
 new Vue({
     el: '#app',
-    template: '<app></app>',
-    components: {app},
+    template: `<div>
+        <g-sort-tab></g-sort-tab>        
+    </div>`,
+    components: {
+        app,
+        gSortTab,
+    },
 });
