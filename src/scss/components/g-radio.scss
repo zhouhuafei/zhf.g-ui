@@ -1,5 +1,9 @@
 @import "../config/g-config";
 
+@function px2rem($px) {
+    @return $px * 1px;
+}
+
 // 单选框
 .g-radio {
     @extend .g-reset_font;

@@ -1,5 +1,9 @@
 @import "../config/g-config";
 
+@function px2rem($px) {
+    @return $px * 1px;
+}
+
 // 多选框
 .g-checkbox {
     @extend .g-reset_font;

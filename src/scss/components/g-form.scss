@@ -16,7 +16,7 @@
     }
     .g-form {
         $height: 40;
-        $text-width: 100;
+        $text-width: 50;
         position: relative;
         margin-bottom: px2rem(10);
         font-size: px2rem($g-font-size_default);
@@ -130,7 +130,7 @@
             }
         }
         .g-form-footer {
-            padding: 0 px2rem(10) 0 px2rem($text-width + 10);
+            padding: 0 px2rem(10);
             background: #ffffff;
             border-bottom: 1px solid $g-border-color_default;
             .g-form-footer-item {
