@@ -1,0 +1,14 @@
+/* 清零样式 */
+body {
+    background: #f4f4f4;
+    margin: 0;
+}
+
+// 样式按需引入
+/*
+@import "../../../../src/scss/base/g-base"; // 基础样式，必须引入。
+@import "../../../../src/scss/components/g-sort-tab"; // 排序tab的样式
+*/
+
+// 样式全部引入
+@import "../../../../src/scss/commons/g-common"; // 组件，所有的组件集合。

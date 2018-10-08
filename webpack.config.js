@@ -39,15 +39,15 @@ module.exports = function (env, argv) {
     const minimizer = [];
     // 插件----配置
     const plugins = [
-        // 插件----清空dist/assets目录下对应的项目文件
+        // 插件----清空demo/dist目录下对应的项目文件
         new CleanWebpackPlugin(['dist'], {
-            root: `${__dirname}/`,
+            root: `${__dirname}/demo/`,
             verbose: true,
             dry: false,
         }),
         // 插件----处理页面视图模板页面文件
         new HtmlWebpackPlugin({ // ui样式页，此处应该循环处理
-            template: `./src/demo/views/pages/ui.html`, // 入口模板
+            template: `./demo/src/views/pages/ui.html`, // 入口模板
             filename: `views/pages/ui.html`, // 出口模板
             // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)。webpack4中和priority属性值有关(等级高的优先引入)。
             chunks: ['ui', 'this-is-global-file-common', 'this-is-global-file-vendor'],
@@ -85,11 +85,11 @@ module.exports = function (env, argv) {
         },
         // 入口----配置
         entry: {
-            'ui': './src/demo/js/pages/ui.js', // ui样式页，此处应该循环处理
+            'ui': './demo/src/js/pages/ui.js', // ui样式页，此处应该循环处理
         },
         // 出口----配置
         output: {
-            path: `${__dirname}/dist/demo/`, // 出口路径，必须是绝对路径
+            path: `${__dirname}/demo/dist/`, // 出口路径，必须是绝对路径
             filename: `js/pages/[name].${configEnvironment.chunkhash}js`, // 出的文件名
             publicPath: `/`, // 引入静态资源文件时，资源的前缀路径。如果不使用webpack-dev-server，路径配置成'../../'，静态页面可以直接本地打开进行观看。
             /*
@@ -221,7 +221,7 @@ module.exports = function (env, argv) {
             port: 4555, // 端口
             /*
             output.publicPath是：'/'
-            output.path是：`${__dirname}/dist/demo/`
+            output.path是：`${__dirname}/demo/dist/`
             正确的访问路径是：output.publicPath 拼接上 output.path之后的路径
             所以访问路径是：/views/pages/ui.html。但是使用openPage配置时，前面不要带反斜杠，否则浏览器上会出现两个反斜杠。
             */

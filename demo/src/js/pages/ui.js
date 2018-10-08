@@ -2,8 +2,8 @@ require('../../scss/pages/ui.scss'); // 当前页的样式
 
 // 组件按需引入
 /*
-const SortTab = require('../../../ui/js/components_dom/g-sort-tab');
-const ProgressBar = require('../../../ui/js/components_dom/g-progress-bar');
+const SortTab = require('../../../../src/js/commons_jq/g-sort-tab');
+const ProgressBar = require('../../../../src/js/commons_jq/g-progress-bar');
 */
 
 // 组件全部引入
@@ -14,7 +14,7 @@ const {
     ProgressBar,
     Popover,
     Validate,
-} = require('../../../ui/js/commons_dom/g-common');
+} = require('../../../../src/js/commons_jq/g-common');
 
 // 功能组件 - 排序tab
 new SortTab({

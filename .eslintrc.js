@@ -13,6 +13,9 @@ module.exports = {
         es6: true, // 支持除模块外所有 ECMAScript 6 特性（该选项会自动设置 ecmaVersion 解析器选项为 6）。
         amd: true, // 定义 require() 和 define() 作为像 amd 一样的全局变量。
     },
+    globals: {
+        $: true,
+    },
     plugins: ['html'],
     /*
     * 官网: http://eslint.org | http://eslint.cn

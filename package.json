@@ -2,7 +2,7 @@
     "name": "zhf.g-ui",
     "version": "1.0.0",
     "description": "一套原生js写的ui框架",
-    "main": "./src/ui/js/commons/g-common.js",
+    "main": "./src/js/commons_jq/g-common.js",
     "scripts": {
         "demoDev": "webpack --colors --profile --progress --display-modules --mode=development",
         "demoBuild": "webpack --colors --profile --progress --display-modules --mode=production",
