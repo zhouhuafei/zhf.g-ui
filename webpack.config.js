@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // scss文件�
 const ImageminPlugin = require('imagemin-webpack-plugin').default; // 压缩图片
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空目录
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = function (env, argv) {
     const isProduction = argv.mode === 'production'; // 是否是生产环境
@@ -39,6 +40,8 @@ module.exports = function (env, argv) {
     const minimizer = [];
     // 插件----配置
     const plugins = [
+        // 插件----vue-loader
+        new VueLoaderPlugin(),
         // 插件----清空demo/dist目录下对应的项目文件
         new CleanWebpackPlugin(['dist'], {
             root: `${__dirname}/demo/`,
@@ -47,8 +50,8 @@ module.exports = function (env, argv) {
         }),
         // 插件----处理页面视图模板页面文件
         new HtmlWebpackPlugin({ // ui样式页，此处应该循环处理
-            template: `./demo/src/views/pages/ui.html`, // 入口模板
-            filename: `views/pages/ui.html`, // 出口模板
+            template: `./demo/src/views/pages/ui/index.html`, // 入口模板
+            filename: `views/pages/ui/index.html`, // 出口模板
             // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)。webpack4中和priority属性值有关(等级高的优先引入)。
             chunks: ['ui', 'this-is-global-file-common', 'this-is-global-file-vendor'],
             minify: configEnvironment.minView, // 压缩视图模板文件
@@ -76,6 +79,8 @@ module.exports = function (env, argv) {
                 // vue: `vue/dist/vue.${configEnvironment.min}js`,
                 // axios: `axios/dist/axios.min.js`,
             },
+            // 后缀----如果不加后缀，则默认按以下后缀查找文件。
+            extensions: ['.js', '.vue', '.scss', '.css', '.json'],
         },
         // 忽略----从输出的bundle中排除依赖
         externals: {
@@ -85,7 +90,7 @@ module.exports = function (env, argv) {
         },
         // 入口----配置
         entry: {
-            'ui': './demo/src/js/pages/ui.js', // ui样式页，此处应该循环处理
+            'ui': './demo/src/js/pages/ui/index.js', // ui样式页，此处应该循环处理
         },
         // 出口----配置
         output: {
@@ -198,6 +203,22 @@ module.exports = function (env, argv) {
                         },
                     ],
                 },
+                // loader----处理vue单文件
+                {
+                    test: /\.vue$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: [
+                        {
+                            loader: 'vue-loader',
+                            options: {
+                                transformToRequire: {
+                                    img: ['src', 'data-src'],
+                                    image: 'xlink:href',
+                                },
+                            },
+                        },
+                    ],
+                },
                 // loader----处理视图模板文件里的src
                 {
                     test: /\.ejs/,
@@ -225,7 +246,7 @@ module.exports = function (env, argv) {
             正确的访问路径是：output.publicPath 拼接上 output.path之后的路径
             所以访问路径是：/views/pages/ui.html。但是使用openPage配置时，前面不要带反斜杠，否则浏览器上会出现两个反斜杠。
             */
-            openPage: 'views/pages/ui.html', // 打开指定的路径
+            openPage: 'views/pages/ui/index.html', // 打开指定的路径
         },
     };
 };

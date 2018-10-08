@@ -1,4 +1,4 @@
-require('../../scss/pages/ui.scss'); // 当前页的样式
+require('../../../scss/pages/ui/index.scss'); // 当前页的样式
 
 // 组件按需引入
 /*
@@ -14,7 +14,7 @@ const {
     ProgressBar,
     Popover,
     Validate,
-} = require('../../../../src/js/commons_jq/g-common');
+} = require('../../../../../src/js/commons_jq/g-common');
 
 // 功能组件 - 排序tab
 new SortTab({
@@ -145,3 +145,23 @@ document.querySelectorAll('.js-popover').forEach(function (v) {
         });
     });
 }());
+
+// vue系列组件按需引入
+/*
+const SortTab = require('../../../../../src/js/components_vue/g-sort-tab');
+Vue.use(SortTab);
+*/
+
+// vue系列组件全部引入
+import app from './app.vue';
+
+const gSortTab = require('../../../../../src/js/components_vue/g-sort-tab/index');
+
+Vue.component('g-sort-tab', gSortTab);
+
+require('../../../../../src/js/commons_vue/g-common');
+new Vue({
+    el: '#app',
+    template: '<app></app>',
+    components: {app},
+});

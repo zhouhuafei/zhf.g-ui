@@ -15,6 +15,7 @@ module.exports = {
     },
     globals: {
         $: true,
+        Vue: true,
     },
     plugins: ['html'],
     /*
@@ -25,6 +26,7 @@ module.exports = {
     * 2或者"error":打开规则,并且作为一个错误(exit code将会是1)
     * */
     rules: {
+        'import/first': 0, // import必须在其它所有业务代码前面
         'prefer-const': 2, // 建议使用const
         'no-new': 0, // 禁止new一个实例后不赋值
         'no-unused-vars': 0, // 禁止未使用过的变量
