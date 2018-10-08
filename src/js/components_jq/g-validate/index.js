@@ -3,7 +3,6 @@ const domAddPosition = require('zhf.dom-add-position');
 const checkStr = require('zhf.check-str');
 const getParent = require('zhf.get-parent');
 const getDomArray = require('zhf.get-dom-array');
-const eventDelegate = require('zhf.event-delegate');
 
 function Validate(json) {
     this.opts = extend({
@@ -95,6 +94,20 @@ Validate.prototype.validateInput = function (input) {
     let value = input.value;
     if (isFile) { // 如果是file类型的input，值就是input身上的自定义属性data-value
         value = input.dataset.value;
+    }
+    // 处理自定义规则(每次验证都处理，可以保证setValidate对未来元素也有效)
+    if (this.customValidateRule) {
+        this.element.forEach(function (v1) {
+            if (!v1.customValidateRule) {
+                v1.customValidateRule = {}; // 自定义规则
+            }
+            Object.values(self.customValidateRule).forEach(function (v2) {
+                v1.customValidateRule[v2.name] = {
+                    fn: v2.fn,
+                    isValidateSuccess: false,
+                };
+            });
+        });
     }
     // 验证自定义的规则
     const customValidateRule = input.customValidateRule || {};
@@ -234,7 +247,7 @@ Validate.prototype.power = function () {
         const name = eventsType + self.opts.element;
         if (!eventIsRepeat[name]) {
             eventIsRepeat[name] = true;
-            eventDelegate.on(document, eventsType, self.opts.element, function () {
+            $(document).on(eventsType, self.opts.element, function () {
                 self.render(); // 为了兼容未来动态创建的元素，这里需要重新渲染并绑定属性
                 self.validateInput(this);
             });
@@ -244,15 +257,13 @@ Validate.prototype.power = function () {
 
 // 自定义验证规则
 Validate.prototype.setValidate = function (name, fn) {
-    this.element.forEach(function (v) {
-        if (!v.customValidateRule) {
-            v.customValidateRule = {}; // 自定义规则
-        }
-        v.customValidateRule[name] = {
-            fn: fn,
-            isValidateSuccess: false,
-        };
-    });
+    if (!this.customValidateRule) {
+        this.customValidateRule = {}; // 自定义规则
+    }
+    this.customValidateRule[name] = {
+        name: name,
+        fn: fn,
+    };
 };
 
 module.exports = Validate;

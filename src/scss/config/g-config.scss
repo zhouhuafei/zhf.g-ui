@@ -6,13 +6,14 @@ $g-psd_width: 320 !default; // 设计图的宽度(默认为320宽度的设计图
 $g-psd_split: 10 !default; // 设计图的切割份数(将320的设计图切割成10份，1rem可以换算为32px。)
 
 // Message，Alert，Confirm。
-$g-message_width: 240 !default;
+$g-message_width: 260 !default;
 $g-alert_width: 260 !default;
 $g-confirm_width: 280 !default;
 $g-pc-scale: 2 !default; // 如果是pc，则缩放比例是多少？默认放大2倍。
 @if ($g-is_h5 == false) { // pc
-    $g-alert_width: $g-alert_width * $g-pc-scale;
-    $g-confirm_width: $g-confirm_width * $g-pc-scale;
+    $g-message_width: $g-message_width * $g-pc-scale !default;
+    $g-alert_width: $g-alert_width * $g-pc-scale !default;
+    $g-confirm_width: $g-confirm_width * $g-pc-scale !default;
 }
 
 // 背景

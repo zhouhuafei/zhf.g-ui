@@ -93,7 +93,7 @@ document.querySelectorAll('.js-popover').forEach(function () {
                             isShowClose: true, // 是否显示关闭按钮
                             icon: 'icon-success', // icon的class
                             content: '已取消', // 内容信息
-                            positionLocation: 'top', // 弹窗的定位位置    positionMethod定位方式强制fixed
+                            positionLocation: 'center', // 弹窗的定位位置    positionMethod定位方式强制fixed
                         },
                     });
                 },
@@ -106,7 +106,7 @@ document.querySelectorAll('.js-popover').forEach(function () {
                             isShowClose: true, // 是否显示关闭按钮
                             icon: 'icon-success', // icon的class
                             content: isAllPassValidate ? '验证已通过，可执行保存操作' : '验证尚未通过，不可执行保存操作', // 内容信息
-                            positionLocation: 'top', // 弹窗的定位位置    positionMethod定位方式强制fixed
+                            positionLocation: 'center', // 弹窗的定位位置    positionMethod定位方式强制fixed
                         },
                     });
                 },
@@ -118,7 +118,7 @@ document.querySelectorAll('.js-popover').forEach(function () {
                             isShowClose: true, // 是否显示关闭按钮
                             icon: 'icon-success', // icon的class
                             content: '已关闭', // 内容信息
-                            positionLocation: 'top', // 弹窗的定位位置    positionMethod定位方式强制fixed
+                            positionLocation: 'center', // 弹窗的定位位置    positionMethod定位方式强制fixed
                         },
                     });
                 },
@@ -126,7 +126,7 @@ document.querySelectorAll('.js-popover').forEach(function () {
             config: {
                 positionLocation: 'center', // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
                 isShowClose: true, // 是否显示关闭按钮
-                closeContent: '<div class="iconfont icon-close"></div>', // 关闭按钮的内容
+                closeContent: '<div class="g-iconfont g-icon-close"></div>', // 关闭按钮的内容
                 isShowHeader: true, // 是否显示头部
                 headerContent: '提示:', // 头部内容
                 isShowBody: true, // 是否显示主体

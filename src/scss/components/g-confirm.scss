@@ -31,7 +31,6 @@
     }
     .g-confirm {
         $height: 40;
-        $width: 280*1.5;
         background: #fff;
         position: relative;
         z-index: 501;
@@ -49,12 +48,13 @@
         }
         .g-confirm-body {
             .g-confirm-body-system {
-                width: px2rem($width);
-                min-height: px2rem($width / 3.2);
+                width: px2rem($g-confirm_width);
+                min-height: px2rem($g-confirm_width / 3.2);
                 padding: px2rem(10);
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                box-sizing: border-box;
                 .g-confirm-body-system-icon {
                     margin-right: px2rem(6);
                     font-size: px2rem(24);

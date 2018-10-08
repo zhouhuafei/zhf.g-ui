@@ -1,7 +1,6 @@
 const extend = require('zhf.extend'); // 对象的扩展
 const createElement = require('zhf.create-element'); // 创建元素
 const Super = require('zhf.dom-components-super'); // 超类型(子类型继承的对象)
-const {mouseenter, mouseleave} = require('zhf.mouse-event'); // 超类型(子类型继承的对象)
 
 // 子类型
 class Sub extends Super {
@@ -47,24 +46,24 @@ Sub.prototype.power = function () {
     const positionLocation = config.positionLocation;
     const moduleDom = self.moduleDom;
     if (config.eventType === 'mouseover' || config.eventType === 'mouseenter') {
-        mouseenter(config.element, 'mouseenter', function (ev) {
+        $(config.element).on('mouseenter', function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
             self.moduleDomShow();
             setCss(this);
             clearTimeout(self.gPopoverMouseenterTimer);
         });
-        mouseleave(config.element, 'mouseleave', function (ev) {
+        $(config.element).on('mouseleave', function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
             fnModuleDomHide();
         });
-        mouseenter(moduleDom, 'mouseenter', function (ev) {
+        $(moduleDom).on('mouseenter', function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
             clearTimeout(self.gPopoverMouseenterTimer);
         });
-        mouseleave(moduleDom, 'mouseleave', function (ev) {
+        $(moduleDom).on('mouseleave', function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
             fnModuleDomHide();
