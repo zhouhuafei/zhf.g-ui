@@ -53,13 +53,14 @@
     },
     "dependencies": {
         "zhf.check-str": "^1.1.0",
-        "zhf.constructor-inherit": "^1.0.0",
         "zhf.create-element": "^1.0.1",
         "zhf.dom-add-position": "^1.0.5",
         "zhf.dom-components-super": "^1.1.3",
+        "zhf.event-delegate": "^1.0.5",
         "zhf.extend": "^2.0.3",
         "zhf.get-dom-array": "^1.0.4",
         "zhf.get-parent": "^1.0.0",
+        "zhf.mouse-event": "^1.0.0",
         "zhf.offset": "^1.0.4",
         "zhf.scroll-move-to": "^1.0.0",
         "zhf.time-count-down": "^1.1.1"
