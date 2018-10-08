@@ -162,11 +162,6 @@ Vue.component('g-sort-tab', gSortTab);
 // require('../../../../../src/js/commons_vue/g-common');
 new Vue({
     el: '#app',
-    template: `<div>
-        <g-sort-tab></g-sort-tab>        
-    </div>`,
-    components: {
-        app,
-        gSortTab,
-    },
+    template: `<app></app>`,
+    components: {app},
 });
