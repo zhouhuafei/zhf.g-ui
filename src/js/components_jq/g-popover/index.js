@@ -69,13 +69,6 @@ Sub.prototype.power = function () {
             fnModuleDomHide();
         });
     }
-
-    function fnModuleDomHide() {
-        self.gPopoverMouseenterTimer = setTimeout(function () {
-            self.moduleDomHide();
-        }, 60);
-    }
-
     if (config.eventType === 'click') {
         $(config.element).on('click', function (ev) {
             ev.preventDefault();
@@ -87,6 +80,15 @@ Sub.prototype.power = function () {
                 self.moduleDomHide();
             }
         });
+        $(document).on('click', function () {
+            self.moduleDomHide();
+        });
+    }
+
+    function fnModuleDomHide() {
+        self.gPopoverMouseenterTimer = setTimeout(function () {
+            self.moduleDomHide();
+        }, 60);
     }
 
     function setCss(eventDom) {

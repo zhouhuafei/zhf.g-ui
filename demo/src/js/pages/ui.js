@@ -64,10 +64,10 @@ const canvasSetScaleTimer = setInterval(function () {
 }, 60);
 
 // 功能组件 - Popover
-document.querySelectorAll('.js-popover').forEach(function () {
+document.querySelectorAll('.js-popover').forEach(function (v) {
     new Popover({
         config: {
-            element: this,
+            element: v,
             content: '建议尺寸：640*640',
             eventType: 'click',
             positionLocation: 'top-center',
