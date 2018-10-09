@@ -10,6 +10,7 @@
     position: relative;
     color: $g-font-color_default;
     box-sizing: border-box;
+    overflow: hidden;
     &.g-loading-dialog_normal {
     }
     &.g-loading-dialog_highlight {
@@ -18,7 +19,7 @@
         height: 100%;
         left: 0;
         top: 0;
-        background: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.8);
     }
     &.g-loading-dialog_dark {
         position: absolute;
@@ -26,7 +27,7 @@
         height: 100%;
         left: 0;
         top: 0;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.8);
         color: #ffffff;
     }
 }

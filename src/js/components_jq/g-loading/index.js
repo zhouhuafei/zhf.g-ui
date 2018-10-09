@@ -20,10 +20,12 @@ class Sub extends Super {
 
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
+    const self = this;
     const config = this.opts.config;
     const style = String(config.style);
     if (style === 'highlight' || style === 'dark') {
         // 如果外部容器没有定位，则给外部容器增加一个定位。
+        console.log(self.wrapDom);
         if (self.wrapDom && getComputedStyle(self.wrapDom).position === 'static') {
             self.wrapDom.style.position = 'relative';
         }
