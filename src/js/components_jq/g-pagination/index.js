@@ -26,11 +26,17 @@ class Sub extends Super {
                 // 选择某一页的回调
                 selectPage: function () {
                 },
+                // 页码改变就触发
+                changePage: function () {
+                },
             },
             // 配置
-            config: {},
-            // 数据
-            data: defaultData,
+            config: {
+                nowCount: defaultData.nowCount,
+                allCount: defaultData.allCount,
+                nowPage: defaultData.nowPage,
+                allPage: defaultData.allPage,
+            },
         }, opts));
     }
 }
@@ -68,7 +74,7 @@ Sub.prototype.moduleDomCreate = function () {
 // 渲染第几页里面的页码
 Sub.prototype.renderOption = function () {
     let html = '';
-    for (let i = 0; i < this.opts.data.allPage; i++) {
+    for (let i = 0; i < this.opts.config.allPage; i++) {
         html += `<option value="${i + 1}">${i + 1}</option>`;
     }
     return html;
@@ -77,7 +83,7 @@ Sub.prototype.renderOption = function () {
 // (功)(覆)功能(覆盖超类型)
 Sub.prototype.power = function () {
     const self = this;
-    const data = this.opts.data;
+    const data = this.opts.config;
     if (data.nowPage === 1) {
         this.prevPageDisable();
     }
@@ -104,7 +110,7 @@ Sub.prototype.power = function () {
 
 // 上一页
 Sub.prototype.prevPage = function () {
-    const data = this.opts.data;
+    const data = this.opts.config;
     if (data.nowPage > 1) {
         data.nowPage--;
         const oldChecked = this.selectDom.querySelector('option:checked');
@@ -114,6 +120,7 @@ Sub.prototype.prevPage = function () {
         }
         this.nextPageEnable();
         this.opts.callback.prevPage(this);
+        this.opts.callback.changePage(this);
     }
     if (data.nowPage === 1) {
         this.prevPageDisable();
@@ -123,7 +130,7 @@ Sub.prototype.prevPage = function () {
 
 // 下一页
 Sub.prototype.nextPage = function () {
-    const data = this.opts.data;
+    const data = this.opts.config;
     if (data.nowPage < data.allPage) {
         data.nowPage++;
         const oldChecked = this.selectDom.querySelector('option:checked');
@@ -133,6 +140,7 @@ Sub.prototype.nextPage = function () {
         }
         this.prevPageEnable();
         this.opts.callback.nextPage(this);
+        this.opts.callback.changePage(this);
     }
     if (data.nowPage === data.allPage) {
         this.nextPageDisable();
@@ -142,7 +150,7 @@ Sub.prototype.nextPage = function () {
 
 // 选择第几页
 Sub.prototype.selectPage = function () {
-    const data = this.opts.data;
+    const data = this.opts.config;
     data.nowPage = this.selectDom.value;
     this.nextPageEnable();
     this.prevPageEnable();
@@ -153,6 +161,7 @@ Sub.prototype.selectPage = function () {
         this.nextPageDisable();
     }
     this.opts.callback.selectPage(this);
+    this.opts.callback.changePage(this);
     console.log(data);
 };
 

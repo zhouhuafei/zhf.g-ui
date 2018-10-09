@@ -13,8 +13,6 @@ class Sub extends Super {
             config: {
                 showHeight: 200,
             },
-            // 数据
-            data: {},
         }, opts));
     }
 }

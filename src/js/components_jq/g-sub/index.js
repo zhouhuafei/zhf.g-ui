@@ -10,8 +10,6 @@ class Sub extends Super {
             callback: {},
             // 配置
             config: {},
-            // 数据
-            data: {},
         }, json));
     }
 

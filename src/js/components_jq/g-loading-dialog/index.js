@@ -12,8 +12,6 @@ class Sub extends Super {
             config: {
                 icon: '',
             },
-            // 数据
-            data: {},
         }, opts));
     }
 }

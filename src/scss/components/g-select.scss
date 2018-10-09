@@ -15,6 +15,7 @@
     height: px2rem(40);
     background: #ffffff;
     border: px2rem(1) solid $g-border-color_default;
+    box-sizing: border-box;
     // 小的选择框
     &.g-select_small {
         height: px2rem(30);

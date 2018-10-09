@@ -18,6 +18,7 @@ const {
     LoadingOver,
     LoadingDialog,
     NoData,
+    Pagination,
 } = require('../../../../../src/js/commons_jq/g-common');
 
 // 功能组件 - 排序tab
@@ -53,6 +54,9 @@ new SortTab({
         defaultSortMethod: 'asc', // asc升序 desc降序
     },
 });
+
+// 功能组件 - 分页
+new Pagination({wrap: '.pagination'});
 
 // 功能组件 - 进度条
 const progressBar = new ProgressBar({

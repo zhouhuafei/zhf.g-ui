@@ -12,8 +12,6 @@ class Sub extends Super {
             config: {
                 style: 'normal', // normal(无背景无定位)、highlight(白色背景覆盖父级)、dark（黑色背景覆盖父级）
             },
-            // 数据
-            data: {},
         }, opts));
     }
 }

@@ -20,8 +20,6 @@ class Sub extends Super {
                     off: '已关闭',
                 },
             },
-            // 数据
-            data: {},
         }, opts));
     }
 }

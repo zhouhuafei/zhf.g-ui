@@ -38,8 +38,6 @@ class Sub extends Super {
                 isShowMask: true, // 是否显示遮罩
                 isHandHide: false, // 是否手动隐藏(一般只用于点击确认时)
             },
-            // 数据
-            data: {},
         }, opts));
     }
 }

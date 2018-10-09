@@ -17,8 +17,6 @@ class Sub extends Super {
                 allStarNum: 5, // 所有的星星数
                 nowStarNum: 4, // 当前被选择的星星数
             },
-            // 数据
-            data: {},
         }, opts));
     }
 }
