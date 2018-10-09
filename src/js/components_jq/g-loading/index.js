@@ -10,7 +10,7 @@ class Sub extends Super {
             callback: {},
             // 配置
             config: {
-                icon: '',
+                style: 'normal', // normal(无背景无定位)、highlight(白色背景覆盖父级)、dark（黑色背景覆盖父级）
             },
             // 数据
             data: {},
@@ -21,13 +21,19 @@ class Sub extends Super {
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
     const config = this.opts.config;
-    // 模块创建
+    const style = String(config.style);
+    if (style === 'highlight' || style === 'dark') {
+        // 如果外部容器没有定位，则给外部容器增加一个定位。
+        if (self.wrapDom && getComputedStyle(self.wrapDom).position === 'static') {
+            self.wrapDom.style.position = 'relative';
+        }
+    }
     this.moduleDom = createElement({
-        style: this.opts.config.moduleDomStyle,
-        customAttribute: this.opts.config.moduleDomCustomAttribute,
+        style: config.moduleDomStyle,
+        customAttribute: config.moduleDomCustomAttribute,
         attribute: {
-            className: `g-loading`,
-            innerHTML: `<div class="g-loading-icon g-iconfont g-icon-loading"></div>`,
+            className: `g-loading-dialog g-loading-dialog_${style}`,
+            innerHTML: `<div class="g-loading-dialog-icon g-iconfont g-icon-loading"></div>`,
         },
     });
 };

@@ -22,9 +22,10 @@ class Sub extends Super {
 
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
+    const config = this.opts.config;
     this.moduleDom = createElement({
-        style: this.opts.config.moduleDomStyle,
-        customAttribute: this.opts.config.moduleDomCustomAttribute,
+        style: config.moduleDomStyle,
+        customAttribute: config.moduleDomCustomAttribute,
         attribute: {
             className: 'g-table',
             innerHTML: `

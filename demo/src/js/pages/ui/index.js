@@ -16,7 +16,7 @@ const {
     Validate,
     Loading,
     LoadingOver,
-    LoadingRun,
+    LoadingDialog,
     NoData,
 } = require('../../../../../src/js/commons_jq/g-common');
 
@@ -151,16 +151,20 @@ document.querySelectorAll('.js-popover').forEach(function (v) {
 }());
 
 // 中间弹层loading
-const loading = new Loading({config: {moduleDomIsRender: false}});
-$('.js-loading_show').on('click', () => {
+const loading = new LoadingDialog({config: {moduleDomIsRender: false}});
+$('.js-loading-dialog_show').on('click', () => {
     loading.moduleDomShow();
 });
-$('.js-loading_hide').on('click', () => {
+$('.js-loading-dialog_hide').on('click', () => {
     loading.moduleDomHide();
 });
 
-// 数据加载中
-new LoadingRun({wrap: '.loading-run', config: {positionMethod: 'absolute', positionLocation: 'bottom'}});
+// 数据加载中(样式：normal)
+new Loading({wrap: '.loading-normal'});
+// 数据加载中(样式：highlight)
+new Loading({wrap: '.loading-highlight', config: {style: 'highlight'}});
+// 数据加载中(样式：dark)
+new Loading({wrap: '.loading-dark', config: {style: 'dark'}});
 // 数据加载完毕
 new LoadingOver({wrap: '.loading-over'});
 // 没有数据

@@ -9,7 +9,9 @@ class Sub extends Super {
             // 回调
             callback: {},
             // 配置
-            config: {},
+            config: {
+                icon: '',
+            },
             // 数据
             data: {},
         }, opts));
@@ -23,11 +25,8 @@ Sub.prototype.moduleDomCreate = function () {
         style: config.moduleDomStyle,
         customAttribute: config.moduleDomCustomAttribute,
         attribute: {
-            className: 'g-copyright',
-            innerHTML: `
-                <div class="g-copyright-icon g-iconfont g-icon-logo"></div>
-                <div class="g-copyright-text">版权信息哟</div>
-            `,
+            className: `g-loading`,
+            innerHTML: `<div class="g-loading-icon g-iconfont g-icon-loading"></div>`,
         },
     });
 };

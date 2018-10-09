@@ -25,6 +25,7 @@ class Sub extends Super {
 
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
+    const config = this.opts.config;
     let html = '';
     for (let i = 0; i < this.opts.config.allStarNum; i++) {
         let className = '';
@@ -34,8 +35,8 @@ Sub.prototype.moduleDomCreate = function () {
         html += `<div data-index="${i}" class="g-iconfont g-icon-star g-star-item ${className}"></div>`;
     }
     this.moduleDom = createElement({
-        style: this.opts.config.moduleDomStyle,
-        customAttribute: this.opts.config.moduleDomCustomAttribute,
+        style: config.moduleDomStyle,
+        customAttribute: config.moduleDomCustomAttribute,
         attribute: {
             className: 'g-star',
             innerHTML: html,

@@ -30,14 +30,15 @@ class Sub extends Super {
 
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
+    const config = this.opts.config;
     const data = this.opts.data;
     let buttonIconHtml = '';
     if (this.opts.config.button.isShowIcon) {
         buttonIconHtml = `<div class="g-button-icon g-iconfont ${data.button.icon}"></div>`;
     }
     this.moduleDom = createElement({
-        style: this.opts.config.moduleDomStyle,
-        customAttribute: this.opts.config.moduleDomCustomAttribute,
+        style: config.moduleDomStyle,
+        customAttribute: config.moduleDomCustomAttribute,
         attribute: {
             className: 'g-no-data',
             innerHTML: `

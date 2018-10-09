@@ -1,5 +1,6 @@
 const extend = require('zhf.extend'); // 对象的扩展
 const offset = require('zhf.offset');
+const getDomArray = require('zhf.get-dom-array');
 
 // 延迟加载
 function LazyLoad(json) {

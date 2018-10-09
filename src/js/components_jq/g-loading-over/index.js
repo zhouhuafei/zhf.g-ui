@@ -19,10 +19,9 @@ class Sub extends Super {
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
     const config = this.opts.config;
-    // 模块创建
     this.moduleDom = createElement({
-        style: this.opts.config.moduleDomStyle,
-        customAttribute: this.opts.config.moduleDomCustomAttribute,
+        style: config.moduleDomStyle,
+        customAttribute: config.moduleDomCustomAttribute,
         attribute: {
             className: `g-loading-over`,
             innerHTML: `<div class="g-loading-over-icon g-iconfont g-icon-no-data"></div><div class="g-loading-over-text">数据加载完毕</div>`,

@@ -61,8 +61,8 @@ class Sub extends Super {
             `;
         });
         this.moduleDom = createElement({
-            style: this.opts.config.moduleDomStyle,
-            customAttribute: this.opts.config.moduleDomCustomAttribute,
+            style: config.moduleDomStyle,
+            customAttribute: config.moduleDomCustomAttribute,
             attribute: {
                 className: 'g-sort-tab',
                 innerHTML: innerHTML,

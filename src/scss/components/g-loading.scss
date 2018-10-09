@@ -1,24 +1,36 @@
 @import "../config/g-config";
 
-// 中间弹层之加载中
-.g-loading {
+// 数据加载中(初次应用：底部加载更多)
+.g-loading-dialog {
     @extend .g-reset_font;
-    width: px2rem(80);
-    height: px2rem(80);
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: px2rem(10);
+    font-size: px2rem(30);
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 600;
+    position: relative;
+    color: $g-font-color_default;
+    box-sizing: border-box;
+    &.g-loading-dialog_normal {
+    }
+    &.g-loading-dialog_highlight {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(255, 255, 255, 0.6);
+    }
+    &.g-loading-dialog_dark {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+    }
 }
 
-.g-loading-icon {
-    font-size: px2rem(36);
-    color: #ffffff;
+.g-loading-dialog-icon {
     animation: g-animation_run 1s linear infinite;
 }

@@ -26,9 +26,10 @@ class Sub extends Super {
 }
 
 Sub.prototype.moduleDomCreate = function () {
+    const config = this.opts.config;
+    const items = config.items;
     this.moduleDomClass = 'g-footer-nav';
     let moduleDomHtml = '';
-    const items = this.opts.config.items;
     Object.keys(items).forEach(function (key) {
         const v = items[key];
         let highlightClass = '';
@@ -48,8 +49,8 @@ Sub.prototype.moduleDomCreate = function () {
         `;
     });
     this.moduleDom = createElement({
-        style: this.opts.config.moduleDomStyle,
-        customAttribute: this.opts.config.moduleDomCustomAttribute,
+        style: config.moduleDomStyle,
+        customAttribute: config.moduleDomCustomAttribute,
         attribute: {
             className: this.moduleDomClass,
             innerHTML: `<div class="g-footer-nav-body">${moduleDomHtml}</div>`,
