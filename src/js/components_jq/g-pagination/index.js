@@ -125,7 +125,6 @@ Sub.prototype.prevPage = function () {
     if (data.nowPage === 1) {
         this.prevPageDisable();
     }
-    console.log(data);
 };
 
 // 下一页
@@ -145,7 +144,6 @@ Sub.prototype.nextPage = function () {
     if (data.nowPage === data.allPage) {
         this.nextPageDisable();
     }
-    console.log(data);
 };
 
 // 选择第几页
@@ -162,7 +160,6 @@ Sub.prototype.selectPage = function () {
     }
     this.opts.callback.selectPage(this);
     this.opts.callback.changePage(this);
-    console.log(data);
 };
 
 // 上一页禁用

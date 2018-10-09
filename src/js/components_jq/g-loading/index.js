@@ -10,7 +10,7 @@ class Sub extends Super {
             callback: {},
             // 配置
             config: {
-                style: 'normal', // normal(无背景无定位)、highlight(白色背景覆盖父级)、dark（黑色背景覆盖父级）
+                type: 'normal', // normal(无背景无定位)、highlight(白色背景覆盖父级)、dark（黑色背景覆盖父级）
             },
         }, opts));
     }
@@ -20,10 +20,9 @@ class Sub extends Super {
 Sub.prototype.moduleDomCreate = function () {
     const self = this;
     const config = this.opts.config;
-    const style = String(config.style);
-    if (style === 'highlight' || style === 'dark') {
+    const type = String(config.type);
+    if (type === 'highlight' || type === 'dark') {
         // 如果外部容器没有定位，则给外部容器增加一个定位。
-        console.log(self.wrapDom);
         if (self.wrapDom && getComputedStyle(self.wrapDom).position === 'static') {
             self.wrapDom.style.position = 'relative';
         }
@@ -32,7 +31,7 @@ Sub.prototype.moduleDomCreate = function () {
         style: config.moduleDomStyle,
         customAttribute: config.moduleDomCustomAttribute,
         attribute: {
-            className: `g-loading-dialog g-loading-dialog_${style}`,
+            className: `g-loading-dialog g-loading-dialog_${type}`,
             innerHTML: `<div class="g-loading-dialog-icon g-iconfont g-icon-loading"></div>`,
         },
     });

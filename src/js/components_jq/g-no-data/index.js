@@ -10,15 +10,10 @@ class Sub extends Super {
             callback: {},
             // 配置
             config: {
-                button: {
-                    isShowIcon: false,
-                },
-            },
-            // 数据
-            data: {
-                icon: 'g-icon-no-data',
+                icon: 'g-iconfont g-icon-no-data',
                 text: '没有数据',
                 button: {
+                    isShowIcon: false,
                     icon: 'g-icon-home',
                     text: '回首页',
                     href: '/',
@@ -31,10 +26,10 @@ class Sub extends Super {
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
     const config = this.opts.config;
-    const data = this.opts.data;
+    const data = config;
     let buttonIconHtml = '';
     if (this.opts.config.button.isShowIcon) {
-        buttonIconHtml = `<div class="g-button-icon g-iconfont ${data.button.icon}"></div>`;
+        buttonIconHtml = `<div class="g-button-icon ${data.button.icon}"></div>`;
     }
     this.moduleDom = createElement({
         style: config.moduleDomStyle,

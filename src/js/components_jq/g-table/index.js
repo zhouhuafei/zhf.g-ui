@@ -9,9 +9,7 @@ class Sub extends Super {
             // 回调
             callback: {},
             // 配置
-            config: {},
-            // 数据
-            data: {
+            config: {
                 header: [{content: 'undefined-header0'}, {content: 'undefined-header1'}, {content: 'undefined-header2'}],
                 body: [[{content: 'undefined-body0-0'}, {content: 'undefined-body0-1'}, {content: 'undefined-body0-2'}]],
                 footer: '',
@@ -47,7 +45,7 @@ Sub.prototype.moduleDomCreate = function () {
 
 Sub.prototype.moduleDomCreateHeader = function () {
     let html = '';
-    this.opts.data.header.forEach(function (v) {
+    this.opts.config.header.forEach(function (v) {
         html += `
             <div class="g-table-col">
                 <div class="g-table-col-body">
@@ -61,7 +59,7 @@ Sub.prototype.moduleDomCreateHeader = function () {
 
 Sub.prototype.moduleDomCreateBody = function () {
     let html = '';
-    this.opts.data.body.forEach(function (v0) {
+    this.opts.config.body.forEach(function (v0) {
         let row = '';
         v0.forEach(function (v1) {
             row += `
@@ -78,7 +76,7 @@ Sub.prototype.moduleDomCreateBody = function () {
 };
 
 Sub.prototype.moduleDomCreateFooter = function () {
-    return this.opts.data.footer;
+    return this.opts.config.footer;
 };
 
 // (功)(覆)功能(覆盖超类型)

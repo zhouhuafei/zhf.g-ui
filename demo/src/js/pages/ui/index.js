@@ -19,6 +19,7 @@ const {
     LoadingDialog,
     NoData,
     Pagination,
+    Table,
 } = require('../../../../../src/js/commons_jq/g-common');
 
 // 功能组件 - 排序tab
@@ -57,6 +58,9 @@ new SortTab({
 
 // 功能组件 - 分页
 new Pagination({wrap: '.pagination'});
+
+// 功能组件 - 表格
+new Table({wrap: '.table'});
 
 // 功能组件 - 进度条
 const progressBar = new ProgressBar({
@@ -166,9 +170,25 @@ $('.js-loading-dialog_hide').on('click', () => {
 // 数据加载中(样式：normal)
 new Loading({wrap: '.loading-normal'});
 // 数据加载中(样式：highlight)
-new Loading({wrap: '.loading-highlight', config: {style: 'highlight'}});
+new Loading({
+    wrap: '.loading-highlight',
+    config: {
+        type: 'highlight',
+        moduleDomStyle: {
+            fontSize: `${$('.loading-highlight').outerHeight() / 3}px`,
+        },
+    },
+});
 // 数据加载中(样式：dark)
-new Loading({wrap: '.loading-dark', config: {style: 'dark'}});
+new Loading({
+    wrap: '.loading-dark',
+    config: {
+        type: 'dark',
+        moduleDomStyle: {
+            fontSize: `${$('.loading-dark').outerHeight() / 3}px`,
+        },
+    },
+});
 // 数据加载完毕
 new LoadingOver({wrap: '.loading-over'});
 // 没有数据
