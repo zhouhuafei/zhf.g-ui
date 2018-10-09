@@ -13,7 +13,7 @@
     // 相对于文档居中
     &.g-loading-run_fixed {
         position: fixed;
-        width: inherit;
+        width: 100%;
         z-index: 501;
         &.g-loading-run_top {
             top: 0;

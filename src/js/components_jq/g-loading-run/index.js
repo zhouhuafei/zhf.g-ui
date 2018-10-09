@@ -28,11 +28,11 @@ Sub.prototype.moduleDomCreate = function () {
     const positionLocation = config.positionLocation;
     // 相对文档居中
     if (positionMethod === 'fixed') {
-        moduleDomClass += `g-loading-run_fixed g-loading-run-${positionLocation}`;
+        moduleDomClass += `g-loading-run_fixed g-loading-run_${positionLocation}`;
     }
     // 相对容器居中
     if (positionMethod === 'absolute') {
-        moduleDomClass += `g-loading-run_absolute g-loading-run-${positionLocation}`;
+        moduleDomClass += `g-loading-run_absolute g-loading-run_${positionLocation}`;
     }
     moduleDomHtml = `<div class="g-loading-run-icon g-iconfont g-icon-loading"></div>`;
     // 模块创建
