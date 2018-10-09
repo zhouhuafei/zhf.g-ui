@@ -1,7 +1,6 @@
 const extend = require('zhf.extend'); // 对象的扩展
 const createElement = require('zhf.create-element'); // 创建元素
 const Super = require('zhf.dom-components-super'); // 超类型(子类型继承的对象)
-const domAddPosition = require('zhf.dom-add-position');
 
 // 子类型
 class Sub extends Super {
@@ -10,9 +9,6 @@ class Sub extends Super {
             // 回调
             callback: {
                 click: function () {
-                },
-                moduleDomRenderBefore: function (self) {
-                    domAddPosition(self.wrapDom, 'relative');
                 },
             },
             // 配置
@@ -44,6 +40,10 @@ Sub.prototype.moduleDomCreate = function () {
             innerHTML: '',
         },
     });
+    // 如果外部容器没有定位，则给外部容器增加一个定位。
+    if (self.wrapDom && getComputedStyle(self.wrapDom).position === 'static') {
+        self.wrapDom.style.position = 'relative';
+    }
 };
 
 // (功)(覆)功能(覆盖超类型)

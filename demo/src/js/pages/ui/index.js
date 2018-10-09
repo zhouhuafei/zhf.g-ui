@@ -160,7 +160,7 @@ $('.js-loading_hide').on('click', () => {
 });
 
 // 数据加载中
-new LoadingRun({wrap: '.loading-run', config: {positionMethod: 'fixed', positionLocation: 'center'}});
+new LoadingRun({wrap: '.loading-run', config: {positionMethod: 'absolute', positionLocation: 'bottom'}});
 // 数据加载完毕
 new LoadingOver({wrap: '.loading-over'});
 // 没有数据

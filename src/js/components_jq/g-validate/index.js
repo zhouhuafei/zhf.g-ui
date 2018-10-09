@@ -1,5 +1,4 @@
 const extend = require('zhf.extend'); // 工具方法集合
-const domAddPosition = require('zhf.dom-add-position');
 const checkStr = require('zhf.check-str');
 const getParent = require('zhf.get-parent');
 const getDomArray = require('zhf.get-dom-array');
@@ -28,7 +27,10 @@ Validate.prototype.render = function () {
         if (!v.hintWrapDom) { // 为了兼容未来动态创建的元素，此方法会被多次调用，为了提高性能，所以这里不重新赋值，虽然此处可以重新赋值。
             const hintWrapDom = self.getHintWrapDom(v);
             if (hintWrapDom) {
-                domAddPosition(hintWrapDom, 'relative');
+                // 如果外部容器没有定位，则给外部容器增加一个定位。
+                if (getComputedStyle(hintWrapDom).position === 'static') {
+                    hintWrapDom.style.position = 'relative';
+                }
                 v.hintWrapDom = hintWrapDom;
             }
         }

@@ -32,6 +32,9 @@ Sub.prototype.moduleDomCreate = function () {
     }
     // 相对容器居中
     if (positionMethod === 'absolute') {
+        if (getComputedStyle(this.wrapDom).position === 'static') {
+            this.wrapDom.style.position = 'relative';
+        }
         moduleDomClass += `g-loading-run_absolute g-loading-run_${positionLocation}`;
     }
     moduleDomHtml = `<div class="g-loading-run-icon g-iconfont g-icon-loading"></div>`;
