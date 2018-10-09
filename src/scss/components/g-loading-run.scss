@@ -1,0 +1,50 @@
+@import "../config/g-config";
+
+// 数据加载中(初次应用：底部加载更多)
+.g-loading-run {
+    @extend .g-reset_font;
+    font-size: px2rem(30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: $g-font-color_default;
+    box-sizing: border-box;
+    // 相对于文档居中
+    &.g-loading-run_fixed {
+        position: fixed;
+        width: inherit;
+        z-index: 501;
+        &.g-loading-run_top {
+            top: 0;
+        }
+        &.g-loading-run_center {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &.g-loading-run_bottom {
+            bottom: 0;
+        }
+    }
+    // 相对于容器居中
+    &.g-loading-run_absolute {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: 501;
+        &.g-loading-run_top {
+            top: 0;
+        }
+        &.g-loading-run_center {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &.g-loading-run_bottom {
+            bottom: 0;
+        }
+    }
+}
+
+.g-loading-run-icon {
+    animation: g-animation_run 1s linear infinite;
+}

@@ -23,6 +23,8 @@
         margin-bottom: px2rem(20);
     }
     .g-no-data-button {
+        @extend .g-reset_a;
         width: 50%;
+        color: #ffffff;
     }
 }

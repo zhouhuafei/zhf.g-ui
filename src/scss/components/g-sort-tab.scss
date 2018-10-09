@@ -7,43 +7,49 @@
     height: px2rem(40);
     background: #ffffff;
     user-select: none;
-    .g-sort-tab-item {
-        width: 0;
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $g-font-color_auxiliary;
-        &.g-sort-tab-item_active {
-            color: $g-font-color_default;
-            .g-sort-tab-item-icon-item {
-                &:first-of-type.g-sort-tab-item-icon-item_active {
-                    border-bottom-color: $g-color_danger;
-                }
-                &:last-of-type.g-sort-tab-item-icon-item_active {
-                    border-top-color: $g-color_danger;
-                }
+}
+
+.g-sort-tab-item {
+    width: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $g-font-color_auxiliary;
+    &.g-sort-tab-item_active {
+        color: $g-font-color_default;
+        .g-sort-tab-item-icon-item {
+            &:first-of-type.g-sort-tab-item-icon-item_active {
+                border-bottom-color: $g-color_danger;
+            }
+            &:last-of-type.g-sort-tab-item-icon-item_active {
+                border-top-color: $g-color_danger;
             }
         }
     }
-    .g-sort-tab-item-icon {
-        color: $g-font-color_auxiliary;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin-left: px2rem(2);
+}
+
+.g-sort-tab-item-text {
+}
+
+.g-sort-tab-item-icon {
+    color: $g-font-color_auxiliary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: px2rem(2);
+}
+
+.g-sort-tab-item-icon-item {
+    width: 0;
+    height: 0;
+    border: px2rem(4) solid transparent;
+    margin: px2rem(1) 0;
+    &:first-of-type {
+        border-bottom-color: $g-font-color_auxiliary;
     }
-    .g-sort-tab-item-icon-item {
-        width: 0;
-        height: 0;
-        border: px2rem(4) solid transparent;
-        margin: px2rem(1) 0;
-        &:first-of-type {
-            border-bottom-color: $g-font-color_auxiliary;
-        }
-        &:last-of-type {
-            border-top-color: $g-font-color_auxiliary;
-        }
+    &:last-of-type {
+        border-top-color: $g-font-color_auxiliary;
     }
 }

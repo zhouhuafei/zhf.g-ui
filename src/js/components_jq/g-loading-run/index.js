@@ -10,7 +10,8 @@ class Sub extends Super {
             callback: {},
             // 配置
             config: {
-                icon: '',
+                positionMethod: '', // 模块的定位方式 'fixed'(相对于整个文档) 'absolute'(相对于外部容器)
+                positionLocation: 'center', // 模块的定位位置
             },
             // 数据
             data: {},
@@ -21,13 +22,26 @@ class Sub extends Super {
 // (建)(覆)内部模块的创建(覆盖超类型)
 Sub.prototype.moduleDomCreate = function () {
     const config = this.opts.config;
+    let moduleDomHtml = '';
+    let moduleDomClass = '';
+    const positionMethod = config.positionMethod;
+    const positionLocation = config.positionLocation;
+    // 相对文档居中
+    if (positionMethod === 'fixed') {
+        moduleDomClass += `g-loading-run_fixed g-loading-run-${positionLocation}`;
+    }
+    // 相对容器居中
+    if (positionMethod === 'absolute') {
+        moduleDomClass += `g-loading-run_absolute g-loading-run-${positionLocation}`;
+    }
+    moduleDomHtml = `<div class="g-loading-run-icon g-iconfont g-icon-loading"></div>`;
     // 模块创建
     this.moduleDom = createElement({
         style: this.opts.config.moduleDomStyle,
         customAttribute: this.opts.config.moduleDomCustomAttribute,
         attribute: {
-            className: `g-loading`,
-            innerHTML: `<div class="g-loading-icon g-iconfont g-icon-loading"></div>`,
+            className: `g-loading-run ${moduleDomClass}`,
+            innerHTML: moduleDomHtml,
         },
     });
 };

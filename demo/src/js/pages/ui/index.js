@@ -14,6 +14,10 @@ const {
     ProgressBar,
     Popover,
     Validate,
+    Loading,
+    LoadingOver,
+    LoadingRun,
+    NoData,
 } = require('../../../../../src/js/commons_jq/g-common');
 
 // 功能组件 - 排序tab
@@ -146,20 +150,32 @@ document.querySelectorAll('.js-popover').forEach(function (v) {
     });
 }());
 
+// 中间弹层loading
+const loading = new Loading({config: {moduleDomIsRender: false}});
+$('.js-loading_show').on('click', () => {
+    loading.moduleDomShow();
+});
+$('.js-loading_hide').on('click', () => {
+    loading.moduleDomHide();
+});
+
+// 数据加载中
+new LoadingRun({wrap: '.loading-run', config: {positionMethod: 'fixed', positionLocation: 'center'}});
+// 数据加载完毕
+new LoadingOver({wrap: '.loading-over'});
+// 没有数据
+new NoData({wrap: '.no-data'});
+
 // vue系列组件按需引入
 /*
-const SortTab = require('../../../../../src/js/components_vue/g-sort-tab');
-Vue.use(SortTab);
+import gSortTab from '../../../../../src/js/components_vue/g-sort-tab/index';
+Vue.use(gSortTab);
 */
 
 // vue系列组件全部引入
+require('../../../../../src/js/commons_vue/g-common');
 import app from './app.vue';
 
-import gSortTab from '../../../../../src/js/components_vue/g-sort-tab/src/main.vue';
-
-Vue.component('g-sort-tab', gSortTab);
-
-// require('../../../../../src/js/commons_vue/g-common');
 new Vue({
     el: '#app',
     template: `<app></app>`,

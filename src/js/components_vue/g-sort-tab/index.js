@@ -1,7 +1,7 @@
-import gSortTab from './src/main.vue';
+import main from './src/main.vue';
 
-gSortTab.install = function (Vue) {
-    Vue.component(gSortTab.name, gSortTab);
+main.install = function (Vue) {
+    Vue.component(main.name, main);
 };
 
-export default gSortTab;
+export default main;

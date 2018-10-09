@@ -6,6 +6,8 @@ module.exports = {
     JumpLink: require('../components_jq/g-jump-link'),
     LazyLoad: require('../components_jq/g-lazy-load'),
     Loading: require('../components_jq/g-loading'),
+    LoadingRun: require('../components_jq/g-loading-run'),
+    LoadingOver: require('../components_jq/g-loading-over'),
     Mask: require('../components_jq/g-mask'),
     Message: require('../components_jq/g-message'),
     Navigation: require('../components_jq/g-navigation'),

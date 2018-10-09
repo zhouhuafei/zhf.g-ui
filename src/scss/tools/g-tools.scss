@@ -127,6 +127,9 @@
 /* margin 和 padding */
 @each $attr in margin, padding {
     @each $value in 0, 5, 10, 20 {
+        .g-#{$attr}_#{$value} {
+            #{$attr}: px2rem($value) !important;
+        }
         .g-#{$attr}-top_#{$value} {
             #{$attr}-top: px2rem($value) !important;
         }

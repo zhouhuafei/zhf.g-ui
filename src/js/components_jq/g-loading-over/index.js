@@ -9,9 +9,7 @@ class Sub extends Super {
             // 回调
             callback: {},
             // 配置
-            config: {
-                icon: '',
-            },
+            config: {},
             // 数据
             data: {},
         }, opts));
@@ -26,8 +24,8 @@ Sub.prototype.moduleDomCreate = function () {
         style: this.opts.config.moduleDomStyle,
         customAttribute: this.opts.config.moduleDomCustomAttribute,
         attribute: {
-            className: `g-loading`,
-            innerHTML: `<div class="g-loading-icon g-iconfont g-icon-loading"></div>`,
+            className: `g-loading-over`,
+            innerHTML: `<div class="g-loading-over-icon g-iconfont g-icon-no-data"></div><div class="g-loading-over-text">数据加载完毕</div>`,
         },
     });
 };

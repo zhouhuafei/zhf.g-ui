@@ -1,3 +1,3 @@
-const SortTab = require('../components_vue/g-sort-tab/index');
+import gSortTab from '../components_vue/g-sort-tab/index.js';
 
-Vue.use(SortTab);
+Vue.use(gSortTab);
