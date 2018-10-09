@@ -15,7 +15,7 @@ class Sub extends Super {
             config: {
                 isHand: false, // 是否手动控制
                 status: 'on', // 状态
-                txt: {
+                text: {
                     on: '已开启',
                     off: '已关闭',
                 },
@@ -41,7 +41,7 @@ Sub.prototype.moduleDomCreate = function () {
                 <div class="g-radio-switch-body">
                     <div class="g-radio-switch-body-round"></div>
                 </div>
-                <div class="g-radio-switch-text">${config.txt[config.status]}</div>
+                <div class="g-radio-switch-text">${config.text[config.status]}</div>
             `,
         },
     });
@@ -74,7 +74,7 @@ Sub.prototype.on = function () {
     if (!this.isOn()) {
         this.moduleDom.classList.add(this.moduleDomActiveClass);
         config.status = 'on';
-        this.moduleDom.querySelector('.g-radio-switch-text').innerHTML = `${config.txt[config.status]}`;
+        this.moduleDom.querySelector('.g-radio-switch-text').innerHTML = `${config.text[config.status]}`;
     }
 };
 
@@ -84,7 +84,7 @@ Sub.prototype.off = function () {
     if (this.isOn()) {
         this.moduleDom.classList.remove(this.moduleDomActiveClass);
         config.status = 'off';
-        this.moduleDom.querySelector('.g-radio-switch-text').innerHTML = `${config.txt[config.status]}`;
+        this.moduleDom.querySelector('.g-radio-switch-text').innerHTML = `${config.text[config.status]}`;
     }
 };
 

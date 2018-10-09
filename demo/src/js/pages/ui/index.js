@@ -20,6 +20,7 @@ const {
     NoData,
     Pagination,
     Table,
+    RadioSwitch,
 } = require('../../../../../src/js/commons_jq/g-common');
 
 // 功能组件 - 排序tab
@@ -61,6 +62,9 @@ new Pagination({wrap: '.pagination'});
 
 // 功能组件 - 表格
 new Table({wrap: '.table'});
+
+// 功能组件 - 单选切换
+new RadioSwitch({wrap: '.radio-switch'});
 
 // 功能组件 - 进度条
 const progressBar = new ProgressBar({
