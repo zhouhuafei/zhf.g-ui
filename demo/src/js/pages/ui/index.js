@@ -171,28 +171,8 @@ $('.js-loading-dialog_hide').on('click', () => {
     loading.moduleDomHide();
 });
 
-// 数据加载中(样式：normal)
+// 数据加载中
 new Loading({wrap: '.loading-normal'});
-// 数据加载中(样式：highlight)
-new Loading({
-    wrap: '.loading-highlight',
-    config: {
-        type: 'highlight',
-        moduleDomStyle: {
-            fontSize: `${$('.loading-highlight').outerHeight() / 3}px`,
-        },
-    },
-});
-// 数据加载中(样式：dark)
-new Loading({
-    wrap: '.loading-dark',
-    config: {
-        type: 'dark',
-        moduleDomStyle: {
-            fontSize: `${$('.loading-dark').outerHeight() / 3}px`,
-        },
-    },
-});
 // 数据加载完毕
 new LoadingOver({wrap: '.loading-over'});
 // 没有数据

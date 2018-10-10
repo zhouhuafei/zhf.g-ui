@@ -1,6 +1,6 @@
 @import "../config/g-config";
 
-// 数据加载中(初次应用：底部加载更多)
+// 数据加载中(初次应用是在列表页的底部上拉加载更多功能中)
 .g-loading-dialog {
     @extend .g-reset_font;
     font-size: px2rem(30);
@@ -11,25 +11,6 @@
     color: $g-font-color_default;
     box-sizing: border-box;
     overflow: hidden;
-    &.g-loading-dialog_normal {
-    }
-    &.g-loading-dialog_highlight {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background: rgba(255, 255, 255, 0.8);
-    }
-    &.g-loading-dialog_dark {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background: rgba(0, 0, 0, 0.8);
-        color: #ffffff;
-    }
 }
 
 .g-loading-dialog-icon {
