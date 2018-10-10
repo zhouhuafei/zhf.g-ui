@@ -61,23 +61,20 @@
             sortChange(item) {
                 this.items.forEach((v) => {
                     v.isSelected = false;
+                    v.sortMethod = '';
                 });
                 item.isSelected = true;
                 if (item.hasSort) {
                     if (item.sortMethod === '') {
                         item.sortMethod = item.defaultSortMethod;
-                    }
-                    if (item.sortMethod === 'asc') {
+                    } else if (item.sortMethod === 'asc') {
                         item.sortMethod = 'desc';
-                    }
-                    if (item.sortMethod === 'desc') {
+                    } else if (item.sortMethod === 'desc') {
                         item.sortMethod = 'asc';
                     }
                 }
                 this.$emit('sortChange', item);
             },
-        },
-        mounted() {
         },
     };
 </script>
