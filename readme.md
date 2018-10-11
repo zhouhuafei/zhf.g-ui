@@ -129,3 +129,5 @@ new Component({
     import gSortTab from 'zhf.g-ui/src/js/components_vue/g-sort-tab/index';
     Vue.use(gSortTab);
     ```
+
+# 自定义
