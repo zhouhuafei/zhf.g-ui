@@ -40,10 +40,10 @@ src
 * 使用的阿里字体图标 http://www.iconfont.cn/
 * g-表示全局级别，有这个前缀的样式是整站通用的样式。
 * g-mask层级是500，弹窗类型大于500即可，非弹窗类型请小于500。
-* rem：基于320的宽度进行设计的，将320的宽度分成了10份。
-    - 如果是320的设计图，1rem就是32px。
-    - 如果是640的设计图，1rem就是64px。
-* 字体图标格式：```<span class="iconfont icon-g-xxx"></span>```。
+* rem：默认是基于320的宽度进行设计的,
+    - js：将屏幕宽度或者最外层容器的宽度除以10的结果赋值给html的fontSize。
+    - scss：如果是320的设计图，1rem就是32px，可在scss中使用px2rem(xxx)。注：xxx是在设计图中量取的值。
+* 字体图标格式：```<span class="g-iconfont g-icon-xxx"></span>```。
 * css命名规范1：使用长链接命名方式，就是使用中划线一直连接下去，修饰符使用下划线进行链接。
 ```
 .g-components .g-components-header {}
