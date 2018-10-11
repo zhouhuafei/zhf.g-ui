@@ -16,6 +16,10 @@ $g-pc-scale: 2 !default; // 如果是pc，则缩放比例是多少？默认放�
     $g-confirm_width: $g-confirm_width * $g-pc-scale !default;
 }
 
+// 遮罩
+$g-mask_z-index: 500 !default; // 层级
+$g-mask_bg: rgba(0, 0, 0, 0.6) !default; // 背景
+
 // 背景
 $g-background-color_floor: #f4f4f4 !default; // 底色(自定义)
 $g-background-color_default: #bbbbbb !default; // 默认(自定义)
