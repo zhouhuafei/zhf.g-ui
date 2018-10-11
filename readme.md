@@ -20,11 +20,14 @@ npm run demoBuildHot
 # 静态资源的目录结构
 src
 ├── js
-│   ├── commons-jq
-│   ├── commons-vue
-│   ├── components-jq
-│   ├── components-vue
+│   ├── commons_dom
+│   ├── commons_vue
+│   ├── components_dom
+│   ├── components_vue
+│   ├── config
 └── scss
+    ├── animations
+    ├── base
     ├── commons
     ├── components
     ├── config
@@ -73,14 +76,26 @@ new Component({
     wrap: '', // 组件所属容器，支持传入选择器和原生dom节点。
     callback: {}, // 组件回调
     config: {}, // 组件配置
-    data: {}, // 组件数据
 });
 ```
 
-# 待续...
-* 找几款看起来舒服且能和iconfont图标对齐的字体。
-    - mac："Helvetica Neue", "Helvetica"
-    - ios：
-    - windows：
-    - android：
-* tooltip组件移除。
+# components_dom目录下，哪些组件依赖了jq？
+* g-tooltip-app
+* g-validate
+* g-popover
+
+# 用法
+* dom组件
+    - 全部引入
+    ```
+    ```
+    - 按需引入
+    ```
+    ```
+* vue组件
+    - 全部引入
+    ```
+    ```
+    - 按需引入
+    ```
+    ```

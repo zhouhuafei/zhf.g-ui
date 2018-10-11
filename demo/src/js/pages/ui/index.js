@@ -2,8 +2,8 @@ require('../../../scss/pages/ui/index.scss'); // 当前页的样式
 
 // 组件按需引入
 /*
-const SortTab = require('../../../../src/js/commons_jq/g-sort-tab');
-const ProgressBar = require('../../../../src/js/commons_jq/g-progress-bar');
+const SortTab = require('../../../../src/js/commons_dom/g-sort-tab');
+const ProgressBar = require('../../../../src/js/commons_dom/g-progress-bar');
 */
 
 // 组件全部引入
@@ -21,7 +21,7 @@ const {
     Pagination,
     Table,
     RadioSwitch,
-} = require('../../../../../src/js/commons_jq/g-common');
+} = require('../../../../../src/js/commons_dom/g-common');
 
 // 功能组件 - 排序tab
 new SortTab({
