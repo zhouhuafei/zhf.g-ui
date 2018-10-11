@@ -85,17 +85,47 @@ new Component({
 * g-popover
 
 # 用法
-* dom组件
+* scss
     - 全部引入
     ```
+    @import "zhf.g-ui/src/scss/commons/g-common"; // 组件，所有的组件集合。
     ```
     - 按需引入
     ```
+    @import "zhf.g-ui/src/scss/base/g-base"; // 基础样式，必须引入。
+    @import "zhf.g-ui/src/scss/components/g-sort-tab"; // 排序tab的样式
     ```
-* vue组件
+* js：dom组件
     - 全部引入
     ```
+    const {
+        Message,
+        Confirm,
+        SortTab,
+        ProgressBar,
+        Popover,
+        Validate,
+        Loading,
+        LoadingOver,
+        LoadingDialog,
+        NoData,
+        Pagination,
+        Table,
+        RadioSwitch,
+    } = require('zhf.g-ui/src/js/commons_dom/g-common');
     ```
     - 按需引入
     ```
+    const SortTab = require('zhf.g-ui/src/js/commons_dom/g-sort-tab');
+    const ProgressBar = require('zhf.g-ui/src/js/commons_dom/g-progress-bar');
+    ```
+* js：vue组件
+    - 全部引入
+    ```
+    require('zhf.g-ui/src/js/commons_vue/g-common');
+    ```
+    - 按需引入
+    ```
+    import gSortTab from 'zhf.g-ui/src/js/components_vue/g-sort-tab/index';
+    Vue.use(gSortTab);
     ```

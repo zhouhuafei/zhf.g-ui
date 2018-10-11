@@ -60,8 +60,10 @@
         methods: {
             sortChange(item) {
                 this.items.forEach((v) => {
-                    v.isSelected = false;
-                    v.sortMethod = '';
+                    if (v.name !== item.name) {
+                        v.isSelected = false;
+                        v.sortMethod = '';
+                    }
                 });
                 item.isSelected = true;
                 if (item.hasSort) {
