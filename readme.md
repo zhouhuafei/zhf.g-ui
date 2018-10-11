@@ -19,24 +19,18 @@ npm run demoBuildHot
 ```
 # 静态资源的目录结构
 src
-├── demo
-│   ├── h5
-│   └── pc
-├── dist
-│   ├── h5
-│   └── pc
-├── node_modules
-└── src
-    ├── js
-    │   ├── commons
-    │   ├── components
-    │   └── components-super
-    └── scss
-        ├── commons
-        ├── components
-        ├── config
-        ├── fonts
-        └── reset
+├── js
+│   ├── commons-jq
+│   ├── commons-vue
+│   ├── components-jq
+│   ├── components-vue
+└── scss
+    ├── commons
+    ├── components
+    ├── config
+    ├── fonts
+    ├── reset
+    └── tools
 ```
 
 # 约定大于一切，规则至上 - css

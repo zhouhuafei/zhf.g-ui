@@ -1,7 +1,7 @@
 {
     "name": "zhf.g-ui",
-    "version": "1.0.0",
-    "description": "一套原生js写的ui框架",
+    "version": "1.0.1",
+    "description": "这个ui有点丑：自己捏的ui，再丑也要哭着用完。",
     "main": "./src/js/commons_jq/g-common.js",
     "scripts": {
         "demoDev": "webpack --colors --profile --progress --display-modules --mode=development",
