@@ -1,20 +1,17 @@
 /*----------【var】----------*/
-// 环境
-$g-is_h5: true !default; // 是否是h5(默认h5)(可自定义)
+// 基础环境
+$g-is_pc: true !default; // 是否是小程序(默认不是)
+$g-is_h5: false !default; // 是否是h5(默认h5)(可自定义)
 $g-is_mp: false !default; // 是否是小程序(默认不是)
+
+// h5时rem的分割比例
 $g-psd_width: 320 !default; // 设计图的宽度(默认为320宽度的设计图。)
 $g-psd_split: 10 !default; // 设计图的切割份数(将320的设计图切割成10份，1rem可以换算为32px。)
 
-// Message，Alert，Confirm。
-$g-message_width: 260 !default;
-$g-alert_width: 260 !default;
-$g-confirm_width: 280 !default;
-$g-pc-scale: 2 !default; // 如果是pc，则缩放比例是多少？默认放大2倍。
-@if ($g-is_h5 == false) { // pc
-    $g-message_width: $g-message_width * $g-pc-scale !default;
-    $g-alert_width: $g-alert_width * $g-pc-scale !default;
-    $g-confirm_width: $g-confirm_width * $g-pc-scale !default;
-}
+// 基础弹层的宽度
+$g-message_width: 260 !default; // 提示框
+$g-alert_width: 260 !default; // 确认框
+$g-confirm_width: 280 !default; // 对话框
 
 // 遮罩
 $g-mask_z-index: 500 !default; // 层级
@@ -62,7 +59,9 @@ $g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否�
         @if ($g-is_mp) {
             @return $px * 750 / $psd * 1rpx;
         }
-        @return $px * 1px;
+        @if ($g-is_pc) {
+            @return $px * 1px;
+        }
     }
 }
 
