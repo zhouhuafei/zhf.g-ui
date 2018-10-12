@@ -88,12 +88,12 @@ new Component({
 * scss
     - 全部引入
     ```
-    @import "zhf.g-ui/src/scss/commons/g-common.scss"; // 组件，所有的组件集合。
+    @import "../../../node_modules/zhf.g-ui/src/scss/commons/g-common.scss"; // 组件，所有的组件集合。
     ```
     - 按需引入
     ```
-    @import "zhf.g-ui/src/scss/base/g-base.scss"; // 基础样式，必须引入。
-    @import "zhf.g-ui/src/scss/components/g-sort-tab.scss"; // 排序tab的样式
+    @import "../../../node_modules/zhf.g-ui/src/scss/base/g-base.scss"; // 基础样式，必须引入。
+    @import "../../../node_modules/zhf.g-ui/src/scss/components/g-sort-tab.scss"; // 排序tab的样式
     ```
 * js：dom组件
     - 全部引入
