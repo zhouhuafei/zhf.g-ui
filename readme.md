@@ -95,16 +95,16 @@ new Component({
     ```
     - 按需引入
     ```
-    $g-is_mp: true; // 如果是微信小程序页面
     @import "../../../node_modules/zhf.g-ui/src/scss/base/g-base.scss"; // 基础样式，必须引入。
     @import "../../../node_modules/zhf.g-ui/src/scss/components/g-sort-tab.scss"; // 排序tab的样式
     ```
 * js：dom组件
     - 全部引入
     ```
-    window['g-is_h5'] = true;
-    window['g-psd_width'] = 320;
-    window['g-psd_split'] = 10;
+    window['g-is_h5'] = true; // 如果是h5页面
+    window['g-psd_width'] = 320; // 设计图的宽度
+    window['g-psd_split'] = 10; // 设计图的切割份数
+    window['g-wrap'] = 'body'; // 最外层的容器
     const {
         Message,
         Confirm,
