@@ -88,12 +88,12 @@ new Component({
 * scss
     - 全部引入
     ```
-    @import "zhf.g-ui/src/scss/commons/g-common"; // 组件，所有的组件集合。
+    @import "zhf.g-ui/src/scss/commons/g-common.scss"; // 组件，所有的组件集合。
     ```
     - 按需引入
     ```
-    @import "zhf.g-ui/src/scss/base/g-base"; // 基础样式，必须引入。
-    @import "zhf.g-ui/src/scss/components/g-sort-tab"; // 排序tab的样式
+    @import "zhf.g-ui/src/scss/base/g-base.scss"; // 基础样式，必须引入。
+    @import "zhf.g-ui/src/scss/components/g-sort-tab.scss"; // 排序tab的样式
     ```
 * js：dom组件
     - 全部引入
@@ -112,22 +112,24 @@ new Component({
         Pagination,
         Table,
         RadioSwitch,
-    } = require('zhf.g-ui/src/js/commons_dom/g-common');
+    } = require('zhf.g-ui/src/js/commons_dom/g-common.js');
     ```
     - 按需引入
     ```
-    const SortTab = require('zhf.g-ui/src/js/commons_dom/g-sort-tab');
-    const ProgressBar = require('zhf.g-ui/src/js/commons_dom/g-progress-bar');
+    const SortTab = require('zhf.g-ui/src/js/commons_dom/g-sort-tab/index.js');
+    const ProgressBar = require('zhf.g-ui/src/js/commons_dom/g-progress-bar/index.js');
     ```
 * js：vue组件
     - 全部引入
     ```
-    require('zhf.g-ui/src/js/commons_vue/g-common');
+    require('zhf.g-ui/src/js/commons_vue/g-common.js');
     ```
     - 按需引入
     ```
-    import gSortTab from 'zhf.g-ui/src/js/components_vue/g-sort-tab/index';
+    import gSortTab from 'zhf.g-ui/src/js/components_vue/g-sort-tab/index.js';
     Vue.use(gSortTab);
     ```
 
 # 自定义
+* css：使用scss覆盖内置的变量。
+* js：定义全局变量覆盖默认的分割点以及外部容器。
