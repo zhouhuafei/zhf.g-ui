@@ -102,6 +102,9 @@ new Component({
 * js：dom组件
     - 全部引入
     ```
+    window['g-is_h5'] = true;
+    window['g-psd_width'] = 320;
+    window['g-psd_split'] = 10;
     const {
         Message,
         Confirm,

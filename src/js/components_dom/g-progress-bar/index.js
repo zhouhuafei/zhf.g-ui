@@ -39,7 +39,6 @@ class Sub extends Super {
         self.canvasSetVar(); // 设置变量
         self.canvasSetScale(0); // 设置比例
         window.addEventListener('resize', function () {
-            // globalConfig.resetOutermostContainerDomMaxWidth(); // 重置最大宽度
             self.canvasSetVar(); // 设置变量
             self.canvasSetScale(self.canvasScaleNum || 0); // 设置比例
         });
