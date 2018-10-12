@@ -1,8 +1,7 @@
 /*----------【var】----------*/
 // 基础环境
-$g-is_pc: true !default; // 是否是pc(默认是)
 $g-is_h5: false !default; // 是否是h5(默认不是)
-$g-is_mp: false !default; // 是否是小程序(默认不是)
+$g-is_mp: false !default; // 是否是微信小程序(默认不是)
 
 // h5时rem的分割比例
 $g-psd_width: 320 !default; // 设计图的宽度(默认为320宽度的设计图。)
@@ -48,20 +47,18 @@ $g-color_cancel: #888d99 !default; // 取消的颜色，有待思考命名是否
 $g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否合理待续...
 
 /*----------【function】----------*/
-// px转rem：如果是pc，则按照1比1进行转换，如果是h5，则将320像素宽度的设计图分成10份。
+// px转rem：如果是pc，则按照1比1进行转换，如果是h5，则将320宽度的设计图分成10份(默认)。
 @function px2rem($px, $psd:$g-psd_width, $split:$g-psd_split) {
     @if ($px == 0) {
         @return 0;
     } @else {
-        @if ($g-is_h5) {
+        @if ($g-is_h5) { // 是否是h5
             @return $px / $psd * $split * 1rem;
         }
-        @if ($g-is_mp) {
+        @if ($g-is_mp) { // 是否是微信小程序
             @return $px * 750 / $psd * 1rpx;
         }
-        @if ($g-is_pc) {
-            @return $px * 1px;
-        }
+        @return $px * 1px; // 默认是pc
     }
 }
 

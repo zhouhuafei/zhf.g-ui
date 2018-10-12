@@ -40,7 +40,7 @@ src
 * 使用的阿里字体图标 http://www.iconfont.cn/
 * g-表示全局级别，有这个前缀的样式是整站通用的样式。
 * g-mask层级是500，弹窗类型大于500即可，非弹窗类型请小于500。
-* rem：默认是基于320的宽度进行设计的,
+* rem：默认是基于320的宽度进行设计的。
     - js：将屏幕宽度或者最外层容器的宽度除以10的结果赋值给html的fontSize。
     - scss：如果是320的设计图，1rem就是32px，可在scss中使用px2rem(xxx)。注：xxx是在设计图中量取的值。
 * 字体图标格式：```<span class="g-iconfont g-icon-xxx"></span>```。
@@ -88,10 +88,14 @@ new Component({
 * scss
     - 全部引入
     ```
+    $g-is_h5: true; // 如果是h5页面
+    $g-psd_width: 320; // 设计图的宽度
+    $g-psd_split: 10; // 设计图的切割份数
     @import "../../../node_modules/zhf.g-ui/src/scss/commons/g-common.scss"; // 组件，所有的组件集合。
     ```
     - 按需引入
     ```
+    $g-is_mp: true; // 如果是微信小程序页面
     @import "../../../node_modules/zhf.g-ui/src/scss/base/g-base.scss"; // 基础样式，必须引入。
     @import "../../../node_modules/zhf.g-ui/src/scss/components/g-sort-tab.scss"; // 排序tab的样式
     ```
