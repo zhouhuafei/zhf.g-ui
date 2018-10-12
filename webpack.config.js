@@ -19,6 +19,7 @@ module.exports = function (env, argv) {
         isWatch: true, // 是否监听
         minView: {}, // 压缩视图模板文件
         devtool: '', // #source-map
+        publicPath: '/',
     };
     // 环境----生产环境
     if (isProduction) {
@@ -34,6 +35,7 @@ module.exports = function (env, argv) {
                 collapseWhitespace: true, // 删除空白符与换行符
             },
             devtool: '#source-map', // #source-map
+            publicPath: '../../../',
         };
     }
     // 压缩----配置
@@ -96,7 +98,7 @@ module.exports = function (env, argv) {
         output: {
             path: `${__dirname}/demo/dist/`, // 出口路径，必须是绝对路径
             filename: `js/pages/[name].${configEnvironment.chunkhash}js`, // 出的文件名
-            publicPath: `/`, // 引入静态资源文件时，资源的前缀路径。如果不使用webpack-dev-server，路径配置成'../../'，静态页面可以直接本地打开进行观看。
+            publicPath: configEnvironment.publicPath, // 引入静态资源文件时，资源的前缀路径。如果不使用webpack-dev-server，路径配置成'../../../'，静态页面可以直接本地打开进行观看。
             /*
             chunkFilename用来打包require.ensure方法中引入的模块,如果该方法中没有引入任何模块则不会生成任何chunk块文件
             比如在main.js文件中,require.ensure([],function(require){alert(11);}),这样不会打包块文件
