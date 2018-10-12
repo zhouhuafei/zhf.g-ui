@@ -1,7 +1,7 @@
 /*----------【var】----------*/
 // 基础环境
-$g-is_pc: true !default; // 是否是小程序(默认不是)
-$g-is_h5: false !default; // 是否是h5(默认h5)(可自定义)
+$g-is_pc: true !default; // 是否是pc(默认是)
+$g-is_h5: false !default; // 是否是h5(默认不是)
 $g-is_mp: false !default; // 是否是小程序(默认不是)
 
 // h5时rem的分割比例
@@ -18,25 +18,25 @@ $g-mask_z-index: 500 !default; // 层级
 $g-mask_bg: rgba(0, 0, 0, 0.6) !default; // 背景
 
 // 背景
-$g-background-color_floor: #f4f4f4 !default; // 底色(自定义)
-$g-background-color_default: #bbbbbb !default; // 默认(自定义)
-$g-background-color_disabled: #e6e6e6 !default; // 禁用(自定义)
-$g-background-color_block: #ffffff !default; // 内容区块的背景色调(自定义)
+$g-background-color_floor: #f4f4f4 !default; // 底色
+$g-background-color_default: #bbbbbb !default; // 默认
+$g-background-color_disabled: #e6e6e6 !default; // 禁用
+$g-background-color_block: #ffffff !default; // 内容区块的背景色调
 
 // 字体
 $g-font-family: "Helvetica Neue", "Helvetica" !default; // 字体
-$g-font-size_default: 12 !default; // 默认字体大小12px(自定义)
-$g-font-color_default: #333333 !default; // 默认(自定义)
-$g-font-color_disabled: #c1c1c1 !default; // 禁用(自定义)
-$g-font-color_auxiliary: #aaaaaa !default; // 辅助色(自定义)
+$g-font-size_default: 12 !default; // 默认字体大小12px
+$g-font-color_default: #333333 !default; // 默认
+$g-font-color_disabled: #c1c1c1 !default; // 禁用
+$g-font-color_auxiliary: #aaaaaa !default; // 辅助色
 
 // 边框
-$g-border-color_default: #e1e1e1 !default; // 默认(自定义)
-$g-border-color_disabled: #e3e3e3 !default; // 禁用(自定义)
+$g-border-color_default: #e1e1e1 !default; // 默认
+$g-border-color_disabled: #e3e3e3 !default; // 禁用
 
 // 语义
-$g-color_brand: #0089ff !default; // 品牌色(自定义)
-$g-color_highlight: #0089ff !default; // 高亮(自定义)，有待思考这个颜色是不是应该就是品牌色待续...
+$g-color_brand: #0089ff !default; // 品牌色
+$g-color_highlight: #0089ff !default; // 高亮，有待思考这个颜色是不是应该就是品牌色待续...
 $g-color_success: #67C23A !default; // 成功(嫩绿)
 $g-color_warning: #eb9e05 !default; // 警告(鲜橙)
 $g-color_danger: #fa5555 !default; // 危险(艳红)
