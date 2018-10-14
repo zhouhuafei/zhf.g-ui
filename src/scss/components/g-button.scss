@@ -68,7 +68,7 @@
     }
 }
 
-input.g-button, button.g-button {
+input[type=submit].g-button, input[type=reset].g-button, input[type=file].g-button, input[type=button].g-button, button.g-button {
     @extend .g-button;
     border: none;
     padding: 0;
