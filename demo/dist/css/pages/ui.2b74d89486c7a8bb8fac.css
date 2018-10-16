@@ -11,7 +11,7 @@ body {
 /*----------【var】----------*/
 /*----------【function】----------*/
 /*----------【mixin】----------*/
-.g-reset_font, input.g-input, .g-select, textarea.g-textarea, .g-radio, .g-checkbox, .g-validate, .g-radio-switch, .g-upload, .g-button, input.g-button, button.g-button, .g-table, .g-list-wrap, .g-loading-dialog, .g-loading-over, .g-loading, .g-mask, .g-message, .g-confirm-wrap, .g-tooltip, .g-popover, .g-jump-link, .g-navigation, .g-pagination, .g-slide, .g-star, .g-go-top, .g-no-data, .g-copyright, .g-footer-nav, .g-quick-enter, .g-audio, .g-form-wrap, .g-verify-code-canvas, .g-jump-guide, .g-row, .g-title, .g-sort-tab, .g-progress-bar {
+.g-reset_font, input.g-input, .g-select, textarea.g-textarea, .g-radio, .g-checkbox, .g-validate, .g-radio-switch, .g-upload, .g-button, input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=button], button.g-button, .g-table, .g-list-wrap, .g-loading-dialog, .g-loading-over, .g-loading, .g-mask, .g-message, .g-confirm-wrap, .g-tooltip, .g-popover, .g-jump-link, .g-navigation, .g-pagination, .g-slide, .g-star, .g-go-top, .g-no-data, .g-copyright, .g-footer-nav, .g-quick-enter, .g-audio, .g-form-wrap, .g-verify-code-canvas, .g-jump-guide, .g-row, .g-title, .g-sort-tab, .g-progress-bar {
   font: 12px "Helvetica Neue", "Helvetica";
   color: #333333;
   line-height: 1; }
@@ -994,7 +994,7 @@ textarea.g-textarea {
 /*----------【var】----------*/
 /*----------【function】----------*/
 /*----------【mixin】----------*/
-.g-button, input.g-button, button.g-button {
+.g-button, input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=button], button.g-button {
   font-size: 12px;
   height: 40px;
   background: #0089ff;
@@ -1010,24 +1010,24 @@ textarea.g-textarea {
           justify-content: center;
   border-radius: 6px;
   width: 100px; }
-  .g-button.g-button_hollow {
+  .g-button.g-button_hollow, input.g-button_hollow.g-button[type=submit], input.g-button_hollow.g-button[type=reset], input.g-button_hollow.g-button[type=button] {
     background: transparent;
     border: 1px solid #0089ff;
     color: #0089ff; }
-  .g-button.g-button_cancel {
+  .g-button.g-button_cancel, input.g-button_cancel.g-button[type=submit], input.g-button_cancel.g-button[type=reset], input.g-button_cancel.g-button[type=button] {
     background: #bbbbbb; }
     .g-button.g-button_cancel.g-button_hollow {
       background: transparent;
       border: 1px solid #e1e1e1;
       color: #333333; }
-  .g-button.g-button_create {
+  .g-button.g-button_create, input.g-button_create.g-button[type=submit], input.g-button_create.g-button[type=reset], input.g-button_create.g-button[type=button] {
     background: #06bf04;
     color: #ffffff; }
     .g-button.g-button_create.g-button_hollow {
       background: transparent;
       border: 1px solid #06bf04;
       color: #06bf04; }
-  .g-button.g-button_disabled {
+  .g-button.g-button_disabled, input.g-button_disabled.g-button[type=submit], input.g-button_disabled.g-button[type=reset], input.g-button_disabled.g-button[type=button] {
     background: #e6e6e6;
     color: #c1c1c1;
     cursor: not-allowed; }
@@ -1035,9 +1035,9 @@ textarea.g-textarea {
       background: transparent;
       border: 1px solid #e3e3e3;
       color: #c1c1c1; }
-  .g-button.g-button_small {
+  .g-button.g-button_small, input.g-button_small.g-button[type=submit], input.g-button_small.g-button[type=reset], input.g-button_small.g-button[type=button] {
     height: 30px; }
-  .g-button .g-button-icon {
+  .g-button .g-button-icon, input.g-button[type=submit] .g-button-icon, input.g-button[type=reset] .g-button-icon, input.g-button[type=button] .g-button-icon {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1049,10 +1049,10 @@ textarea.g-textarea {
             justify-content: center;
     min-width: 12px;
     margin: 0 2px; }
-  .g-button .g-button-text {
+  .g-button .g-button-text, input.g-button[type=submit] .g-button-text, input.g-button[type=reset] .g-button-text, input.g-button[type=button] .g-button-text {
     margin: 0 2px; }
 
-input.g-button, button.g-button {
+input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=button], button.g-button {
   border: none;
   padding: 0;
   font-family: inherit;
@@ -2429,4 +2429,4 @@ input.g-button, button.g-button {
     z-index: 2; }
 
 
-/*# sourceMappingURL=ui.938733d9f2fd09baa363.css.map*/
+/*# sourceMappingURL=ui.2b74d89486c7a8bb8fac.css.map*/
