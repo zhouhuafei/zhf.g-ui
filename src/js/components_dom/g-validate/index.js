@@ -92,7 +92,7 @@ Validate.prototype.validateInput = function (input) {
     const isPassword = inputType === 'password';
     const isRadio = inputType === 'radio';
     const isCheckbox = inputType === 'checkbox';
-    const isFile = inputType === 'file';
+    const isFile = input.dataset.type === 'file' || inputType === 'file'; // 如果是file类型的input
     let value = input.value;
     if (isFile) { // 如果是file类型的input，值就是input身上的自定义属性data-value
         value = input.dataset.value;
