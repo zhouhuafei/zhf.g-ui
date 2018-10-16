@@ -16,7 +16,6 @@
     }
     .g-form {
         $height: 40;
-        $text-width: 50;
         position: relative;
         margin-bottom: px2rem(10);
         font-size: px2rem($g-font-size_default);
@@ -33,7 +32,7 @@
                 align-items: center;
                 justify-content: flex-end;
                 padding: 0 px2rem(10);
-                min-width: px2rem($text-width);
+                min-width: px2rem($g-form-body-text_width);
                 text-align: right;
                 background: #ffffff;
                 & + .g-form-body-content {

@@ -12,6 +12,9 @@ $g-message_width: 260 !default; // 提示框
 $g-alert_width: 260 !default; // 确认框
 $g-confirm_width: 280 !default; // 对话框
 
+// g-form
+$g-form-body-text_width: 50 !default;
+
 // 遮罩
 $g-mask_z-index: 500 !default; // 层级
 $g-mask_bg: rgba(0, 0, 0, 0.6) !default; // 背景
