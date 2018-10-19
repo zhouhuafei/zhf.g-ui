@@ -14,7 +14,7 @@
         justify-content: center;
         position: fixed;
         z-index: 3;
-        bottom: px2rem(-1);
+        bottom: 0;
         box-sizing: border-box;
         border-top: px2rem(1) solid $g-border-color_default;
         background: #fff;
@@ -45,8 +45,22 @@
                 border-radius: 50%;
                 background: $g-color_highlight;
                 position: absolute;
-                right: px2rem(4);
-                top: px2rem(4);
+                right: px2rem(30);
+                top: px2rem(6);
+            }
+            .g-footer-nav-body-item-badge {
+                $width-height: 20;
+                width: px2rem($width-height);
+                height: px2rem($width-height);
+                border-radius: 50%;
+                background: $g-color_highlight;
+                position: absolute;
+                right: px2rem(20);
+                top: px2rem(2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #ffffff;
             }
             &.g-footer-nav-body-item_active {
                 .g-footer-nav-body-item-icon, .g-footer-nav-body-item-text {
