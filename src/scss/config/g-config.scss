@@ -102,10 +102,17 @@ $g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否�
     word-break: break-all;
 }
 
-// 省略号
-@mixin g-text-ellipsis($lineClamp:1, $lineHeight:1, $height:0) {
+// 省略号单行
+@mixin g-text-ellipsis_one() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// 省略号多行，$lineHeight需要带单位，$height需要带单位。
+@mixin g-text-ellipsis_more($lineClamp:1, $lineHeight:1, $height:0) {
     line-height: $lineHeight;
-    @if $height == 0 {
+    @if $height == 0 { // 没传高的话，高度自动计算。
         height: $lineHeight * $lineClamp;
     } @else {
         height: $height;
