@@ -39,14 +39,15 @@
                 margin-top: px2rem(4);
             }
             .g-footer-nav-body-item-mark {
-                $width-height: 6;
+                $width-height: 8;
                 width: px2rem($width-height);
                 height: px2rem($width-height);
                 border-radius: 50%;
                 background: $g-color_highlight;
                 position: absolute;
-                right: px2rem(30);
-                top: px2rem(6);
+                right: 50%;
+                margin-right: px2rem(-17);
+                top: px2rem(4);
             }
             .g-footer-nav-body-item-badge {
                 $width-height: 20;
@@ -55,7 +56,8 @@
                 border-radius: 50%;
                 background: $g-color_highlight;
                 position: absolute;
-                right: px2rem(20);
+                right: 50%;
+                margin-right: px2rem(-25);
                 top: px2rem(2);
                 display: flex;
                 align-items: center;
