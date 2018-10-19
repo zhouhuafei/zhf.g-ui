@@ -1993,7 +1993,7 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
 /*----------【mixin】----------*/
 .g-footer-nav {
   width: inherit;
-  height: 44px; }
+  height: 50px; }
   .g-footer-nav .g-footer-nav-body {
     width: inherit;
     height: inherit;
@@ -2008,7 +2008,7 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
             justify-content: center;
     position: fixed;
     z-index: 3;
-    bottom: -1px;
+    bottom: 0;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     border-top: 1px solid #e1e1e1;
@@ -2042,13 +2042,33 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
         font-size: 12px;
         margin-top: 4px; }
       .g-footer-nav .g-footer-nav-body .g-footer-nav-body-item .g-footer-nav-body-item-mark {
-        width: 6px;
-        height: 6px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background: #0089ff;
         position: absolute;
-        right: 4px;
+        right: 50%;
+        margin-right: -17px;
         top: 4px; }
+      .g-footer-nav .g-footer-nav-body .g-footer-nav-body-item .g-footer-nav-body-item-badge {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #0089ff;
+        position: absolute;
+        right: 50%;
+        margin-right: -25px;
+        top: 2px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        color: #ffffff; }
       .g-footer-nav .g-footer-nav-body .g-footer-nav-body-item.g-footer-nav-body-item_active .g-footer-nav-body-item-icon, .g-footer-nav .g-footer-nav-body .g-footer-nav-body-item.g-footer-nav-body-item_active .g-footer-nav-body-item-text {
         color: #0089ff; }
 
@@ -2456,4 +2476,4 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
     z-index: 2; }
 
 
-/*# sourceMappingURL=ui.6e542898f8ccd5e80b3f.css.map*/
+/*# sourceMappingURL=ui.4c470fb47be442f2af5e.css.map*/
