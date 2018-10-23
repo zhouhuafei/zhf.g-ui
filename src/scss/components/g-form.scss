@@ -40,7 +40,7 @@
             .g-form-footer {
                 background: none;
                 border-bottom: none;
-                padding-left: px2rem($g-form-body-text_width + 10);
+                padding-left: px2rem($g-form-body-text_width + 20);
             }
         }
     }
@@ -76,6 +76,21 @@
                 background: none;
                 border-bottom: none;
                 padding: 0;
+            }
+        }
+    }
+    &.g-form-wrap_style4 {
+        .g-form {
+            margin-bottom: 0;
+            .g-form-body {
+                border: none;
+                .g-form-body-content {
+                    border-left: none !important;
+                }
+            }
+            .g-form-footer {
+                border-bottom: none;
+                padding-left: px2rem($g-form-body-text_width + 30);
             }
         }
     }

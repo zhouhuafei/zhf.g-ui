@@ -40,12 +40,11 @@
 @import "../components/g-sort-tab";
 @import "../components/g-progress-bar";
 
-.g-module {
+.g-panel {
     @extend .g-reset_font;
     background: #ffffff;
-    border-radius: px2rem(10);
     padding: px2rem(10);
-    .g-module-title {
+    .g-panel-title {
         font-weight: bold;
         color: $g-color_warning;
         margin-bottom: px2rem(10);
