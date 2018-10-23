@@ -4,18 +4,24 @@
 .g-list-wrap {
     @extend .g-reset_font;
     width: 100%;
-    &.g-list-wrap_style-yes-radius {
+    &.g-list-wrap_style1 { // 有间距，有圆角
         .g-list {
             border-radius: px2rem(6);
         }
     }
-    &.g-list-wrap_style-no-margin {
+    &.g-list-wrap_style2 { // 无间距，有边框
         .g-list {
             margin-bottom: 0;
             border-bottom: px2rem(1) solid $g-border-color_default;
             &:last-child {
                 border-bottom: none;
             }
+        }
+    }
+    &.g-list-wrap_style3 { // 无间距，无边框
+        .g-list {
+            margin-bottom: 0;
+            border-bottom: none;
         }
     }
 }
