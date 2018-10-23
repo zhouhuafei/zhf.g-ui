@@ -39,3 +39,15 @@
 @import "../components/g-title";
 @import "../components/g-sort-tab";
 @import "../components/g-progress-bar";
+
+.g-module {
+    @extend .g-reset_font;
+    background: #ffffff;
+    border-radius: px2rem(10);
+    padding: px2rem(10);
+    .g-module-title {
+        font-weight: bold;
+        color: $g-color_warning;
+        margin-bottom: px2rem(10);
+    }
+}

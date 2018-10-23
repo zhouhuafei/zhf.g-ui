@@ -15,13 +15,11 @@
         }
     }
     &.g-form-wrap_style2 {
-        padding: 0 px2rem(10);
         .g-form {
             .g-form-body {
                 border: none;
                 .g-form-body-text {
                     background: none;
-                    margin-left: px2rem(-10);
                 }
                 .g-form-body-content {
                     border: 1px solid $g-border-color_default;
@@ -47,7 +45,6 @@
         }
     }
     &.g-form-wrap_style3 {
-        padding: 0 px2rem(10);
         .g-form {
             margin-bottom: px2rem(14);
             .g-form-body {
