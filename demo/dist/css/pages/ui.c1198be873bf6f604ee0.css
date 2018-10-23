@@ -1108,13 +1108,16 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
 /*----------【mixin】----------*/
 .g-list-wrap {
   width: 100%; }
-  .g-list-wrap.g-list-wrap_style-yes-radius .g-list {
+  .g-list-wrap.g-list-wrap_style1 .g-list {
     border-radius: 6px; }
-  .g-list-wrap.g-list-wrap_style-no-margin .g-list {
+  .g-list-wrap.g-list-wrap_style2 .g-list {
     margin-bottom: 0;
     border-bottom: 1px solid #e1e1e1; }
-    .g-list-wrap.g-list-wrap_style-no-margin .g-list:last-child {
+    .g-list-wrap.g-list-wrap_style2 .g-list:last-child {
       border-bottom: none; }
+  .g-list-wrap.g-list-wrap_style3 .g-list {
+    margin-bottom: 0;
+    border-bottom: none; }
 
 .g-list {
   display: block;
@@ -2134,12 +2137,84 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
 /*----------【var】----------*/
 /*----------【function】----------*/
 /*----------【mixin】----------*/
-.g-form-wrap.g-form-wrap_no-margin .g-form {
+.g-form-wrap.g-form-wrap_style1 .g-form {
   margin-bottom: 0; }
-  .g-form-wrap.g-form-wrap_no-margin .g-form:first-of-type {
+  .g-form-wrap.g-form-wrap_style1 .g-form:first-of-type {
     border-top: 1px solid #e1e1e1; }
-  .g-form-wrap.g-form-wrap_no-margin .g-form .g-form-body {
+  .g-form-wrap.g-form-wrap_style1 .g-form .g-form-body {
     border-top: none; }
+
+.g-form-wrap.g-form-wrap_style2 {
+  padding: 0 10px; }
+  .g-form-wrap.g-form-wrap_style2 .g-form .g-form-body {
+    border: none; }
+    .g-form-wrap.g-form-wrap_style2 .g-form .g-form-body .g-form-body-text {
+      background: none;
+      margin-left: -10px; }
+    .g-form-wrap.g-form-wrap_style2 .g-form .g-form-body .g-form-body-content {
+      border: 1px solid #e1e1e1;
+      border-radius: 6px; }
+      .g-form-wrap.g-form-wrap_style2 .g-form .g-form-body .g-form-body-content .g-form-body-content-symbol {
+        width: 20px;
+        border-radius: 6px 0 0 6px;
+        border-right: 1px solid #e1e1e1;
+        margin-right: 10px;
+        margin-left: -10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        background: #eeeeee; }
+  .g-form-wrap.g-form-wrap_style2 .g-form .g-form-footer {
+    background: none;
+    border-bottom: none;
+    padding-left: 86px; }
+
+.g-form-wrap.g-form-wrap_style3 {
+  padding: 0 10px; }
+  .g-form-wrap.g-form-wrap_style3 .g-form {
+    margin-bottom: 14px; }
+    .g-form-wrap.g-form-wrap_style3 .g-form .g-form-body {
+      border: none;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; }
+      .g-form-wrap.g-form-wrap_style3 .g-form .g-form-body .g-form-body-text {
+        background: none;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        padding: 0;
+        margin-bottom: 8px; }
+      .g-form-wrap.g-form-wrap_style3 .g-form .g-form-body .g-form-body-content {
+        border: 1px solid #e1e1e1;
+        border-radius: 6px; }
+        .g-form-wrap.g-form-wrap_style3 .g-form .g-form-body .g-form-body-content .g-form-body-content-symbol {
+          width: 20px;
+          border-radius: 6px 0 0 6px;
+          border-right: 1px solid #e1e1e1;
+          margin-right: 10px;
+          margin-left: -10px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          background: #eeeeee; }
+    .g-form-wrap.g-form-wrap_style3 .g-form .g-form-footer {
+      background: none;
+      border-bottom: none;
+      padding: 0; }
 
 .g-form-wrap .g-form {
   position: relative;
@@ -2165,7 +2240,7 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
           -ms-flex-pack: end;
               justify-content: flex-end;
       padding: 0 10px;
-      min-width: 50px;
+      min-width: 76px;
       text-align: right;
       background: #ffffff; }
       .g-form-wrap .g-form .g-form-body .g-form-body-text + .g-form-body-content {
@@ -2483,4 +2558,4 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
     z-index: 2; }
 
 
-/*# sourceMappingURL=ui.d04ad3917e4996da6a5d.css.map*/
+/*# sourceMappingURL=ui.c1198be873bf6f604ee0.css.map*/

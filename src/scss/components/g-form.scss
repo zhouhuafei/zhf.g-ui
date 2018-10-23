@@ -3,7 +3,7 @@
 // 表单
 .g-form-wrap {
     @extend .g-reset_font;
-    &.g-form-wrap_no-margin {
+    &.g-form-wrap_style1 {
         .g-form {
             &:first-of-type {
                 border-top: 1px solid $g-border-color_default;
@@ -11,6 +11,74 @@
             margin-bottom: 0;
             .g-form-body {
                 border-top: none;
+            }
+        }
+    }
+    &.g-form-wrap_style2 {
+        padding: 0 px2rem(10);
+        .g-form {
+            .g-form-body {
+                border: none;
+                .g-form-body-text {
+                    background: none;
+                    margin-left: px2rem(-10);
+                }
+                .g-form-body-content {
+                    border: 1px solid $g-border-color_default;
+                    border-radius: px2rem(6);
+                    .g-form-body-content-symbol {
+                        width: px2rem(20);
+                        border-radius: px2rem(6) 0 0 px2rem(6);
+                        border-right: 1px solid $g-border-color_default;
+                        margin-right: px2rem(10);
+                        margin-left: px2rem(-10);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #eeeeee;
+                    }
+                }
+            }
+            .g-form-footer {
+                background: none;
+                border-bottom: none;
+                padding-left: px2rem($g-form-body-text_width + 10);
+            }
+        }
+    }
+    &.g-form-wrap_style3 {
+        padding: 0 px2rem(10);
+        .g-form {
+            margin-bottom: px2rem(14);
+            .g-form-body {
+                border: none;
+                flex-direction: column;
+                .g-form-body-text {
+                    background: none;
+                    justify-content: flex-start;
+                    padding: 0;
+                    margin-bottom: px2rem(8);
+                }
+                .g-form-body-content {
+                    border: 1px solid $g-border-color_default;
+                    border-radius: px2rem(6);
+                    .g-form-body-content-symbol {
+                        width: px2rem(20);
+                        border-radius: px2rem(6) 0 0 px2rem(6);
+                        border-right: 1px solid $g-border-color_default;
+                        margin-right: px2rem(10);
+                        margin-left: px2rem(-10);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #eeeeee;
+                    }
+                }
+            }
+            .g-form-footer {
+                background: none;
+                border-bottom: none;
+                padding: 0;
             }
         }
     }
