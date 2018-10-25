@@ -28,6 +28,11 @@
             }
         }
     }
+    &.g-list-wrap_style4 { // padding放大
+        .g-list {
+            padding: px2rem(15) px2rem(10);
+        }
+    }
 }
 
 .g-list {
