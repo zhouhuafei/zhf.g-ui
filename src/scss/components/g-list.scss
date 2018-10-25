@@ -24,7 +24,7 @@
             border-bottom: none;
             padding-bottom: 0;
             &:last-of-type {
-                padding-bottom: px2rem(15);
+                padding-bottom: px2rem(10);
             }
         }
     }
@@ -33,7 +33,7 @@
 .g-list {
     @extend .g-reset_a;
     display: block;
-    padding: px2rem(15) px2rem(10);
+    padding: px2rem(10) px2rem(10);
     margin-bottom: px2rem(10);
     background: #fff;
     overflow: hidden;
