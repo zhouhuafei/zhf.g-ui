@@ -28,24 +28,16 @@
             }
         }
     }
-    &.g-list-wrap_style5 { // padding0 height50
+    &.g-list-wrap_style4 { // padding15
         .g-list {
-            padding: 0 px2rem(10);
-            height: px2rem(50);
-        }
-    }
-    &.g-list-wrap_style6 { // padding0 height40
-        .g-list {
-            padding: 0 px2rem(10);
-            height: px2rem(40);
+            padding: px2rem(15) px2rem(10);
         }
     }
 }
 
 .g-list {
     @extend .g-reset_a;
-    display: flex;
-    align-items: center;
+    display: block;
     padding: px2rem(10) px2rem(10);
     margin-bottom: px2rem(10);
     background: #fff;
