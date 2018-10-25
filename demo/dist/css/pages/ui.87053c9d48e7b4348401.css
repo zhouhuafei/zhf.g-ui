@@ -1121,11 +1121,20 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
     padding-bottom: 0; }
     .g-list-wrap.g-list-wrap_style3 .g-list:last-of-type {
       padding-bottom: 10px; }
-  .g-list-wrap.g-list-wrap_style4 .g-list {
-    padding: 15px 10px; }
+  .g-list-wrap.g-list-wrap_style5 .g-list {
+    padding: 0 10px;
+    height: 50px; }
+  .g-list-wrap.g-list-wrap_style6 .g-list {
+    padding: 0 10px;
+    height: 40px; }
 
 .g-list {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px 10px;
   margin-bottom: 10px;
   background: #fff;
@@ -2577,4 +2586,4 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
     margin-bottom: 10px; }
 
 
-/*# sourceMappingURL=ui.e7e87703db473e6f4b2e.css.map*/
+/*# sourceMappingURL=ui.87053c9d48e7b4348401.css.map*/

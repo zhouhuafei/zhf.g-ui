@@ -28,16 +28,24 @@
             }
         }
     }
-    &.g-list-wrap_style4 { // padding放大
+    &.g-list-wrap_style5 { // padding0 height50
         .g-list {
-            padding: px2rem(15) px2rem(10);
+            padding: 0 px2rem(10);
+            height: px2rem(50);
+        }
+    }
+    &.g-list-wrap_style6 { // padding0 height40
+        .g-list {
+            padding: 0 px2rem(10);
+            height: px2rem(40);
         }
     }
 }
 
 .g-list {
     @extend .g-reset_a;
-    display: block;
+    display: flex;
+    align-items: center;
     padding: px2rem(10) px2rem(10);
     margin-bottom: px2rem(10);
     background: #fff;
