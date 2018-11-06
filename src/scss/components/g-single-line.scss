@@ -1,0 +1,17 @@
+@import "../scss/config";
+
+.g-single-line {
+    margin-top: px2rem(10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    height: px2rem(40);
+    padding: 0 px2rem(10);
+    &.g-single-line_left { // 居左
+        justify-content: flex-start;
+        .g-single-line-key {
+            margin-right: px2rem(5);
+        }
+    }
+}
