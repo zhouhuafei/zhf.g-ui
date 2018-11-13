@@ -4,10 +4,11 @@
     "description": "这个ui有点丑：自己捏的ui，再丑也要哭着用完。",
     "main": "./src/js/commons_dom/g-common.js",
     "scripts": {
-        "demoDev": "webpack --colors --profile --progress --display-modules --mode=development",
-        "demoBuild": "webpack --colors --profile --progress --display-modules --mode=production",
-        "demoDevHot": "webpack-dev-server --inline --mode=development --config webpack.config.js",
-        "demoBuildHot": "webpack-dev-server --inline --mode=production --config webpack.config.js"
+        "demoDev": "webpack --colors --profile --progress --display-modules --mode=development --config webpack.config.demo.js",
+        "demoBuild": "webpack --colors --profile --progress --display-modules --mode=production --config webpack.config.demo.js",
+        "demoDevHot": "webpack-dev-server --inline --mode=development --config webpack.config.demo.js",
+        "demoBuildHot": "webpack-dev-server --inline --mode=production --config webpack.config.demo.js",
+        "build": "webpack --colors --profile --progress --display-modules --mode=production --config webpack.config.dist.js"
     },
     "repository": {
         "type": "git",
@@ -41,7 +42,7 @@
         "imagemin-webpack-plugin": "^2.2.0",
         "jest": "^22.1.1",
         "mini-css-extract-plugin": "^0.4.2",
-        "node-sass": "^4.9.3",
+        "node-sass": "^4.10.0",
         "postcss-loader": "^3.0.0",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.0",
