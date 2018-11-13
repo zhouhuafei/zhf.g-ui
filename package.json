@@ -1,6 +1,6 @@
 {
     "name": "zhf.g-ui",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "这个ui有点丑：自己捏的ui，再丑也要哭着用完。",
     "main": "./src/js/commons_dom/g-common.js",
     "scripts": {
