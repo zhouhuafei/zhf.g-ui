@@ -16,12 +16,12 @@ module.exports = function (env, argv) {
     }
     return {
         entry: {
-            'index': './src/js/components_dom/g-confirm/index.js',
+            'g-confirm': './src/js/components_dom/g-confirm/index.js',
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'js/[name].js',
-            library: 'VueDraggableResizable',
+            library: 'g-confirm',
             libraryTarget: 'umd',
         },
         devtool: false,
