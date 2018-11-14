@@ -1,0 +1,19 @@
+@import "../config/g-config";
+
+// 遮罩
+.g-mask {
+    @extend .g-reset_font;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    &.g-mask_transparent {
+        background-color: transparent;
+    }
+    &.g-mask-fixed {
+        position: fixed;
+    }
+}

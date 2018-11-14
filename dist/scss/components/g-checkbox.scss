@@ -1,0 +1,75 @@
+@import "../config/g-config";
+
+@function px2rem($px) {
+    @return $px * 1px;
+}
+
+// 多选框
+.g-checkbox {
+    @extend .g-reset_font;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    &.g-checkbox_small {
+        .g-checkbox-body {
+            $height: 16;
+            width: px2rem($height);
+            height: px2rem($height);
+            .g-checkbox-body-mark {
+                font-size: px2rem(12);
+            }
+        }
+    }
+    .g-checkbox-body {
+        $height: 20;
+        width: px2rem($height);
+        height: px2rem($height);
+        border-radius: px2rem(4);
+        background: #ffffff;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .g-checkbox-body-main {
+            margin: 0;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            outline: none;
+            width: inherit;
+            height: inherit;
+            background: inherit;
+            border-radius: inherit;
+            border: px2rem(1) solid $g-border-color_default;
+            transition: 0.2s;
+            &:checked {
+                border-color: $g-color_highlight;
+                & + .g-checkbox-body-mark {
+                    transform: scale(1);
+                }
+            }
+            &:disabled {
+                background: $g-background-color_disabled;
+                border-color: $g-border-color_disabled;
+                cursor: not-allowed;
+            }
+        }
+        .g-checkbox-body-mark {
+            transition: 0.2s;
+            transform: scale(0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: inherit;
+            height: inherit;
+            color: $g-color_highlight;
+            font-size: px2rem(16);
+        }
+    }
+    .g-checkbox-text {
+        line-height: 1;
+        margin-left: px2rem(4);
+    }
+}

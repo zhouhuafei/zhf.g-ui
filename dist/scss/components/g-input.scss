@@ -1,0 +1,26 @@
+@import "../config/g-config";
+
+// 输入框
+input.g-input {
+    @extend .g-reset_font;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    border-radius: inherit;
+    box-sizing: border-box;
+    flex: 1;
+    width: 100%;
+    height: px2rem(40);
+    padding: 0 px2rem(10);
+    background: #ffffff;
+    border: px2rem(1) solid $g-border-color_default;
+    min-width: px2rem(50);
+    // 小的输入框
+    &.g-input_small {
+        height: px2rem(30);
+    }
+}

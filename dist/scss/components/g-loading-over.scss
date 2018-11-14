@@ -1,0 +1,19 @@
+@import "../config/g-config";
+
+// 数据加载完毕
+.g-loading-over {
+    @extend .g-reset_font;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $g-font-color_auxiliary;
+}
+
+.g-loading-over-icon {
+    font-size: px2rem(24);
+}
+
+.g-loading-over-text {
+    font-size: px2rem(12);
+    margin-left: px2rem(6);
+}

@@ -1,0 +1,41 @@
+@import "../config/g-config";
+
+// 表格
+.g-table {
+    @extend .g-reset_font;
+    color: $g-font-color_default;
+    text-align: center;
+    background: #fff;
+    .g-table-row {
+        display: flex;
+        min-height: px2rem(44);
+        border-bottom: px2rem(1) solid $g-border-color_default;
+        &:nth-of-type(2n) {
+            background: rgba(0, 0, 255, 0.04);
+        }
+        &:hover {
+            background: rgba(0, 0, 255, 0.02);
+        }
+        .g-table-col {
+            position: relative;
+            flex: 1;
+            /* 加这一层是为了防止g-table-col的宽度被撑大 */
+            .g-table-col-body {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                word-break: break-all;
+                padding: px2rem(4);
+                box-sizing: border-box;
+                text-align: justify;
+            }
+        }
+    }
+    .g-table-header {
+        background: $g-color_highlight;
+        color: #ffffff;
+        border-top: px2rem(1) solid $g-border-color_default;
+    }
+}

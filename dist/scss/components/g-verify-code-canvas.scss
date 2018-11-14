@@ -1,0 +1,13 @@
+@import "../config/g-config";
+
+// 验证码
+.g-verify-code-canvas {
+    @extend .g-reset_font;
+    width: px2rem(160);
+    height: px2rem(40);
+    cursor: pointer;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,18 @@
+@import "../config/g-config";
+
+// 数据加载中(初次应用是在列表页的底部上拉加载更多功能中)
+.g-loading-dialog {
+    @extend .g-reset_font;
+    font-size: px2rem(30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: $g-font-color_default;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.g-loading-dialog-icon {
+    animation: g-animation_run 1s linear infinite;
+}

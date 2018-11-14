@@ -1,0 +1,74 @@
+@import "../config/g-config";
+
+// 底部导航
+.g-footer-nav {
+    @extend .g-reset_font;
+    $height: 50;
+    width: inherit;
+    height: px2rem($height);
+    .g-footer-nav-body {
+        width: inherit;
+        height: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 3;
+        bottom: 0;
+        box-sizing: border-box;
+        border-top: px2rem(1) solid $g-border-color_default;
+        background: #fff;
+        .g-footer-nav-body-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            height: 100%;
+            color: $g-font-color_default;
+            .g-footer-nav-body-item-icon {
+                $size: 20;
+                width: px2rem($size);
+                height: px2rem($size);
+                font-size: px2rem($size);
+            }
+            .g-footer-nav-body-item-text {
+                line-height: 1;
+                font-size: px2rem(12);
+                margin-top: px2rem(4);
+            }
+            .g-footer-nav-body-item-mark {
+                $width-height: 8;
+                width: px2rem($width-height);
+                height: px2rem($width-height);
+                border-radius: 50%;
+                background: $g-color_highlight;
+                position: absolute;
+                right: 50%;
+                margin-right: px2rem(-17);
+                top: px2rem(4);
+            }
+            .g-footer-nav-body-item-badge {
+                $width-height: 20;
+                width: px2rem($width-height);
+                height: px2rem($width-height);
+                border-radius: 50%;
+                background: $g-color_highlight;
+                position: absolute;
+                right: 50%;
+                margin-right: px2rem(-25);
+                top: px2rem(2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #ffffff;
+            }
+            &.g-footer-nav-body-item_active {
+                .g-footer-nav-body-item-icon, .g-footer-nav-body-item-text {
+                    color: $g-color_highlight;
+                }
+            }
+        }
+    }
+}

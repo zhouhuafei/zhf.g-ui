@@ -1,0 +1,53 @@
+@import "../base/g-base";
+// 组件样式
+@import "../components/g-input";
+@import "../components/g-select";
+@import "../components/g-textarea";
+@import "../components/g-radio";
+@import "../components/g-checkbox";
+@import "../components/g-validate";
+@import "../components/g-radio-switch";
+@import "../components/g-upload";
+@import "../components/g-button";
+@import "../components/g-table";
+@import "../components/g-list";
+@import "../components/g-loading";
+@import "../components/g-loading-over";
+@import "../components/g-loading-dialog";
+@import "../components/g-mask";
+@import "../components/g-message";
+@import "../components/g-confirm";
+@import "../components/g-tooltip";
+@import "../components/g-popover";
+@import "../components/g-jump-link";
+@import "../components/g-navigation";
+@import "../components/g-pagination";
+@import "../components/g-slide";
+@import "../components/g-star";
+@import "../components/g-go-top";
+@import "../components/g-no-data";
+@import "../components/g-copyright";
+@import "../components/g-lazy-load";
+@import "../components/g-footer-nav";
+@import "../components/g-quick-enter";
+@import "../components/g-audio";
+@import "../components/g-form";
+@import "../components/g-verify-code-canvas";
+@import "../components/g-verify-code-random";
+@import "../components/g-jump-guide";
+@import "../components/g-row";
+@import "../components/g-title";
+@import "../components/g-sort-tab";
+@import "../components/g-progress-bar";
+@import "../components/g-single-line";
+
+.g-panel {
+    @extend .g-reset_font;
+    background: #ffffff;
+    padding: px2rem(10);
+    .g-panel-title {
+        font-weight: bold;
+        color: $g-color_warning;
+        margin-bottom: px2rem(10);
+    }
+}

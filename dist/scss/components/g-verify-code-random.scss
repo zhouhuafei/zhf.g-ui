@@ -1,0 +1,19 @@
+@import "../config/g-config";
+
+// 验证码
+.g-verify-code-random {
+    @extend .g-reset_font;
+    width: px2rem(160);
+    height: px2rem(40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $g-color_warning;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    &.g-verify-code-random_inactive {
+        background: $g-border-color_default;
+        color: $g-font-color_default;
+    }
+}

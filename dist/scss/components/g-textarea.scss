@@ -1,0 +1,23 @@
+@import "../config/g-config";
+
+// 文本框
+textarea.g-textarea {
+    @extend .g-reset_font;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    border-radius: inherit;
+    box-sizing: border-box;
+    text-align: justify;
+    flex: 1;
+    width: 100%;
+    height: px2rem(60);
+    background: #ffffff;
+    padding: px2rem(10);
+    border: px2rem(1) solid $g-border-color_default;
+}

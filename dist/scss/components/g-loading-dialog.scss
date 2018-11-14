@@ -1,0 +1,24 @@
+@import "../config/g-config";
+
+// 中间弹层之加载中
+.g-loading {
+    @extend .g-reset_font;
+    width: px2rem(80);
+    height: px2rem(80);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: px2rem(10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 600;
+}
+
+.g-loading-icon {
+    font-size: px2rem(36);
+    color: #ffffff;
+    animation: g-animation_run 1s linear infinite;
+}

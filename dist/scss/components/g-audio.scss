@@ -1,0 +1,34 @@
+@import "../config/g-config";
+
+// 音频
+.g-audio {
+    @extend .g-reset_font;
+    position: relative;
+    .g-audio-icon {
+        position: absolute;
+        top: px2rem(40);
+        left: px2rem(20);
+        width: px2rem(20);
+        height: px2rem(20);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .g-audio-icon-item {
+            &.g-audio-icon-item_on {
+                display: none;
+            }
+        }
+    }
+    &.g-audio_on {
+        .g-audio-icon {
+            .g-audio-icon-item {
+                &.g-audio-icon-item_on {
+                    display: block;
+                }
+                &.g-audio-icon-item_off {
+                    display: none;
+                }
+            }
+        }
+    }
+}

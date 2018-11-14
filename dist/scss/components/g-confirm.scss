@@ -1,0 +1,95 @@
+@import "../config/g-config";
+
+// 确认框
+.g-confirm-wrap {
+    @extend .g-reset_font;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 598;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: px2rem($g-font-size_default);
+    &.g-confirm-wrap_center {
+        align-items: center;
+    }
+    &.g-confirm-wrap_bottom {
+        align-items: flex-end;
+        .g-confirm {
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+    &.g-confirm-wrap_top {
+        align-items: flex-start;
+        .g-confirm {
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+    .g-confirm {
+        $height: 40;
+        background: #fff;
+        position: relative;
+        z-index: 501;
+        .g-confirm-header {
+            background: $g-color_highlight;
+            color: #ffffff;
+            height: px2rem($height);
+            box-sizing: border-box;
+            padding-left: px2rem(10);
+            padding-right: px2rem($height);
+            display: flex;
+            align-items: center;
+            text-align: justify;
+            overflow: hidden;
+        }
+        .g-confirm-body {
+            .g-confirm-body-system {
+                width: px2rem($g-confirm_width);
+                min-height: px2rem($g-confirm_width / 3.2);
+                padding: px2rem(10);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                .g-confirm-body-system-icon {
+                    margin-right: px2rem(6);
+                    font-size: px2rem(24);
+                    color: $g-color_warning;
+                }
+                .g-confirm-body-system-text {
+                    line-height: 1.2;
+                }
+            }
+            .g-confirm-body-custom {
+            }
+        }
+        .g-confirm-footer {
+            display: flex;
+            .g-confirm-footer-cancel, .g-confirm-footer-confirm {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: px2rem($height);
+                width: auto;
+                border-radius: 0;
+            }
+        }
+        .g-confirm-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: px2rem($height);
+            height: px2rem($height);
+            font-size: px2rem(14);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

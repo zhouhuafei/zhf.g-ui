@@ -1,0 +1,21 @@
+@import "../config/g-config";
+
+// 登录,注册,改密的跳转引导
+.g-jump-guide {
+    @extend .g-reset_font;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: px2rem(30);
+    padding: 0 px2rem(10);
+    font-size: px2rem($g-font-size_default);
+    .g-jump-guide-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .g-jump-guide-item-text {
+        }
+        .g-jump-guide-item-icon {
+        }
+    }
+}

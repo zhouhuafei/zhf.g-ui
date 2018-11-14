@@ -1,0 +1,228 @@
+@import "../config/g-config";
+
+// 表单
+.g-form-wrap {
+    @extend .g-reset_font;
+    &.g-form-wrap_style1 {
+        .g-form {
+            &:first-of-type {
+                border-top: 1px solid $g-border-color_default;
+            }
+            margin-bottom: 0;
+            .g-form-body {
+                border-top: none;
+            }
+        }
+    }
+    &.g-form-wrap_style2 {
+        .g-form {
+            .g-form-body {
+                border: none;
+                .g-form-body-text {
+                    background: none;
+                }
+                .g-form-body-content {
+                    border: 1px solid $g-border-color_default;
+                    border-radius: px2rem(6);
+                    .g-form-body-content-symbol {
+                        width: px2rem(20);
+                        border-radius: px2rem(6) 0 0 px2rem(6);
+                        border-right: 1px solid $g-border-color_default;
+                        margin-right: px2rem(10);
+                        margin-left: px2rem(-10);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #eeeeee;
+                    }
+                }
+            }
+            .g-form-footer {
+                background: none;
+                border-bottom: none;
+                padding-left: px2rem($g-form-body-text_width + 20);
+            }
+        }
+    }
+    &.g-form-wrap_style3 {
+        .g-form {
+            margin-bottom: px2rem(14);
+            .g-form-body {
+                border: none;
+                flex-direction: column;
+                .g-form-body-text {
+                    background: none;
+                    justify-content: flex-start;
+                    padding: 0;
+                    margin-bottom: px2rem(8);
+                }
+                .g-form-body-content {
+                    border: 1px solid $g-border-color_default;
+                    border-radius: px2rem(6);
+                    .g-form-body-content-symbol {
+                        width: px2rem(20);
+                        border-radius: px2rem(6) 0 0 px2rem(6);
+                        border-right: 1px solid $g-border-color_default;
+                        margin-right: px2rem(10);
+                        margin-left: px2rem(-10);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #eeeeee;
+                    }
+                }
+            }
+            .g-form-footer {
+                background: none;
+                border-bottom: none;
+                padding: 0;
+            }
+        }
+    }
+    &.g-form-wrap_style4 {
+        .g-form {
+            margin-bottom: 0;
+            .g-form-body {
+                border: none;
+                .g-form-body-content {
+                    border-left: none !important;
+                }
+            }
+            .g-form-footer {
+                border-bottom: none;
+                padding-left: px2rem($g-form-body-text_width + 30);
+            }
+        }
+    }
+    .g-form {
+        $height: 40;
+        position: relative;
+        margin-bottom: px2rem(10);
+        font-size: px2rem($g-font-size_default);
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        .g-form-body {
+            display: flex;
+            border: 1px solid $g-border-color_default;
+            border-left: none;
+            border-right: none;
+            .g-form-body-text {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 0 px2rem(10);
+                min-width: px2rem($g-form-body-text_width);
+                text-align: right;
+                background: #ffffff;
+                & + .g-form-body-content {
+                    border-left: 1px solid $g-border-color_default;
+                }
+            }
+            .g-form-body-content {
+                display: flex;
+                flex: 1;
+                background: #ffffff;
+                padding: 0 px2rem(10);
+                /* 符号标记，例如人民币符号￥，美元符号$ */
+                .g-form-body-content-symbol {
+                    display: flex;
+                    align-items: center;
+                    width: px2rem(16);
+                }
+                /* 主体 */
+                .g-form-body-content-main {
+                    display: flex;
+                    flex: 1;
+                    flex-wrap: wrap;
+                    /* 展示文本 */
+                    .g-form-body-content-main-info {
+                        padding: px2rem(10) 0;
+                        line-height: 1.4;
+                        text-align: justify;
+                    }
+                    /* 重置g-input */
+                    .g-input {
+                        border: none;
+                        background: transparent;
+                        padding-left: 0;
+                    }
+                    /* 重置g-select */
+                    .g-select {
+                        border: none;
+                        background: transparent;
+                        .g-select-body {
+                            padding-left: 0;
+                        }
+                    }
+                    /* 重置g-textarea */
+                    .g-textarea {
+                        border: none;
+                        background: transparent;
+                        padding-left: 0;
+                    }
+                    /* 重置g-upload */
+                    .g-upload {
+                        margin: px2rem(10) px2rem(10) px2rem(10) 0;
+                    }
+                    /* 重置g-checkbox */
+                    .g-checkbox {
+                        margin: px2rem(10) px2rem(10) px2rem(10) 0;
+                        .g-checkbox-body {
+                            background: transparent;
+                        }
+                    }
+                    /* 重置g-radio */
+                    .g-radio {
+                        margin: px2rem(10) px2rem(10) px2rem(10) 0;
+                        .g-radio-body {
+                            background: transparent;
+                        }
+                    }
+                    /* 多行时重置 */
+                    &.g-form-body-content-main_more-row {
+                        padding-bottom: px2rem(10);
+                        .g-upload, .g-checkbox, .g-radio {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                /* 字数限制 */
+                .g-form-body-content-limit {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding: 0 px2rem(2);
+                }
+                /* 图标展示 */
+                .g-form-body-content-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: px2rem(20);
+                    padding: 0 px2rem(2);
+                }
+                /* 图标提示色 */
+                .g-form-body-content-hint {
+                    color: $g-color_danger;
+                }
+            }
+        }
+        .g-form-footer {
+            padding: 0 px2rem(10);
+            background: #ffffff;
+            border-bottom: 1px solid $g-border-color_default;
+            .g-form-footer-item {
+                &:last-of-type {
+                    padding-bottom: px2rem(10);
+                }
+                padding-top: px2rem(10);
+                line-height: 1.4;
+                text-align: justify;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

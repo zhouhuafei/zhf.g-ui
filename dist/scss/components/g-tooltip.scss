@@ -1,0 +1,48 @@
+@import "../config/g-config";
+
+.g-tooltip {
+    @extend .g-reset_font;
+    $h: 24;
+    $triangleW: 6;
+    $bg: rgba(0, 0, 0, 1);
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    font-size: px2rem($g-font-size_default);
+    &.g-tooltip_top-left {
+        flex-direction: column;
+        align-items: flex-start;
+        .g-tooltip-icon {
+            margin-left: px2rem(10);
+        }
+    }
+    &.g-tooltip_top-center {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &.g-tooltip_top-right {
+        flex-direction: column;
+        align-items: flex-end;
+        .g-tooltip-icon {
+            margin-right: px2rem(10);
+        }
+    }
+    .g-tooltip-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: px2rem($h);
+        padding: 0 px2rem(10);
+        border-radius: px2rem(6);
+        background: $bg;
+        color: rgba(255, 255, 255, 1);
+    }
+    .g-tooltip-icon {
+        width: 0;
+        height: 0;
+        border: px2rem($triangleW) solid transparent;
+        border-top-color: $bg;
+    }
+}

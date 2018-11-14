@@ -1,0 +1,16 @@
+@import "../config/g-config";
+
+// 行和列
+.g-row {
+    @extend .g-reset_font;
+    display: flex;
+    flex-wrap: wrap;
+    .g-col {
+        flex: 1;
+        width: 0;
+        margin-right: px2rem(20);
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}

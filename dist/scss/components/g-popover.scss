@@ -1,0 +1,154 @@
+@import "../config/g-config";
+
+.g-popover {
+    @extend .g-reset_font;
+    $triangleW: 8;
+    $bg: rgba(255, 255, 255, 1);
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    font-size: px2rem($g-font-size_default);
+    /* 水平居上 */
+    &.g-popover_top-left {
+        flex-direction: column;
+        align-items: flex-start;
+        .g-popover-icon {
+            transform: rotate(45deg);
+            margin-bottom: px2rem(6);
+            margin-top: px2rem(-$triangleW/2);
+            margin-left: px2rem(10);
+        }
+    }
+    &.g-popover_top-center {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .g-popover-icon {
+            transform: rotate(45deg);
+            margin-bottom: px2rem(6);
+            margin-top: px2rem(-$triangleW/2);
+        }
+    }
+    &.g-popover_top-right {
+        flex-direction: column;
+        align-items: flex-end;
+        .g-popover-icon {
+            transform: rotate(45deg);
+            margin-bottom: px2rem(6);
+            margin-top: px2rem(-$triangleW/2);
+            margin-right: px2rem(10);
+        }
+    }
+    /* 水平居下 */
+    &.g-popover_bottom-left {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        .g-popover-icon {
+            transform: rotate(-135deg);
+            margin-top: px2rem(6);
+            margin-bottom: px2rem(-$triangleW/2);
+            margin-left: px2rem(10);
+        }
+    }
+    &.g-popover_bottom-center {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        .g-popover-icon {
+            transform: rotate(-135deg);
+            margin-top: px2rem(6);
+            margin-bottom: px2rem(-$triangleW/2);
+        }
+    }
+    &.g-popover_bottom-right {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        .g-popover-icon {
+            transform: rotate(-135deg);
+            margin-top: px2rem(6);
+            margin-bottom: px2rem(-$triangleW/2);
+            margin-right: px2rem(10);
+        }
+    }
+    /* 垂直居左 */
+    &.g-popover_left-top {
+        align-items: flex-start;
+        .g-popover-icon {
+            transform: rotate(-45deg);
+            margin-right: px2rem(6);
+            margin-left: px2rem(-$triangleW/2);
+            margin-top: px2rem(10);
+        }
+    }
+    &.g-popover_left-center {
+        align-items: center;
+        justify-content: center;
+        .g-popover-icon {
+            transform: rotate(-45deg);
+            margin-right: px2rem(6);
+            margin-left: px2rem(-$triangleW/2);
+        }
+    }
+    &.g-popover_left-bottom {
+        align-items: flex-end;
+        .g-popover-icon {
+            transform: rotate(-45deg);
+            margin-right: px2rem(6);
+            margin-left: px2rem(-$triangleW/2);
+            margin-bottom: px2rem(10);
+        }
+    }
+    /* 垂直居右 */
+    &.g-popover_right-top {
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        .g-popover-icon {
+            transform: rotate(-225deg);
+            margin-left: px2rem(6);
+            margin-right: px2rem(-$triangleW/2);
+            margin-top: px2rem(10);
+        }
+    }
+    &.g-popover_right-center {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        .g-popover-icon {
+            transform: rotate(-225deg);
+            margin-left: px2rem(6);
+            margin-right: px2rem(-$triangleW/2);
+        }
+    }
+    &.g-popover_right-bottom {
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        .g-popover-icon {
+            transform: rotate(-225deg);
+            margin-left: px2rem(6);
+            margin-right: px2rem(-$triangleW/2);
+            margin-bottom: px2rem(10);
+        }
+    }
+    /* 主体 */
+    .g-popover-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: px2rem(10);
+        border-radius: px2rem(6);
+        background: $bg;
+        color: rgba(0, 0, 0, 1);
+        border: 1px solid $g-border-color_default;
+    }
+    .g-popover-icon {
+        width: px2rem($triangleW);
+        height: px2rem($triangleW);
+        border: 1px solid $g-border-color_default;
+        border-top: none;
+        border-left: none;
+        background: #fff;
+        position: relative;
+        z-index: 2;
+    }
+}

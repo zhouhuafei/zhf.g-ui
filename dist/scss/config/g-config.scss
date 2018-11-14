@@ -1,0 +1,126 @@
+/*----------【var】----------*/
+// 基础环境
+$g-is_h5: false !default; // 是否是h5(默认不是)
+$g-is_mp: false !default; // 是否是微信小程序(默认不是)
+
+// h5时rem的分割比例
+$g-psd_width: 320 !default; // 设计图的宽度(默认为320宽度的设计图。)
+$g-psd_split: 10 !default; // 设计图的切割份数(将320的设计图切割成10份，1rem可以换算为32px。)
+
+// 基础弹层的宽度
+$g-message_width: 260 !default; // 提示框
+$g-alert_width: 260 !default; // 确认框
+$g-confirm_width: 280 !default; // 对话框
+
+// g-form
+$g-form-body-text_width: 50 !default;
+
+// 遮罩
+$g-mask_z-index: 500 !default; // 层级
+$g-mask_bg: rgba(0, 0, 0, 0.6) !default; // 背景
+
+// 背景
+$g-background-color_floor: #f4f4f4 !default; // 底色
+$g-background-color_default: #bbbbbb !default; // 默认
+$g-background-color_disabled: #e6e6e6 !default; // 禁用
+$g-background-color_block: #ffffff !default; // 内容区块的背景色调
+
+// 字体
+$g-font-family: "Helvetica Neue", "Helvetica" !default; // 字体
+$g-font-size_default: 12 !default; // 默认字体大小12px
+$g-font-color_default: #333333 !default; // 默认
+$g-font-color_disabled: #c1c1c1 !default; // 禁用
+$g-font-color_auxiliary: #aaaaaa !default; // 辅助色
+
+// 边框
+$g-border-color_default: #e1e1e1 !default; // 默认
+$g-border-color_disabled: #e3e3e3 !default; // 禁用
+
+// 语义
+$g-color_brand: #0089ff !default; // 品牌色
+$g-color_highlight: #0089ff !default; // 高亮，有待思考这个颜色是不是应该就是品牌色待续...
+$g-color_success: #67C23A !default; // 成功(嫩绿)
+$g-color_warning: #eb9e05 !default; // 警告(鲜橙)
+$g-color_danger: #fa5555 !default; // 危险(艳红)
+$g-color_ignore: #bfbfbf !default; // 忽视(浅灰)
+$g-color_mask: rgba(0, 0, 0, 0.6) !default; // 遮罩(黑色)
+$g-color_select: #409eff !default; // 自定义单选按钮和自定义多选按钮等被选中的色调(蓝色)
+$g-color_create: #06bf04 !default; // 新建(创建)的颜色
+$g-color_cancel: #888d99 !default; // 取消的颜色，有待思考命名是否合理待续...
+$g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否合理待续...
+
+/*----------【function】----------*/
+// px转rem：如果是pc，则按照1比1进行转换，如果是h5，则将320宽度的设计图分成10份(默认)。
+@function px2rem($px, $psd:$g-psd_width, $split:$g-psd_split) {
+    @if ($px == 0) {
+        @return 0;
+    } @else {
+        @if ($g-is_h5) { // 是否是h5
+            @return $px / $psd * $split * 1rem;
+        }
+        @if ($g-is_mp) { // 是否是微信小程序
+            @return $px * 750 / $psd * 1rpx;
+        }
+        @return $px * 1px; // 默认是pc
+    }
+}
+
+/*----------【mixin】----------*/
+// 清除浮动
+@mixin g-clearfix() {
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+// 垂直水平居中(伪类)
+@mixin g-xy-center_sham() {
+    font-size: 0;
+    text-align: center;
+    & > :nth-child(n) {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &:before {
+        content: '';
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+// 垂直水平居中(flex)
+@mixin g-xy-center_flex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    word-break: break-all;
+}
+
+// 省略号单行
+@mixin g-text-ellipsis_one() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// 省略号多行，$lineHeight需要带单位，$height需要带单位。
+@mixin g-text-ellipsis_more($lineClamp:1, $lineHeight:1, $height:0) {
+    line-height: $lineHeight;
+    @if $height == 0 { // 没传高的话，高度自动计算。
+        height: $lineHeight * $lineClamp;
+    } @else {
+        height: $height;
+    }
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lineClamp;
+}

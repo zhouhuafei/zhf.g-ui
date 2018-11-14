@@ -8,6 +8,7 @@
         "demoBuild": "webpack --colors --profile --progress --display-modules --mode=production --config webpack.config.demo.js",
         "demoDevHot": "webpack-dev-server --inline --mode=development --config webpack.config.demo.js",
         "demoBuildHot": "webpack-dev-server --inline --mode=production --config webpack.config.demo.js",
+        "dev": "webpack --colors --profile --progress --display-modules --mode=development --config webpack.config.dist.js",
         "build": "webpack --colors --profile --progress --display-modules --mode=production --config webpack.config.dist.js"
     },
     "repository": {
@@ -27,6 +28,7 @@
         "babel-loader": "^7.1.5",
         "babel-preset-env": "^1.6.0",
         "clean-webpack-plugin": "^0.1.19",
+        "copy-webpack-plugin": "^4.6.0",
         "css-loader": "^1.0.0",
         "eslint": "^4.11.0",
         "eslint-config-standard": "^10.2.1",

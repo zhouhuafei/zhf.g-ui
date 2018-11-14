@@ -1,0 +1,77 @@
+@import "../config/g-config";
+
+// 默认按钮(确认按钮)
+.g-button {
+    @extend .g-reset_font;
+    font-size: px2rem($g-font-size_default);
+    height: px2rem(40);
+    background: $g-color_highlight;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: px2rem(6);
+    width: px2rem(100);
+    // 默认按钮(确认按钮)空心的
+    &.g-button_hollow {
+        background: transparent;
+        border: 1px solid $g-color_highlight;
+        color: $g-color_highlight;
+    }
+    // 取消按钮
+    &.g-button_cancel {
+        background: $g-background-color_default;
+        // 取消按钮空心的
+        &.g-button_hollow {
+            background: transparent;
+            border: 1px solid $g-border-color_default;
+            color: $g-font-color_default;
+        }
+
+    }
+    // 新建按钮
+    &.g-button_create {
+        background: $g-color_create;
+        color: #ffffff;
+        // 新建按钮空心的
+        &.g-button_hollow {
+            background: transparent;
+            border: 1px solid $g-color_create;
+            color: $g-color_create;
+        }
+    }
+    // 禁用按钮
+    &.g-button_disabled {
+        background: $g-background-color_disabled;
+        color: $g-font-color_disabled;
+        cursor: not-allowed;
+        // 禁用按钮空心的
+        &.g-button_hollow {
+            background: transparent;
+            border: 1px solid $g-border-color_disabled;
+            color: $g-font-color_disabled;
+        }
+    }
+    // 默认按钮小按钮
+    &.g-button_small {
+        height: px2rem(30);
+    }
+    .g-button-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: px2rem(12);
+        margin: 0 px2rem(2);
+    }
+    .g-button-text {
+        margin: 0 px2rem(2);
+    }
+}
+
+input[type=submit].g-button, input[type=reset].g-button, input[type=button].g-button, button.g-button {
+    @extend .g-button;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    line-height: inherit;
+}

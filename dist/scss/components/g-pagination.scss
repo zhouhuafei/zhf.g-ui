@@ -1,0 +1,38 @@
+@import "../config/g-config";
+
+.g-pagination {
+    @extend .g-reset_font;
+    $height: 24;
+    height: px2rem($height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-size: px2rem(12);
+    .g-pagination-now-page {
+        height: inherit;
+        .g-select {
+            height: inherit;
+            min-width: px2rem($height * 3);
+        }
+    }
+    .g-pagination-btn {
+        @extend .g-reset_a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+        padding: 0 px2rem(5);
+        &.g-pagination-btn-inactive {
+            color: $g-font-color_disabled;
+            opacity: 0.6;
+        }
+    }
+    .g-pagination-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+        padding: 0 px2rem(5);
+    }
+}

@@ -1,0 +1,20 @@
+@import "../config/g-config";
+
+// 快捷入口
+.g-quick-enter {
+    @extend .g-reset_font;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: px2rem(12);
+    overflow: hidden;
+    .g-quick-enter-item {
+        color: $g-color_ignore;
+        padding: px2rem(4) px2rem(6);
+        border: px2rem(1) solid $g-border-color_default;
+        margin: px2rem(2);
+        background: #ffffff;
+        border-radius: px2rem(2000);
+    }
+}
