@@ -21,8 +21,8 @@ module.exports = function (env, argv) {
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'js/[name].js',
-            library: 'g-confirm',
-            libraryTarget: 'umd',
+            library: 'g-confirm', // umd导出时的函数名
+            libraryTarget: 'umd', // umd模块兼容处理
         },
         devtool: false,
         resolve: {
