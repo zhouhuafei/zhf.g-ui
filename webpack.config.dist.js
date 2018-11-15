@@ -17,7 +17,8 @@ module.exports = function (env, argv) {
     const entry = {};
     const files = glob.sync('./src/js/com*/**/*.js');
     files.forEach(function (v) {
-        const key = v.split('/js/')[1].replace('.js', '');
+        // const key = v.split('/js/')[1].replace('/index.js', ''); // 方式1：把components_dom/g-confirm/index.js变成components_dom/g-confirm.js。
+        const key = v.split('/js/')[1].replace('.js', ''); // 方式2：和src目录结构一致。
         entry[key] = v;
     });
     const plugins = [
