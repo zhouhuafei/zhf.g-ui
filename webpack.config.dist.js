@@ -5,6 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // 将单个文件或整个目录复制到构建目录
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空目录
 const RenameOutputPlugin = require('rename-output-webpack-plugin');
+const glob = require('glob');
 
 module.exports = function (env, argv) {
     const isProduction = argv.mode === 'production'; // 是否是生产环境
@@ -18,6 +19,8 @@ module.exports = function (env, argv) {
         'g-confirm': './src/js/components_dom/g-confirm/index.js',
         'g-message': './src/js/components_dom/g-message/index.js',
     };
+    const files = glob.sync('./src/js/**/*.js');
+    console.log('files待续...', files);
     const plugins = [
         // 插件----清空dist目录
         new CleanWebpackPlugin(['dist'], {
