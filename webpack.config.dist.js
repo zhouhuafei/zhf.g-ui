@@ -14,11 +14,37 @@ module.exports = function (env, argv) {
     if (isProduction) {
         minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: false})); // 插件----压缩js
     }
+    const entry = {
+        'g-confirm': './src/js/components_dom/g-confirm/index.js',
+        'g-message': './src/js/components_dom/g-message/index.js',
+    };
+    const plugins = [
+        // 插件----清空dist目录
+        new CleanWebpackPlugin(['dist'], {
+            root: __dirname,
+            verbose: true,
+            dry: false,
+        }),
+        // 插件----vue-loader
+        new VueLoaderPlugin(),
+        // 插件----js转模块
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: argv.mode,
+            },
+        }),
+        // 插件----将单个文件或整个目录复制到构建目录
+        new CopyWebpackPlugin([{from: 'src/scss', to: 'scss'}]),
+    ];
+    Object.keys(entry).forEach(function (key) {
+        const v = entry[key];
+        // 插件----重命名输出的文件
+        plugins.push(new RenameOutputPlugin({
+            key: v.split('/js/')[1].replace('js/'),
+        }));
+    });
     return {
-        entry: {
-            'g-confirm': './src/js/components_dom/g-confirm/index.js',
-            'g-message': './src/js/components_dom/g-message/index.js',
-        },
+        entry: entry,
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'js/components_dom/[name].js',
@@ -50,30 +76,6 @@ module.exports = function (env, argv) {
         optimization: {
             minimizer: minimizer,
         },
-        plugins: [
-            // 插件----清空dist目录
-            new CleanWebpackPlugin(['dist'], {
-                root: __dirname,
-                verbose: true,
-                dry: false,
-            }),
-            // 插件----vue-loader
-            new VueLoaderPlugin(),
-            // 插件----js转模块
-            new webpack.DefinePlugin({
-                'process.env': {
-                    NODE_ENV: argv.mode,
-                },
-            }),
-            // 插件----将单个文件或整个目录复制到构建目录
-            new CopyWebpackPlugin([{from: 'src/scss', to: 'scss'}]),
-            // 插件----重命名输出的文件
-            new RenameOutputPlugin({
-                'g-message': 'js/g-message2.js',
-            }),
-            new RenameOutputPlugin({
-                'g-confirm': 'js/g-confirm2.js',
-            }),
-        ],
+        plugins: plugins,
     };
 };
