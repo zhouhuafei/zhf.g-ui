@@ -1,4 +1,5 @@
 /* webpack4 */
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // html生成的插件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // scss文件转css文件需要这个(提取出css文件)
 const ImageminPlugin = require('imagemin-webpack-plugin').default; // 压缩图片
@@ -8,7 +9,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = function (env, argv) {
     const isProduction = argv.mode === 'production'; // 是否是生产环境
-    console.log('argv.mode', argv.mode);
     // 环境----开发环境
     let configEnvironment = {
         hash: '[hash:8].', // 图片和字体用到了这个hash
@@ -42,13 +42,24 @@ module.exports = function (env, argv) {
     const minimizer = [];
     // 插件----配置
     const plugins = [
-        // 插件----vue-loader
-        new VueLoaderPlugin(),
         // 插件----清空demo/dist目录下对应的项目文件
         new CleanWebpackPlugin(['dist'], {
             root: `${__dirname}/demo/`,
             verbose: true,
             dry: false,
+        }),
+        // 插件----vue-loader
+        new VueLoaderPlugin(),
+        // 插件----编译时期可以创建全局变量
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: argv.mode,
+            },
+        }),
+        // 插件----提取css样式到文件
+        new MiniCssExtractPlugin({
+            filename: `css/pages/[name].${configEnvironment.contenthash}css`,
+            chunkFilename: `css/chunks/[name].${configEnvironment.contenthash}css`,
         }),
         // 插件----处理页面视图模板页面文件
         new HtmlWebpackPlugin({ // ui样式页，此处应该循环处理
@@ -57,11 +68,6 @@ module.exports = function (env, argv) {
             // 需要引入的chunk,不配置就会引入所有被CommonsChunkPlugin提取出的公共js和所有入口js,模板视图文件里js的引入顺序和chunks里的排序无关,和CommonsChunkPlugin里的顺序有关(倒叙)。webpack4中和priority属性值有关(等级高的优先引入)。
             chunks: ['ui', 'this-is-global-file-common', 'this-is-global-file-vendor'],
             minify: configEnvironment.minView, // 压缩视图模板文件
-        }),
-        // 插件----提取css样式到文件
-        new MiniCssExtractPlugin({
-            filename: `css/pages/[name].${configEnvironment.contenthash}css`,
-            chunkFilename: `css/chunks/[name].${configEnvironment.contenthash}css`,
         }),
     ];
     // 环境----生产环境
@@ -89,6 +95,7 @@ module.exports = function (env, argv) {
             // jquery: 'window.jQuery',
             // laydate: 'window.laydate',
             // swiper: 'window.Swiper',
+            // Vue: 'window.Vue',
         },
         // 入口----配置
         entry: {
