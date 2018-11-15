@@ -84,8 +84,7 @@ module.exports = function (env, argv) {
             modules: [`${__dirname}/node_modules/`],
             // 别名----引入开发版本还是生产版本
             alias: {
-                // vue: `vue/dist/vue.${configEnvironment.min}js`,
-                // axios: `axios/dist/axios.min.js`,
+                '@': `${__dirname}/src`,
             },
             // 后缀----如果不加后缀，则默认按以下后缀查找文件。
             extensions: ['.js', '.vue', '.scss', '.css', '.json'],
@@ -95,7 +94,7 @@ module.exports = function (env, argv) {
             // jquery: 'window.jQuery',
             // laydate: 'window.laydate',
             // swiper: 'window.Swiper',
-            // Vue: 'window.Vue',
+            // vue: 'window.Vue',
         },
         // 入口----配置
         entry: {

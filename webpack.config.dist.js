@@ -1,4 +1,4 @@
-const path = require('path');
+/* webpack4 */
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
@@ -46,14 +46,22 @@ module.exports = function (env, argv) {
     return {
         entry: entry,
         output: {
-            path: path.resolve(__dirname, 'dist'),
+            path: `${__dirname}/dist`,
             filename: 'js/components_dom/[name].js',
             library: '[name]', // umd导出时的函数名
             libraryTarget: 'umd', // umd模块兼容处理
         },
         devtool: false,
+        // resolve----配置用来影响webpack模块解析规则
         resolve: {
-            extensions: ['.js', '.vue'],
+            // 加速----默认的配置会采用向上递归搜索的方式去寻找node_modules,为了减少搜索我们直接写明node_modules的全路径
+            modules: [`${__dirname}/node_modules/`],
+            // 别名----引入开发版本还是生产版本
+            alias: {
+                '@': `${__dirname}/src`,
+            },
+            // 后缀----如果不加后缀，则默认按以下后缀查找文件。
+            extensions: ['.js', '.vue', '.scss', '.css', '.json'],
         },
         module: {
             rules: [
@@ -70,7 +78,10 @@ module.exports = function (env, argv) {
             ],
         },
         externals: {
-            vue: 'vue',
+            // jquery: 'window.jQuery',
+            // laydate: 'window.laydate',
+            // swiper: 'window.Swiper',
+            // vue: 'window.Vue',
         },
         // 优化----配置
         optimization: {
