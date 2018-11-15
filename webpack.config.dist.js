@@ -7,7 +7,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空目录
 
 module.exports = function (env, argv) {
     const isProduction = argv.mode === 'production'; // 是否是生产环境
-    console.log('argv.mode', argv.mode);
     // 压缩----配置
     const minimizer = [];
     // 环境----生产环境
@@ -61,7 +60,7 @@ module.exports = function (env, argv) {
             // 插件----js转模块
             new webpack.DefinePlugin({
                 'process.env': {
-                    NODE_ENV: '"production"',
+                    NODE_ENV: argv.mode,
                 },
             }),
             //  插件----将单个文件或整个目录复制到构建目录
