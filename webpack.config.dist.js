@@ -16,8 +16,8 @@ module.exports = function (env, argv) {
         minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: false})); // 插件----压缩js
     }
     const entry = {
-        'g-confirm': './src/js/components_dom/g-confirm/index.js',
-        'g-message': './src/js/components_dom/g-message/index.js',
+        'g-confirm/index': './src/js/components_dom/g-confirm/index.js',
+        'g-message/index': './src/js/components_dom/g-message/index.js',
     };
     const files = glob.sync('./src/js/**/*.js');
     console.log('files待续...', files);

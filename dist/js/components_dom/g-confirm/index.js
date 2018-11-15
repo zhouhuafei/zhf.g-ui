@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["g-message"] = factory();
+		exports["g-confirm/index"] = factory();
 	else
-		root["g-message"] = factory();
+		root["g-confirm/index"] = factory();
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-message/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-confirm/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,9 +156,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="f
 
 /***/ }),
 
-/***/ "./src/js/components_dom/g-message/index.js":
+/***/ "./src/js/components_dom/g-confirm/index.js":
 /*!**************************************************!*\
-  !*** ./src/js/components_dom/g-message/index.js ***!
+  !*** ./src/js/components_dom/g-confirm/index.js ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -187,17 +187,32 @@ var Sub = function (_Super) {
         return _possibleConstructorReturn(this, (Sub.__proto__ || Object.getPrototypeOf(Sub)).call(this, extend({
             // 回调
             callback: {
+                // 确认
+                confirm: function confirm() {},
+                // 取消
+                cancel: function cancel() {},
                 // 关闭
                 close: function close() {}
             },
             // 配置
             config: {
-                time: 3000, // 展示的时间
-                isShowIcon: false, // 是否显示icon
+                positionLocation: 'center', // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
                 isShowClose: true, // 是否显示关闭按钮
-                icon: 'g-icon-success', // icon的class
-                content: '成功', // 内容信息
-                positionLocation: 'center' // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
+                closeContent: '<div class="g-iconfont g-icon-close"></div>', // 关闭按钮的内容
+                isShowHeader: true, // 是否显示头部
+                headerContent: '提示:', // 头部内容
+                isShowBody: true, // 是否显示主体
+                isShowIcon: false, // 是否显示icon
+                icon: 'g-icon-warning', // icon的类型
+                isCustom: false, // 是否自定义
+                content: '<div>确定要执行这个操作?</div>', // 主体内容
+                isShowFooter: true, // 是否显示尾部
+                isShowConfirm: true, // 是否显示确认按钮
+                confirmContent: '确认', // 确认按钮的内容
+                isShowCancel: true, // 是否显示取消按钮
+                cancelContent: '取消', // 取消按钮的内容
+                isShowMask: true, // 是否显示遮罩
+                isHandHide: false // 是否手动隐藏(一般只用于点击确认时)
             }
         }, opts)));
     }
@@ -210,31 +225,61 @@ var Sub = function (_Super) {
 
 Sub.prototype.moduleDomCreate = function () {
     var config = this.opts.config;
-    var positionLocation = 'g-message_' + config.positionLocation; // 弹窗的定位位置
+    var positionLocation = 'g-confirm-wrap_' + config.positionLocation; // 弹窗的定位位置
     // 弹窗结构
-    var html = this.renderAlert();
+    var html = this.renderConfirm();
     this.moduleDom = createElement({
         style: config.moduleDomStyle,
         customAttribute: config.moduleDomCustomAttribute,
         attribute: {
-            className: 'g-message ' + positionLocation,
+            className: 'g-confirm-wrap ' + positionLocation,
             innerHTML: html
         }
     });
 };
 
-// 提示框
-Sub.prototype.renderAlert = function () {
+// 确认框
+Sub.prototype.renderConfirm = function () {
     var config = this.opts.config;
-    var htmlIcon = '';
-    if (config.isShowIcon) {
-        htmlIcon = '<div class="g-message-icon g-iconfont ' + config.icon + '"></div>';
+    var htmlHeader = '';
+    if (config.isShowHeader) {
+        htmlHeader = '<div class="g-confirm-header">' + config.headerContent + '</div>';
     }
-    var closeHtml = '';
+    var htmlBody = '';
+    if (config.isShowBody) {
+        var htmlIcon = '';
+        if (config.isShowIcon) {
+            htmlIcon = '<div class="g-confirm-body-system-icon g-iconfont ' + config.icon + '"></div>';
+        }
+        var bodyClass = 'g-confirm-body-system';
+        var bodyContent = '\n            ' + htmlIcon + '\n            <div class="g-confirm-body-system-text">' + config.content + '</div>\n        ';
+        if (config.isCustom) {
+            bodyClass = 'g-confirm-body-custom';
+            bodyContent = config.content;
+        }
+        htmlBody = '\n            <div class="g-confirm-body">\n                <div class="' + bodyClass + '">\n                    ' + bodyContent + '\n                </div>\n            </div>\n        ';
+    }
+    var htmlFooter = '';
+    if (config.isShowFooter) {
+        var htmlCancel = '';
+        if (config.isShowCancel) {
+            htmlCancel = '<div class="g-button g-button_cancel g-confirm-footer-cancel">' + config.cancelContent + '</div>';
+        }
+        var htmlConfirm = '';
+        if (config.isShowConfirm) {
+            htmlConfirm = '<div class="g-button g-confirm-footer-confirm">' + config.confirmContent + '</div>';
+        }
+        htmlFooter = '<div class="g-confirm-footer">' + htmlCancel + htmlConfirm + '</div>';
+    }
+    var htmlClose = '';
     if (config.isShowClose) {
-        closeHtml = '<div class="g-message-close g-iconfont g-icon-close" ></div>';
+        htmlClose = '<div class="g-confirm-close">' + config.closeContent + '</div>';
     }
-    return '\n        ' + closeHtml + '\n        ' + htmlIcon + '\n        <div class="g-message-text">' + config.content + '</div>\n    ';
+    var htmlMask = '';
+    if (config.isShowMask) {
+        htmlMask = '<div class="g-mask"></div>';
+    }
+    return '\n        ' + htmlMask + '\n        <div class="g-confirm">\n            ' + htmlHeader + '\n            ' + htmlBody + '\n            ' + htmlFooter + '\n            ' + htmlClose + ' \n        </div>\n    ';
 };
 
 // (功)(覆)功能(覆盖超类型)
@@ -242,17 +287,32 @@ Sub.prototype.power = function () {
     var self = this;
     var config = this.opts.config;
     var callback = this.opts.callback;
-    var close = this.moduleDom.querySelector('.g-message-close');
-    var timer = null;
-    timer = setTimeout(function () {
-        self.moduleDomHide();
-        callback.close();
-    }, config.time);
-    close.addEventListener('click', function () {
-        clearTimeout(timer);
-        self.moduleDomHide();
-        callback.close();
-    });
+    // 关闭
+    var close = this.moduleDom.querySelector('.g-confirm-close');
+    if (close) {
+        close.addEventListener('click', function () {
+            self.moduleDomHide();
+            callback.close();
+        });
+    }
+    // 取消
+    var cancel = this.moduleDom.querySelector('.g-confirm-footer-cancel');
+    if (cancel) {
+        cancel.addEventListener('click', function () {
+            self.moduleDomHide();
+            callback.cancel();
+        });
+    }
+    // 确认
+    var confirm = this.moduleDom.querySelector('.g-confirm-footer-confirm');
+    if (confirm) {
+        confirm.addEventListener('click', function () {
+            if (!config.isHandHide) {
+                self.moduleDomHide();
+            }
+            callback.confirm();
+        });
+    }
 };
 
 module.exports = Sub;
