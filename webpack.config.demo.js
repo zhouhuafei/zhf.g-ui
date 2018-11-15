@@ -72,8 +72,10 @@ module.exports = function (env, argv) {
     ];
     // 环境----生产环境
     if (isProduction) {
-        minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: true})); // 插件----压缩js
-        plugins.push(new ImageminPlugin({disable: false, pngquant: {quality: '95-100'}})); // 插件----压缩图片
+        // 插件----压缩js
+        minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: true}));
+        // 插件----压缩图片
+        plugins.push(new ImageminPlugin({disable: false, pngquant: {quality: '95-100'}}));
     }
     return {
         // devtool----#source-map
