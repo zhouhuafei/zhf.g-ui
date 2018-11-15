@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["components_dom/g-confirm/index"] = factory();
+		exports["components_dom/g-progress-bar/index"] = factory();
 	else
-		root["components_dom/g-confirm/index"] = factory();
+		root["components_dom/g-progress-bar/index"] = factory();
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-confirm/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-progress-bar/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,15 +156,17 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="f
 
 /***/ }),
 
-/***/ "./src/js/components_dom/g-confirm/index.js":
-/*!**************************************************!*\
-  !*** ./src/js/components_dom/g-confirm/index.js ***!
-  \**************************************************/
+/***/ "./src/js/components_dom/g-progress-bar/index.js":
+/*!*******************************************************!*\
+  !*** ./src/js/components_dom/g-progress-bar/index.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -175,147 +177,162 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var extend = __webpack_require__(/*! zhf.extend */ "./node_modules/zhf.extend/dist/index.min.js"); // 对象的扩展
 var createElement = __webpack_require__(/*! zhf.create-element */ "./node_modules/zhf.create-element/dist/index.min.js"); // 创建元素
 var Super = __webpack_require__(/*! zhf.dom-components-super */ "./node_modules/zhf.dom-components-super/dist/index.min.js"); // 超类型(子类型继承的对象)
+var globalConfig = __webpack_require__(/*! ../../config/g-config */ "./src/js/config/g-config/index.js"); // 全局配置
 
 // 子类型
 
 var Sub = function (_Super) {
     _inherits(Sub, _Super);
 
-    function Sub(opts) {
+    function Sub(json) {
         _classCallCheck(this, Sub);
 
         return _possibleConstructorReturn(this, (Sub.__proto__ || Object.getPrototypeOf(Sub)).call(this, extend({
             // 回调
-            callback: {
-                // 确认
-                confirm: function confirm() {},
-                // 取消
-                cancel: function cancel() {},
-                // 关闭
-                close: function close() {}
-            },
+            callback: {},
             // 配置
-            config: {
-                positionLocation: 'center', // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
-                isShowClose: true, // 是否显示关闭按钮
-                closeContent: '<div class="g-iconfont g-icon-close"></div>', // 关闭按钮的内容
-                isShowHeader: true, // 是否显示头部
-                headerContent: '提示:', // 头部内容
-                isShowBody: true, // 是否显示主体
-                isShowIcon: false, // 是否显示icon
-                icon: 'g-icon-warning', // icon的类型
-                isCustom: false, // 是否自定义
-                content: '<div>确定要执行这个操作?</div>', // 主体内容
-                isShowFooter: true, // 是否显示尾部
-                isShowConfirm: true, // 是否显示确认按钮
-                confirmContent: '确认', // 确认按钮的内容
-                isShowCancel: true, // 是否显示取消按钮
-                cancelContent: '取消', // 取消按钮的内容
-                isShowMask: true, // 是否显示遮罩
-                isHandHide: false // 是否手动隐藏(一般只用于点击确认时)
-            }
-        }, opts)));
+            config: {}
+        }, json)));
     }
+
+    // (建)(覆)内部模块的创建(覆盖超类型)
+
+
+    _createClass(Sub, [{
+        key: 'moduleDomCreate',
+        value: function moduleDomCreate() {
+            var config = this.opts.config;
+            this.moduleDom = createElement({
+                style: config.moduleDomStyle,
+                customAttribute: config.moduleDomCustomAttribute,
+                attribute: {
+                    className: 'g-progress-bar',
+                    innerHTML: '\n                    <canvas class="g-progress-bar-canvas"></canvas>\n                    <div class="g-progress-bar-text">0%</div>    \n                '
+                }
+            });
+        }
+
+        // (功)(覆)功能(覆盖超类型)
+
+    }, {
+        key: 'power',
+        value: function power() {
+            var self = this;
+            self.canvas = self.moduleDom.querySelector('.g-progress-bar-canvas');
+            self.canvasContext = self.canvas.getContext('2d');
+            self.radian = Math.PI / 180; // 弧度
+            self.canvasSetVar(); // 设置变量
+            self.canvasSetScale(0); // 设置比例
+            window.addEventListener('resize', function () {
+                self.canvasSetVar(); // 设置变量
+                self.canvasSetScale(self.canvasScaleNum || 0); // 设置比例
+            });
+        }
+    }, {
+        key: 'canvasSetVar',
+        value: function canvasSetVar() {
+            // 设置变量
+            var moduleDom = this.moduleDom;
+            var canvas = this.canvas;
+            var canvasContext = this.canvasContext;
+            this.canvasW = moduleDom.offsetWidth;
+            this.canvasH = moduleDom.offsetHeight;
+            canvas.width = this.canvasW; // 宽
+            canvas.height = this.canvasH; // 高
+            this.canvasRadius = this.canvasW / 2; // 半径
+            canvasContext.translate(this.canvasRadius, this.canvasRadius); // 平移中心点
+            canvasContext.rotate(-90 * this.radian); // 旋转90弧度
+            this.canvasCenterX = 0; // 中心点x
+            this.canvasCenterY = 0; // 中心点y
+            this.canvasBorderW = globalConfig.px2remCanvas(5); // 边框
+        }
+    }, {
+        key: 'canvasDrawCircle',
+        value: function canvasDrawCircle(strokeStyle, angle) {
+            // 画圆
+            var ctx = this.canvasContext;
+            ctx.strokeStyle = strokeStyle || '#dddddd';
+            var temporaryRadius = this.canvasRadius; // 临时半径
+            for (var i = 0; i < this.canvasBorderW; i++) {
+                ctx.beginPath();
+                ctx.arc(this.canvasCenterX, this.canvasCenterY, temporaryRadius, 0, '' + (!isNaN(angle) ? angle * this.radian : 360 * this.radian), false);
+                ctx.stroke();
+                temporaryRadius--;
+            }
+        }
+
+        // 设置比例
+
+    }, {
+        key: 'canvasSetScale',
+        value: function canvasSetScale() {
+            var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+            this.canvasScaleNum = num;
+            this.canvasContext.clearRect(0, 0, this.canvasW, this.canvasH); // 清理画布
+            this.canvasDrawCircle(); // 画圆
+            this.canvasDrawCircle('#67C23A', num * 3.6); // 画圆
+            this.moduleDom.querySelector('.g-progress-bar-text').innerHTML = num + '%';
+        }
+    }]);
 
     return Sub;
 }(Super);
 
-// (建)(覆)内部模块的创建(覆盖超类型)
+module.exports = Sub;
+
+/***/ }),
+
+/***/ "./src/js/config/g-config/index.js":
+/*!*****************************************!*\
+  !*** ./src/js/config/g-config/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
-Sub.prototype.moduleDomCreate = function () {
-    var config = this.opts.config;
-    var positionLocation = 'g-confirm-wrap_' + config.positionLocation; // 弹窗的定位位置
-    // 弹窗结构
-    var html = this.renderConfirm();
-    this.moduleDom = createElement({
-        style: config.moduleDomStyle,
-        customAttribute: config.moduleDomCustomAttribute,
-        attribute: {
-            className: 'g-confirm-wrap ' + positionLocation,
-            innerHTML: html
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var GlobalConfig = function GlobalConfig() {
+    var _this = this;
+
+    _classCallCheck(this, GlobalConfig);
+
+    this.isH5 = window['g-is_h5'] === true; // 这里需要手动配置(默认false)。是否是手机自适应页面(canvas自适应用到了这个，手机端才有canvas自适应)。
+    this.psdWidth = window['g-psd_width'] || 320; // 这里需要手动配置(默认320)。设计图的宽。(如果是手机自适应站点，这里才会被使用到)。
+    this.psdSplit = window['g-psd_split'] || 10; // 这里需要手动配置(默认10)。页面分割数量。在此处表达的意思是：将最外层容器的宽度分成10份，则一份就是outermostContainerMaxWidth/10像素，把结果设置给html的fontSize属性，则1rem就是outermostContainerMaxWidth/10像素。
+    this.wrapDom = document.querySelector(window['g-wrap'] || 'body'); // 最外层容器的dom节点。默认body。仅支持选择器格式，例如：'.wrap'，'#container'。
+    this.wrapMaxWidth = this.wrapDom.offsetWidth; // 最外层容器的最大宽度。
+    this.resetWrapMaxWidth = function () {
+        this.wrapMaxWidth = this.wrapDom.offsetWidth; // 最外层容器的最大宽度。
+    };
+    this.px2remCanvas = function (px) {
+        // canvas自适应
+        if (this.isH5) {
+            // 如果是h5，canvas才有自适应功能
+            return px * this.wrapMaxWidth / this.psdWidth;
+        } else {
+            return px;
         }
+    };
+    this.px2rem = function (px) {
+        // rem自适应
+        if (this.isH5) {
+            // 如果是h5，才有自适应功能
+            return px / this.psdWidth * this.psdSplit;
+        } else {
+            return px;
+        }
+    };
+    window.addEventListener('resize', function () {
+        // 重置最大宽度
+        _this.resetWrapMaxWidth();
     });
 };
 
-// 确认框
-Sub.prototype.renderConfirm = function () {
-    var config = this.opts.config;
-    var htmlHeader = '';
-    if (config.isShowHeader) {
-        htmlHeader = '<div class="g-confirm-header">' + config.headerContent + '</div>';
-    }
-    var htmlBody = '';
-    if (config.isShowBody) {
-        var htmlIcon = '';
-        if (config.isShowIcon) {
-            htmlIcon = '<div class="g-confirm-body-system-icon g-iconfont ' + config.icon + '"></div>';
-        }
-        var bodyClass = 'g-confirm-body-system';
-        var bodyContent = '\n            ' + htmlIcon + '\n            <div class="g-confirm-body-system-text">' + config.content + '</div>\n        ';
-        if (config.isCustom) {
-            bodyClass = 'g-confirm-body-custom';
-            bodyContent = config.content;
-        }
-        htmlBody = '\n            <div class="g-confirm-body">\n                <div class="' + bodyClass + '">\n                    ' + bodyContent + '\n                </div>\n            </div>\n        ';
-    }
-    var htmlFooter = '';
-    if (config.isShowFooter) {
-        var htmlCancel = '';
-        if (config.isShowCancel) {
-            htmlCancel = '<div class="g-button g-button_cancel g-confirm-footer-cancel">' + config.cancelContent + '</div>';
-        }
-        var htmlConfirm = '';
-        if (config.isShowConfirm) {
-            htmlConfirm = '<div class="g-button g-confirm-footer-confirm">' + config.confirmContent + '</div>';
-        }
-        htmlFooter = '<div class="g-confirm-footer">' + htmlCancel + htmlConfirm + '</div>';
-    }
-    var htmlClose = '';
-    if (config.isShowClose) {
-        htmlClose = '<div class="g-confirm-close">' + config.closeContent + '</div>';
-    }
-    var htmlMask = '';
-    if (config.isShowMask) {
-        htmlMask = '<div class="g-mask"></div>';
-    }
-    return '\n        ' + htmlMask + '\n        <div class="g-confirm">\n            ' + htmlHeader + '\n            ' + htmlBody + '\n            ' + htmlFooter + '\n            ' + htmlClose + ' \n        </div>\n    ';
-};
-
-// (功)(覆)功能(覆盖超类型)
-Sub.prototype.power = function () {
-    var self = this;
-    var config = this.opts.config;
-    var callback = this.opts.callback;
-    // 关闭
-    var close = this.moduleDom.querySelector('.g-confirm-close');
-    if (close) {
-        close.addEventListener('click', function () {
-            self.moduleDomHide();
-            callback.close();
-        });
-    }
-    // 取消
-    var cancel = this.moduleDom.querySelector('.g-confirm-footer-cancel');
-    if (cancel) {
-        cancel.addEventListener('click', function () {
-            self.moduleDomHide();
-            callback.cancel();
-        });
-    }
-    // 确认
-    var confirm = this.moduleDom.querySelector('.g-confirm-footer-confirm');
-    if (confirm) {
-        confirm.addEventListener('click', function () {
-            if (!config.isHandHide) {
-                self.moduleDomHide();
-            }
-            callback.confirm();
-        });
-    }
-};
-
-module.exports = Sub;
+module.exports = new GlobalConfig();
 
 /***/ })
 

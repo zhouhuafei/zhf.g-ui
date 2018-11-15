@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["components_dom/g-confirm/index"] = factory();
+		exports["components_dom/g-go-top/index"] = factory();
 	else
-		root["components_dom/g-confirm/index"] = factory();
+		root["components_dom/g-go-top/index"] = factory();
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-confirm/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-go-top/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,10 +156,26 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="f
 
 /***/ }),
 
-/***/ "./src/js/components_dom/g-confirm/index.js":
-/*!**************************************************!*\
-  !*** ./src/js/components_dom/g-confirm/index.js ***!
-  \**************************************************/
+/***/ "./node_modules/zhf.scroll-move-to/dist/index.min.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/zhf.scroll-move-to/dist/index.min.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(o,e){"object"===( false?undefined:_typeof(exports))&&"undefined"!=typeof module?module.exports=e(): true?!(__WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):(undefined)}(0,function(){return function(){var o=arguments.length>0&&void 0!==arguments[0]?arguments[0]:0,e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0,t=arguments[2],n=arguments.length>3&&void 0!==arguments[3]?arguments[3]:6,i=document.documentElement.scrollLeft||document.body.scrollLeft,l=document.documentElement.scrollTop||document.body.scrollTop,c=0,r=0,f=null,u=o-i>0,d=e-l>0;requestAnimationFrame(function m(){c=Math.ceil(Math.abs((o-i)/n)),r=Math.ceil(Math.abs((e-l)/n)),i+=c=u?c:-c,l+=r=d?r:-r,window.scrollTo(i,l),t&&t(i,l),f=requestAnimationFrame(m),i===Number(o)&&l===Number(e)&&cancelAnimationFrame(f)})}});
+
+/***/ }),
+
+/***/ "./src/js/components_dom/g-go-top/index.js":
+/*!*************************************************!*\
+  !*** ./src/js/components_dom/g-go-top/index.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -175,6 +191,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var extend = __webpack_require__(/*! zhf.extend */ "./node_modules/zhf.extend/dist/index.min.js"); // 对象的扩展
 var createElement = __webpack_require__(/*! zhf.create-element */ "./node_modules/zhf.create-element/dist/index.min.js"); // 创建元素
 var Super = __webpack_require__(/*! zhf.dom-components-super */ "./node_modules/zhf.dom-components-super/dist/index.min.js"); // 超类型(子类型继承的对象)
+var scrollMoveTo = __webpack_require__(/*! zhf.scroll-move-to */ "./node_modules/zhf.scroll-move-to/dist/index.min.js");
 
 // 子类型
 
@@ -186,33 +203,10 @@ var Sub = function (_Super) {
 
         return _possibleConstructorReturn(this, (Sub.__proto__ || Object.getPrototypeOf(Sub)).call(this, extend({
             // 回调
-            callback: {
-                // 确认
-                confirm: function confirm() {},
-                // 取消
-                cancel: function cancel() {},
-                // 关闭
-                close: function close() {}
-            },
+            callback: {},
             // 配置
             config: {
-                positionLocation: 'center', // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
-                isShowClose: true, // 是否显示关闭按钮
-                closeContent: '<div class="g-iconfont g-icon-close"></div>', // 关闭按钮的内容
-                isShowHeader: true, // 是否显示头部
-                headerContent: '提示:', // 头部内容
-                isShowBody: true, // 是否显示主体
-                isShowIcon: false, // 是否显示icon
-                icon: 'g-icon-warning', // icon的类型
-                isCustom: false, // 是否自定义
-                content: '<div>确定要执行这个操作?</div>', // 主体内容
-                isShowFooter: true, // 是否显示尾部
-                isShowConfirm: true, // 是否显示确认按钮
-                confirmContent: '确认', // 确认按钮的内容
-                isShowCancel: true, // 是否显示取消按钮
-                cancelContent: '取消', // 取消按钮的内容
-                isShowMask: true, // 是否显示遮罩
-                isHandHide: false // 是否手动隐藏(一般只用于点击确认时)
+                showHeight: 200
             }
         }, opts)));
     }
@@ -225,94 +219,30 @@ var Sub = function (_Super) {
 
 Sub.prototype.moduleDomCreate = function () {
     var config = this.opts.config;
-    var positionLocation = 'g-confirm-wrap_' + config.positionLocation; // 弹窗的定位位置
-    // 弹窗结构
-    var html = this.renderConfirm();
     this.moduleDom = createElement({
         style: config.moduleDomStyle,
         customAttribute: config.moduleDomCustomAttribute,
         attribute: {
-            className: 'g-confirm-wrap ' + positionLocation,
-            innerHTML: html
+            className: 'g-go-top',
+            innerHTML: '<div class="g-go-top-icon g-iconfont g-icon-up"></div>'
         }
     });
-};
-
-// 确认框
-Sub.prototype.renderConfirm = function () {
-    var config = this.opts.config;
-    var htmlHeader = '';
-    if (config.isShowHeader) {
-        htmlHeader = '<div class="g-confirm-header">' + config.headerContent + '</div>';
-    }
-    var htmlBody = '';
-    if (config.isShowBody) {
-        var htmlIcon = '';
-        if (config.isShowIcon) {
-            htmlIcon = '<div class="g-confirm-body-system-icon g-iconfont ' + config.icon + '"></div>';
-        }
-        var bodyClass = 'g-confirm-body-system';
-        var bodyContent = '\n            ' + htmlIcon + '\n            <div class="g-confirm-body-system-text">' + config.content + '</div>\n        ';
-        if (config.isCustom) {
-            bodyClass = 'g-confirm-body-custom';
-            bodyContent = config.content;
-        }
-        htmlBody = '\n            <div class="g-confirm-body">\n                <div class="' + bodyClass + '">\n                    ' + bodyContent + '\n                </div>\n            </div>\n        ';
-    }
-    var htmlFooter = '';
-    if (config.isShowFooter) {
-        var htmlCancel = '';
-        if (config.isShowCancel) {
-            htmlCancel = '<div class="g-button g-button_cancel g-confirm-footer-cancel">' + config.cancelContent + '</div>';
-        }
-        var htmlConfirm = '';
-        if (config.isShowConfirm) {
-            htmlConfirm = '<div class="g-button g-confirm-footer-confirm">' + config.confirmContent + '</div>';
-        }
-        htmlFooter = '<div class="g-confirm-footer">' + htmlCancel + htmlConfirm + '</div>';
-    }
-    var htmlClose = '';
-    if (config.isShowClose) {
-        htmlClose = '<div class="g-confirm-close">' + config.closeContent + '</div>';
-    }
-    var htmlMask = '';
-    if (config.isShowMask) {
-        htmlMask = '<div class="g-mask"></div>';
-    }
-    return '\n        ' + htmlMask + '\n        <div class="g-confirm">\n            ' + htmlHeader + '\n            ' + htmlBody + '\n            ' + htmlFooter + '\n            ' + htmlClose + ' \n        </div>\n    ';
 };
 
 // (功)(覆)功能(覆盖超类型)
 Sub.prototype.power = function () {
     var self = this;
-    var config = this.opts.config;
-    var callback = this.opts.callback;
-    // 关闭
-    var close = this.moduleDom.querySelector('.g-confirm-close');
-    if (close) {
-        close.addEventListener('click', function () {
-            self.moduleDomHide();
-            callback.close();
-        });
-    }
-    // 取消
-    var cancel = this.moduleDom.querySelector('.g-confirm-footer-cancel');
-    if (cancel) {
-        cancel.addEventListener('click', function () {
-            self.moduleDomHide();
-            callback.cancel();
-        });
-    }
-    // 确认
-    var confirm = this.moduleDom.querySelector('.g-confirm-footer-confirm');
-    if (confirm) {
-        confirm.addEventListener('click', function () {
-            if (!config.isHandHide) {
-                self.moduleDomHide();
-            }
-            callback.confirm();
-        });
-    }
+    this.moduleDom.addEventListener('click', function () {
+        scrollMoveTo(0, 0);
+    });
+    window.addEventListener('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop >= self.opts.config.showHeight) {
+            self.moduleDom.classList.add('g-go-top_active');
+        } else {
+            self.moduleDom.classList.remove('g-go-top_active');
+        }
+    });
 };
 
 module.exports = Sub;

@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["g-message/index"] = factory();
+		exports["components_dom/g-message/index"] = factory();
 	else
-		root["g-message/index"] = factory();
+		root["components_dom/g-message/index"] = factory();
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache

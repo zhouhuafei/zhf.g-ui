@@ -4,7 +4,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // 将单个文件或整个目录复制到构建目录
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空目录
-const RenameOutputPlugin = require('rename-output-webpack-plugin');
 const glob = require('glob');
 
 module.exports = function (env, argv) {
@@ -15,12 +14,12 @@ module.exports = function (env, argv) {
     if (isProduction) {
         minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: false})); // 插件----压缩js
     }
-    const entry = {
-        'g-confirm/index': './src/js/components_dom/g-confirm/index.js',
-        'g-message/index': './src/js/components_dom/g-message/index.js',
-    };
-    const files = glob.sync('./src/js/**/*.js');
-    console.log('files待续...', files);
+    const entry = {};
+    const files = glob.sync('./src/js/com*/**/*.js');
+    files.forEach(function (v) {
+        const key = v.split('/js/')[1].replace('.js', '');
+        entry[key] = v;
+    });
     const plugins = [
         // 插件----清空dist目录
         new CleanWebpackPlugin(['dist'], {
@@ -39,18 +38,11 @@ module.exports = function (env, argv) {
         // 插件----将单个文件或整个目录复制到构建目录
         new CopyWebpackPlugin([{from: 'src/scss', to: 'scss'}]),
     ];
-    Object.keys(entry).forEach(function (key) {
-        const v = entry[key];
-        // 插件----重命名输出的文件
-        plugins.push(new RenameOutputPlugin({
-            key: v.split('/js/')[1].replace('js/'),
-        }));
-    });
     return {
         entry: entry,
         output: {
             path: `${__dirname}/dist`,
-            filename: 'js/components_dom/[name].js',
+            filename: 'js/[name].js',
             library: '[name]', // umd导出时的函数名
             libraryTarget: 'umd', // umd模块兼容处理
         },

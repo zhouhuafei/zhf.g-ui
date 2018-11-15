@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["components_dom/g-confirm/index"] = factory();
+		exports["components_dom/g-jump-link/index"] = factory();
 	else
-		root["components_dom/g-confirm/index"] = factory();
+		root["components_dom/g-jump-link/index"] = factory();
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-confirm/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-jump-link/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -153,6 +153,34 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="f
 				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
 				__WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):(undefined)}(0,function(){function e(e,t){for(var o=t;o!==e&&null!==o;)o=o.parentNode;return o===e}return function(t,o){var n=[],l=document;if(o&&(l="string"===Object.prototype.toString.call(o).slice(8,-1).toLowerCase()?document.querySelector(o):1===o.nodeType?o:o===document?o:"htmlcollection"===Object.prototype.toString.call(o).slice(8,-1).toLowerCase()||"nodelist"===Object.prototype.toString.call(o).slice(8,-1).toLowerCase()?[].slice.call(o)[0]:null),!l)return[];if(t)if("string"===Object.prototype.toString.call(t).slice(8,-1).toLowerCase())n=[].slice.call(l.querySelectorAll(t));else if(1===t.nodeType)n=[t],o&&(e(l,t)||(n=[]));else if(t===document)n=[t],o&&(n=[]);else if(("htmlcollection"===Object.prototype.toString.call(t).slice(8,-1).toLowerCase()||"nodelist"===Object.prototype.toString.call(t).slice(8,-1).toLowerCase())&&(n=[].slice.call(t),o)){var r=[];n.forEach(function(t){e(l,t)&&r.push(t)}),n=r}return n}});
+
+/***/ }),
+
+/***/ "./node_modules/zhf.seconds-to-time/dist/index.min.js":
+/*!************************************************************!*\
+  !*** ./node_modules/zhf.seconds-to-time/dist/index.min.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(o,e){"object"===( false?undefined:_typeof(exports))&&"undefined"!=typeof module?module.exports=e(): true?!(__WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}(0,function(){return function(){var o=arguments.length>0&&void 0!==arguments[0]?arguments[0]:0;return{day:Math.floor(o/3600/24),hours:Math.floor(o/3600%24),minutes:Math.floor(o%3600/60),seconds:Math.floor(o%60),allSeconds:o}}});
+
+/***/ }),
+
+/***/ "./node_modules/zhf.time-count-down/dist/index.min.js":
+/*!************************************************************!*\
+  !*** ./node_modules/zhf.time-count-down/dist/index.min.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var extend=__webpack_require__(/*! zhf.extend */ "./node_modules/zhf.extend/dist/index.min.js"),secondsToTime=__webpack_require__(/*! zhf.seconds-to-time */ "./node_modules/zhf.seconds-to-time/dist/index.min.js");function timeCountDown(e){var n=extend({seconds:0,isToTime:!0,isHandleRunWhenZero:!1,isHandleOverWhenZero:!1,isHandleRunWhenOver:!1,callback:{run:function(){},over:function(){}}},e),o=Number(n.seconds)||0;o<0&&(o=0);var r=n.callback.run,s=n.callback.over,i=function(){n.isToTime?r(secondsToTime(o)):r({day:0,hours:0,minutes:0,seconds:0,allSeconds:o})};if(0===o&&(n.isHandleRunWhenZero&&i(),n.isHandleOverWhenZero&&s()),0<o){i();var a=setInterval(function(){0===--o?(clearInterval(a),n.isHandleRunWhenOver&&i(),s()):i()},1e3)}}module.exports=timeCountDown;
 
 /***/ }),
 
@@ -316,6 +344,73 @@ Sub.prototype.power = function () {
 };
 
 module.exports = Sub;
+
+/***/ }),
+
+/***/ "./src/js/components_dom/g-jump-link/index.js":
+/*!****************************************************!*\
+  !*** ./src/js/components_dom/g-jump-link/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var extend = __webpack_require__(/*! zhf.extend */ "./node_modules/zhf.extend/dist/index.min.js"); // 对象的扩展
+var timeCountDown = __webpack_require__(/*! zhf.time-count-down */ "./node_modules/zhf.time-count-down/dist/index.min.js"); // 倒计时
+var Confirm = __webpack_require__(/*! ../g-confirm */ "./src/js/components_dom/g-confirm/index.js");
+
+// 专门为请求成功写的跳转链接弹窗
+
+var Super = function Super(opts) {
+    _classCallCheck(this, Super);
+
+    opts = extend({
+        title: '操作成功',
+        seconds: 3,
+        pageTitle: '登录',
+        href: 'javascript:;'
+    }, opts);
+    var content = '<div class="g-jump-link">\n            <div class="g-jump-link-title">' + opts.title + '</div>\n            <div class="g-jump-link-body">\n                <div class="g-jump-link-body-seconds">' + opts.seconds + '</div>\n                <div>\u79D2\u540E\u81EA\u52A8\u8DF3\u8F6C\u5230</div>\n                <a href="' + opts.href + '" class="g-jump-link-body-page-title">' + opts.pageTitle + '\u9875</a>\n            </div>\n            <a href="' + opts.href + '" class="g-jump-link-footer">\u70B9\u51FB\u6B64\u5904\u624B\u52A8\u8DF3\u8F6C</a>\n        </div>';
+    var oConfirm = new Confirm({
+        config: {
+            positionLocation: 'center', // 弹窗的定位位置
+            isShowHeader: false, // 是否显示头部
+            headerContent: '提示:', // 头部内容
+            isShowBody: true, // 是否显示主体
+            content: content, // 主体内容
+            isShowFooter: false, // 是否显示尾部
+            isShowClose: false, // 是否显示关闭按钮
+            closeContent: '<div class="g-iconfont g-icon-close"></div>', // 关闭按钮的内容
+            isShowConfirm: false, // 是否显示确认按钮
+            confirmContent: '确认', // 确认按钮的内容
+            isShowCancel: false, // 是否显示取消按钮
+            cancelContent: '取消', // 取消按钮的内容
+            isCustom: false, // 是否自定义
+            isShowIcon: false, // 是否显示icon
+            icon: 'g-icon-warning', // icon的类型
+            isShowMask: true, // 是否显示遮罩
+            isHandHide: false // 是否手动隐藏(一般只用于点击确认时)
+        }
+    });
+    var seconds = oConfirm.moduleDom.querySelector('.g-jump-link-body-seconds');
+    timeCountDown({
+        seconds: opts.seconds,
+        callback: {
+            run: function run(obj) {
+                seconds.innerHTML = obj.seconds;
+            },
+            over: function over() {
+                window.location.href = opts.href;
+            }
+        }
+    });
+};
+
+module.exports = Super;
 
 /***/ })
 

@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["components_dom/g-confirm/index"] = factory();
+		exports["components_dom/g-pagination/index"] = factory();
 	else
-		root["components_dom/g-confirm/index"] = factory();
+		root["components_dom/g-pagination/index"] = factory();
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-confirm/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/components_dom/g-pagination/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,10 +156,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="f
 
 /***/ }),
 
-/***/ "./src/js/components_dom/g-confirm/index.js":
-/*!**************************************************!*\
-  !*** ./src/js/components_dom/g-confirm/index.js ***!
-  \**************************************************/
+/***/ "./src/js/components_dom/g-pagination/index.js":
+/*!*****************************************************!*\
+  !*** ./src/js/components_dom/g-pagination/index.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -176,6 +176,15 @@ var extend = __webpack_require__(/*! zhf.extend */ "./node_modules/zhf.extend/di
 var createElement = __webpack_require__(/*! zhf.create-element */ "./node_modules/zhf.create-element/dist/index.min.js"); // 创建元素
 var Super = __webpack_require__(/*! zhf.dom-components-super */ "./node_modules/zhf.dom-components-super/dist/index.min.js"); // 超类型(子类型继承的对象)
 
+// 默认数据
+var defaultData = {
+    nowCount: 10, // 当前页的数据条数
+    allCount: 100, // 数据总条数
+    nowPage: 1, // 当前页
+    allPage: null // 总页数
+};
+defaultData.allPage = Math.ceil(defaultData.allCount / defaultData.nowCount);
+
 // 子类型
 
 var Sub = function (_Super) {
@@ -187,32 +196,21 @@ var Sub = function (_Super) {
         return _possibleConstructorReturn(this, (Sub.__proto__ || Object.getPrototypeOf(Sub)).call(this, extend({
             // 回调
             callback: {
-                // 确认
-                confirm: function confirm() {},
-                // 取消
-                cancel: function cancel() {},
-                // 关闭
-                close: function close() {}
+                // 上一页的回调
+                prevPage: function prevPage() {},
+                // 下一页的回调
+                nextPage: function nextPage() {},
+                // 选择某一页的回调
+                selectPage: function selectPage() {},
+                // 页码改变就触发
+                changePage: function changePage() {}
             },
             // 配置
             config: {
-                positionLocation: 'center', // 弹窗的定位位置('top'，'center'，'bottom')。positionMethod定位方式强制fixed。
-                isShowClose: true, // 是否显示关闭按钮
-                closeContent: '<div class="g-iconfont g-icon-close"></div>', // 关闭按钮的内容
-                isShowHeader: true, // 是否显示头部
-                headerContent: '提示:', // 头部内容
-                isShowBody: true, // 是否显示主体
-                isShowIcon: false, // 是否显示icon
-                icon: 'g-icon-warning', // icon的类型
-                isCustom: false, // 是否自定义
-                content: '<div>确定要执行这个操作?</div>', // 主体内容
-                isShowFooter: true, // 是否显示尾部
-                isShowConfirm: true, // 是否显示确认按钮
-                confirmContent: '确认', // 确认按钮的内容
-                isShowCancel: true, // 是否显示取消按钮
-                cancelContent: '取消', // 取消按钮的内容
-                isShowMask: true, // 是否显示遮罩
-                isHandHide: false // 是否手动隐藏(一般只用于点击确认时)
+                nowCount: defaultData.nowCount,
+                allCount: defaultData.allCount,
+                nowPage: defaultData.nowPage,
+                allPage: defaultData.allPage
             }
         }, opts)));
     }
@@ -225,94 +223,129 @@ var Sub = function (_Super) {
 
 Sub.prototype.moduleDomCreate = function () {
     var config = this.opts.config;
-    var positionLocation = 'g-confirm-wrap_' + config.positionLocation; // 弹窗的定位位置
-    // 弹窗结构
-    var html = this.renderConfirm();
     this.moduleDom = createElement({
         style: config.moduleDomStyle,
         customAttribute: config.moduleDomCustomAttribute,
         attribute: {
-            className: 'g-confirm-wrap ' + positionLocation,
-            innerHTML: html
+            className: 'g-pagination',
+            innerHTML: '\n                <div class="g-pagination-text">\u7B2C</div>\n                <div class="g-pagination-now-page">\n                    <label class="g-select">\n                        <select class="g-select-body">\n                            ' + this.renderOption() + '\n                        </select>\n                        <span class="g-select-mark g-iconfont g-icon-select"></span>\n                    </label>\n                </div>\n                <div class="g-pagination-text">\u9875</div>\n                <a href="javascript:;" class="g-pagination-btn g-pagination-btn-inactive g-iconfont g-icon-prev"></a>\n                <a href="javascript:;" class="g-pagination-btn g-iconfont g-icon-next"></a>\n            '
         }
     });
+    this.prevDom = this.moduleDom.querySelectorAll('.g-pagination-btn')[0]; // 上一页的按钮
+    this.nextDom = this.moduleDom.querySelectorAll('.g-pagination-btn')[1]; // 下一页的按钮
+    this.btnInactiveClass = 'g-pagination-btn-inactive'; // 上一页和下一页的禁用状态
+    this.selectDom = this.moduleDom.querySelector('.g-pagination-now-page .g-select-body'); // 选择某一页的按钮
 };
 
-// 确认框
-Sub.prototype.renderConfirm = function () {
-    var config = this.opts.config;
-    var htmlHeader = '';
-    if (config.isShowHeader) {
-        htmlHeader = '<div class="g-confirm-header">' + config.headerContent + '</div>';
+// 渲染第几页里面的页码
+Sub.prototype.renderOption = function () {
+    var html = '';
+    for (var i = 0; i < this.opts.config.allPage; i++) {
+        html += '<option value="' + (i + 1) + '">' + (i + 1) + '</option>';
     }
-    var htmlBody = '';
-    if (config.isShowBody) {
-        var htmlIcon = '';
-        if (config.isShowIcon) {
-            htmlIcon = '<div class="g-confirm-body-system-icon g-iconfont ' + config.icon + '"></div>';
-        }
-        var bodyClass = 'g-confirm-body-system';
-        var bodyContent = '\n            ' + htmlIcon + '\n            <div class="g-confirm-body-system-text">' + config.content + '</div>\n        ';
-        if (config.isCustom) {
-            bodyClass = 'g-confirm-body-custom';
-            bodyContent = config.content;
-        }
-        htmlBody = '\n            <div class="g-confirm-body">\n                <div class="' + bodyClass + '">\n                    ' + bodyContent + '\n                </div>\n            </div>\n        ';
-    }
-    var htmlFooter = '';
-    if (config.isShowFooter) {
-        var htmlCancel = '';
-        if (config.isShowCancel) {
-            htmlCancel = '<div class="g-button g-button_cancel g-confirm-footer-cancel">' + config.cancelContent + '</div>';
-        }
-        var htmlConfirm = '';
-        if (config.isShowConfirm) {
-            htmlConfirm = '<div class="g-button g-confirm-footer-confirm">' + config.confirmContent + '</div>';
-        }
-        htmlFooter = '<div class="g-confirm-footer">' + htmlCancel + htmlConfirm + '</div>';
-    }
-    var htmlClose = '';
-    if (config.isShowClose) {
-        htmlClose = '<div class="g-confirm-close">' + config.closeContent + '</div>';
-    }
-    var htmlMask = '';
-    if (config.isShowMask) {
-        htmlMask = '<div class="g-mask"></div>';
-    }
-    return '\n        ' + htmlMask + '\n        <div class="g-confirm">\n            ' + htmlHeader + '\n            ' + htmlBody + '\n            ' + htmlFooter + '\n            ' + htmlClose + ' \n        </div>\n    ';
+    return html;
 };
 
 // (功)(覆)功能(覆盖超类型)
 Sub.prototype.power = function () {
     var self = this;
-    var config = this.opts.config;
-    var callback = this.opts.callback;
-    // 关闭
-    var close = this.moduleDom.querySelector('.g-confirm-close');
-    if (close) {
-        close.addEventListener('click', function () {
-            self.moduleDomHide();
-            callback.close();
-        });
+    var data = this.opts.config;
+    if (data.nowPage === 1) {
+        this.prevPageDisable();
     }
-    // 取消
-    var cancel = this.moduleDom.querySelector('.g-confirm-footer-cancel');
-    if (cancel) {
-        cancel.addEventListener('click', function () {
-            self.moduleDomHide();
-            callback.cancel();
-        });
+    if (data.nowPage === data.allPage) {
+        this.nextPageDisable();
     }
-    // 确认
-    var confirm = this.moduleDom.querySelector('.g-confirm-footer-confirm');
-    if (confirm) {
-        confirm.addEventListener('click', function () {
-            if (!config.isHandHide) {
-                self.moduleDomHide();
-            }
-            callback.confirm();
-        });
+
+    this.prevDom.addEventListener('click', function () {
+        if (!this.classList.contains(self.btnInactiveClass)) {
+            self.prevPage();
+        }
+    });
+
+    this.nextDom.addEventListener('click', function () {
+        if (!this.classList.contains(self.btnInactiveClass)) {
+            self.nextPage();
+        }
+    });
+
+    this.selectDom.addEventListener('change', function () {
+        self.selectPage();
+    });
+};
+
+// 上一页
+Sub.prototype.prevPage = function () {
+    var data = this.opts.config;
+    if (data.nowPage > 1) {
+        data.nowPage--;
+        var oldChecked = this.selectDom.querySelector('option:checked');
+        if (oldChecked.previousElementSibling) {
+            oldChecked.selected = false;
+            oldChecked.previousElementSibling.selected = true;
+        }
+        this.nextPageEnable();
+        this.opts.callback.prevPage(this);
+        this.opts.callback.changePage(this);
     }
+    if (data.nowPage === 1) {
+        this.prevPageDisable();
+    }
+};
+
+// 下一页
+Sub.prototype.nextPage = function () {
+    var data = this.opts.config;
+    if (data.nowPage < data.allPage) {
+        data.nowPage++;
+        var oldChecked = this.selectDom.querySelector('option:checked');
+        if (oldChecked.nextElementSibling) {
+            oldChecked.selected = false;
+            oldChecked.nextElementSibling.selected = true;
+        }
+        this.prevPageEnable();
+        this.opts.callback.nextPage(this);
+        this.opts.callback.changePage(this);
+    }
+    if (data.nowPage === data.allPage) {
+        this.nextPageDisable();
+    }
+};
+
+// 选择第几页
+Sub.prototype.selectPage = function () {
+    var data = this.opts.config;
+    data.nowPage = this.selectDom.value;
+    this.nextPageEnable();
+    this.prevPageEnable();
+    if (data.nowPage === 1) {
+        this.prevPageDisable();
+    }
+    if (data.nowPage === data.allPage) {
+        this.nextPageDisable();
+    }
+    this.opts.callback.selectPage(this);
+    this.opts.callback.changePage(this);
+};
+
+// 上一页禁用
+Sub.prototype.prevPageDisable = function () {
+    this.prevDom.classList.add(this.btnInactiveClass);
+};
+
+// 上一页启用
+Sub.prototype.prevPageEnable = function () {
+    this.prevDom.classList.remove(this.btnInactiveClass);
+};
+
+// 下一页禁用
+Sub.prototype.nextPageDisable = function () {
+    this.nextDom.classList.add(this.btnInactiveClass);
+};
+
+// 下一页启用
+Sub.prototype.nextPageEnable = function () {
+    this.nextDom.classList.remove(this.btnInactiveClass);
 };
 
 module.exports = Sub;
