@@ -12,7 +12,8 @@ module.exports = function (env, argv) {
     const minimizer = [];
     // 环境----生产环境
     if (isProduction) {
-        minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: false})); // 插件----压缩js
+        // 插件----压缩js
+        minimizer.push(new UglifyJsPlugin({cache: true, parallel: true, sourceMap: false}));
     }
     const entry = {};
     const files = glob.sync('./src/js/com*/**/*.js');
