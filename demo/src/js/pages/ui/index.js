@@ -2,8 +2,8 @@ require('../../../scss/pages/ui/index.scss'); // 当前页的样式
 
 // 组件按需引入
 /*
-const SortTab = require('../../../../src/js/commons_dom/g-sort-tab');
-const ProgressBar = require('../../../../src/js/commons_dom/g-progress-bar');
+const SortTab = require('../../../../dist/js/commons_dom/g-sort-tab');
+const ProgressBar = require('../../../../dist/js/commons_dom/g-progress-bar');
 */
 
 // 组件全部引入
@@ -21,7 +21,7 @@ const {
     Pagination,
     Table,
     RadioSwitch,
-} = require('../../../../../src/js/commons_dom/g-common');
+} = require('../../../../../dist/js/commons_dom/g-common');
 
 // 功能组件 - 排序tab
 new SortTab({
@@ -180,12 +180,12 @@ new NoData({wrap: '.no-data'});
 
 // vue系列组件按需引入
 /*
-import gSortTab from '../../../../../src/js/components_vue/g-sort-tab/index';
+import gSortTab from '../../../../../dist/js/components_vue/g-sort-tab/index';
 Vue.use(gSortTab);
 */
 
 // vue系列组件全部引入
-require('../../../../../src/js/commons_vue/g-common');
+require('../../../../../dist/js/commons_vue/g-common');
 import app from './app.vue';
 
 new Vue({

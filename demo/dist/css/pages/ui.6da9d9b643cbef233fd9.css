@@ -5,8 +5,8 @@ body {
   margin: 0; }
 
 /*
-@import "../../../../src/scss/base/g-base"; // 基础样式，必须引入。
-@import "../../../../src/scss/components/g-sort-tab"; // 排序tab的样式
+@import "../../../../dist/scss/base/g-base"; // 基础样式，必须引入。
+@import "../../../../dist/scss/components/g-sort-tab"; // 排序tab的样式
 */
 /*----------【var】----------*/
 /*----------【function】----------*/
@@ -2601,4 +2601,4 @@ input.g-button[type=submit], input.g-button[type=reset], input.g-button[type=but
     margin-bottom: 10px; }
 
 
-/*# sourceMappingURL=ui.d9cfa6a55e5ce5b2eccf.css.map*/
+/*# sourceMappingURL=ui.6da9d9b643cbef233fd9.css.map*/

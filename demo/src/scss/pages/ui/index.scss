@@ -6,10 +6,10 @@ body {
 
 // 样式按需引入
 /*
-@import "../../../../src/scss/base/g-base"; // 基础样式，必须引入。
-@import "../../../../src/scss/components/g-sort-tab"; // 排序tab的样式
+@import "../../../../dist/scss/base/g-base"; // 基础样式，必须引入。
+@import "../../../../dist/scss/components/g-sort-tab"; // 排序tab的样式
 */
 
 // 样式全部引入
 $g-form-body-text_width: 76;
-@import "../../../../../src/scss/commons/g-common"; // 组件，所有的组件集合。
+@import "../../../../../dist/scss/commons/g-common"; // 组件，所有的组件集合。

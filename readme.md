@@ -18,13 +18,12 @@ npm run demoBuildHot
 
 ```
 # 静态资源的目录结构
-src
+dist
 ├── js
 │   ├── commons_dom
 │   ├── commons_vue
 │   ├── components_dom
 │   ├── components_vue
-│   ├── config
 └── scss
     ├── animations
     ├── base
@@ -91,12 +90,12 @@ new Component({
     $g-is_h5: true; // 如果是h5页面
     $g-psd_width: 320; // 设计图的宽度
     $g-psd_split: 10; // 设计图的切割份数
-    @import "../../../node_modules/zhf.g-ui/src/scss/commons/g-common.scss"; // 组件，所有的组件集合。
+    @import "../../../node_modules/zhf.g-ui/dist/scss/commons/g-common.scss"; // 组件，所有的组件集合。
     ```
     - 按需引入
     ```
-    @import "../../../node_modules/zhf.g-ui/src/scss/base/g-base.scss"; // 基础样式，必须引入。
-    @import "../../../node_modules/zhf.g-ui/src/scss/components/g-sort-tab.scss"; // 排序tab的样式
+    @import "../../../node_modules/zhf.g-ui/dist/scss/base/g-base.scss"; // 基础样式，必须引入。
+    @import "../../../node_modules/zhf.g-ui/dist/scss/components/g-sort-tab.scss"; // 排序tab的样式
     ```
 * js：dom组件
     - 全部引入
@@ -119,21 +118,21 @@ new Component({
         Pagination,
         Table,
         RadioSwitch,
-    } = require('zhf.g-ui/src/js/commons_dom/g-common.js');
+    } = require('zhf.g-ui/dist/js/commons_dom/g-common.js');
     ```
     - 按需引入
     ```
-    const SortTab = require('zhf.g-ui/src/js/commons_dom/g-sort-tab/index.js');
-    const ProgressBar = require('zhf.g-ui/src/js/commons_dom/g-progress-bar/index.js');
+    const SortTab = require('zhf.g-ui/dist/js/commons_dom/g-sort-tab/index.js');
+    const ProgressBar = require('zhf.g-ui/dist/js/commons_dom/g-progress-bar/index.js');
     ```
 * js：vue组件
     - 全部引入
     ```
-    require('zhf.g-ui/src/js/commons_vue/g-common.js');
+    require('zhf.g-ui/dist/js/commons_vue/g-common.js');
     ```
     - 按需引入
     ```
-    import gSortTab from 'zhf.g-ui/src/js/components_vue/g-sort-tab/index.js';
+    import gSortTab from 'zhf.g-ui/dist/js/components_vue/g-sort-tab/index.js';
     Vue.use(gSortTab);
     ```
 
