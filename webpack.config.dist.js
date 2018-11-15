@@ -21,7 +21,7 @@ module.exports = function (env, argv) {
             path: path.resolve(__dirname, 'dist'),
             filename: 'js/components_dom/[name].js',
             library: '[name]', // umd导出时的函数名
-            libraryTarget: 'script', // umd模块兼容处理
+            libraryTarget: 'umd', // umd模块兼容处理
         },
         devtool: false,
         resolve: {
