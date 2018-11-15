@@ -4,6 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // 将单个文件或整个目录复制到构建目录
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清空目录
+const RenameOutputPlugin = require('rename-output-webpack-plugin');
 
 module.exports = function (env, argv) {
     const isProduction = argv.mode === 'production'; // 是否是生产环境
@@ -16,6 +17,7 @@ module.exports = function (env, argv) {
     return {
         entry: {
             'g-confirm': './src/js/components_dom/g-confirm/index.js',
+            'g-message': './src/js/components_dom/g-message/index.js',
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
@@ -63,8 +65,15 @@ module.exports = function (env, argv) {
                     NODE_ENV: argv.mode,
                 },
             }),
-            //  插件----将单个文件或整个目录复制到构建目录
+            // 插件----将单个文件或整个目录复制到构建目录
             new CopyWebpackPlugin([{from: 'src/scss', to: 'scss'}]),
+            // 插件----重命名输出的文件
+            new RenameOutputPlugin({
+                'g-message': 'js/g-message2.js',
+            }),
+            new RenameOutputPlugin({
+                'g-confirm': 'js/g-confirm2.js',
+            }),
         ],
     };
 };
