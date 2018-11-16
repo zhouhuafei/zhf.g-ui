@@ -122,7 +122,7 @@ new Component({
         Pagination,
         Table,
         RadioSwitch,
-    } = require('zhf.g-ui/dist/js/commons_dom/g-common.js');
+    } = require('zhf.g-ui/dist/js/commons_dom/g-common/index.js');
     ```
     - 按需引入
     ```
@@ -132,7 +132,7 @@ new Component({
 * js：vue组件
     - 全部引入
     ```
-    require('zhf.g-ui/dist/js/commons_vue/g-common.js');
+    require('zhf.g-ui/dist/js/commons_vue/g-common/index.js');
     ```
     - 按需引入
     ```
