@@ -6,13 +6,17 @@
 ```
 # 安装依赖
 npm i
-# 开发环境打包
+# 开发环境组件打包
+npm run dev
+# 生产环境组件打包
+npm run build
+# 开发环境demo打包(打出来的路径不对，建议使用npm run demoDevHot进行观看)
 npm run demoDev
-# 生产环境打包
+# 生产环境demo打包
 npm run demoBuild
-# 开发环境热更新打包，可以直接运行这个来查看demo。
+# 开发环境demo热更新打包，可以直接运行这个来查看demo。
 npm run demoDevHot
-# 生产环境热更新打包，可以直接运行这个来查看demo。
+# 生产环境demo热更新打包，可以直接运行这个来查看demo。
 npm run demoBuildHot
 ```
 
