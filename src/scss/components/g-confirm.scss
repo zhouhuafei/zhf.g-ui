@@ -2,7 +2,7 @@
 
 // 确认框
 .g-confirm-wrap {
-    @extend .g-reset_font;
+    @include g-reset_font();
     position: fixed;
     left: 0;
     top: 0;

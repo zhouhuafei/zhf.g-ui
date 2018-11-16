@@ -124,3 +124,25 @@ $g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否�
     -webkit-box-orient: vertical;
     -webkit-line-clamp: $lineClamp;
 }
+
+// 重置字体
+@mixin g-reset_font {
+    font: px2rem($g-font-size_default) $g-font-family;
+    color: px2rem($g-font-color_default);
+    line-height: 1;
+}
+
+// 重置a标签
+@mixin g-reset_a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+// 图片重置
+@mixin g-reset_img {
+    border: none;
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
