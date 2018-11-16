@@ -139,7 +139,7 @@ $g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否�
     text-decoration: none;
 }
 
-// 图片重置
+// 重置图片
 @mixin g-reset_img {
     border: none;
     vertical-align: middle;
