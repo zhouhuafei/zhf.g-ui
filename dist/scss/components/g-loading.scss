@@ -1,18 +1,24 @@
 @import "../config/g-config";
 
-// 数据加载中(初次应用是在列表页的底部上拉加载更多功能中)
-.g-loading-dialog {
+// 中间弹层之加载中
+.g-loading {
     @extend .g-reset_font;
-    font-size: px2rem(30);
+    width: px2rem(80);
+    height: px2rem(80);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: px2rem(10);
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    color: $g-font-color_default;
-    box-sizing: border-box;
-    overflow: hidden;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 600;
 }
 
-.g-loading-dialog-icon {
+.g-loading-icon {
+    font-size: px2rem(36);
+    color: #ffffff;
     animation: g-animation_run 1s linear infinite;
 }
