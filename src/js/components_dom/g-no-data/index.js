@@ -14,7 +14,7 @@ class Sub extends Super {
                 text: '没有数据',
                 button: {
                     isShowIcon: false,
-                    icon: 'g-icon-home',
+                    icon: 'g-iconfont g-icon-home',
                     text: '回首页',
                     href: '/',
                 },
@@ -37,7 +37,7 @@ Sub.prototype.moduleDomCreate = function () {
         attribute: {
             className: 'g-no-data',
             innerHTML: `
-                <div class="g-no-data-icon g-iconfont ${data.icon}"></div>
+                <div class="g-no-data-icon ${data.icon}"></div>
                 <div class="g-no-data-text">${data.text}</div>
                 <a class="g-no-data-button g-button" href="${data.button.href}">
                     ${buttonIconHtml}

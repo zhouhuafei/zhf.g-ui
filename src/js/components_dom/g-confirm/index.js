@@ -27,7 +27,7 @@ class Sub extends Super {
                 headerContent: '提示:', // 头部内容
                 isShowBody: true, // 是否显示主体
                 isShowIcon: false, // 是否显示icon
-                icon: 'g-icon-warning', // icon的类型
+                icon: 'g-iconfont g-icon-warning', // icon的类型
                 isCustom: false, // 是否自定义
                 content: '<div>确定要执行这个操作?</div>', // 主体内容
                 isShowFooter: true, // 是否显示尾部
@@ -69,7 +69,7 @@ Sub.prototype.renderConfirm = function () {
     if (config.isShowBody) {
         let htmlIcon = '';
         if (config.isShowIcon) {
-            htmlIcon = `<div class="g-confirm-body-system-icon g-iconfont ${config.icon}"></div>`;
+            htmlIcon = `<div class="g-confirm-body-system-icon ${config.icon}"></div>`;
         }
         let bodyClass = 'g-confirm-body-system';
         let bodyContent = `

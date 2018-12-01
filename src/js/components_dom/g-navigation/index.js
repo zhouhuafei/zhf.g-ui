@@ -14,31 +14,31 @@ class Sub extends Super {
                     /*
                     {
                         href: route,
-                        icon: 'g-icon-home',
+                        icon: 'g-iconfont g-icon-home',
                         text: '首页',
                         isShowMark: false,
                     },
                     {
                         href: `${route}dev-globals/`,
-                        icon: 'g-icon-dev',
+                        icon: 'g-iconfont g-icon-dev',
                         text: '开发全局',
                         isShowMark: false,
                     },
                     {
                         href: `${route}dev-components/`,
-                        icon: 'g-icon-dev',
+                        icon: 'g-iconfont g-icon-dev',
                         text: '开发组件',
                         isShowMark: false,
                     },
                     {
                         href: `${route}dev-words/`,
-                        icon: 'g-icon-dev',
+                        icon: 'g-iconfont g-icon-dev',
                         text: '开发词汇',
                         isShowMark: false,
                     },
                     {
                         href: `${route}mine/`,
-                        icon: 'g-icon-mine',
+                        icon: 'g-iconfont g-icon-mine',
                         text: '我的',
                         isShowMark: false,
                     },
@@ -61,7 +61,7 @@ Sub.prototype.moduleDomCreate = function () {
         }
         html += `
             <a href="${v.href}" class="g-navigation-item">
-                <div class="g-navigation-item-icon g-iconfont ${v.icon}"></div>
+                <div class="g-navigation-item-icon ${v.icon}"></div>
                 <div class="g-navigation-item-text">${v.text}</div>
                 ${markHtml}
             </a>
