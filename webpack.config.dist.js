@@ -34,7 +34,7 @@ module.exports = function (env, argv) {
         // 插件----编译时期可以创建全局变量
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: argv.mode,
+                NODE_ENV: JSON.stringify(argv.mode),
             },
         }),
         // 插件----将单个文件或整个目录复制到构建目录

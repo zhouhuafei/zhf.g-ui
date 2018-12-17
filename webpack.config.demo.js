@@ -53,7 +53,7 @@ module.exports = function (env, argv) {
         // 插件----编译时期可以创建全局变量
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: argv.mode,
+                NODE_ENV: JSON.stringify(argv.mode),
             },
         }),
         // 插件----提取css样式到文件
