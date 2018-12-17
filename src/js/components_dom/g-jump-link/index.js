@@ -36,7 +36,7 @@ class Super {
                 cancelContent: '取消', // 取消按钮的内容
                 isCustom: false, // 是否自定义
                 isShowIcon: false, // 是否显示icon
-                icon: 'g-icon-warning', // icon的类型
+                icon: 'g-iconfont g-icon-warning', // icon的类型
                 isShowMask: true, // 是否显示遮罩
                 isHandHide: false, // 是否手动隐藏(一般只用于点击确认时)
             },
