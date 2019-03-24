@@ -25,7 +25,7 @@ $g-background-color_default: #bbbbbb !default; // 默认
 $g-background-color_disabled: #e6e6e6 !default; // 禁用
 $g-background-color_block: #ffffff !default; // 内容区块的背景色调
 
-// 字体
+// 字体(无需关注字体类型，需要关注字体大小)
 $g-font-family: "Helvetica Neue", "Helvetica" !default; // 字体
 $g-font-size_default: 12 !default; // 默认字体大小12px
 $g-font-color_default: #333333 !default; // 默认
@@ -125,9 +125,10 @@ $g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否�
     -webkit-line-clamp: $lineClamp;
 }
 
-// 重置字体
+// 重置字体(无需关注字体类型，需要关注字体大小)
 @mixin g-reset_font {
-    font: px2rem($g-font-size_default) $g-font-family;
+    //font: px2rem($g-font-size_default) $g-font-family;
+    font-size: px2rem($g-font-size_default);
     color: px2rem($g-font-color_default);
     line-height: 1;
 }

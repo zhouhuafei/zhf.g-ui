@@ -1,8 +1,9 @@
 @import "../config/g-config";
 
-// 重置字体
+// 重置字体(无需关注字体类型，需要关注字体大小)
 .g-reset_font {
-    font: px2rem($g-font-size_default) $g-font-family;
+    //font: px2rem($g-font-size_default) $g-font-family;
+    font-size: px2rem($g-font-size_default);
     color: px2rem($g-font-color_default);
     line-height: 1;
 }
