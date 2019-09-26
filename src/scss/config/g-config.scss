@@ -38,7 +38,7 @@ $g-border-color_disabled: #e3e3e3 !default; // 禁用
 
 // 语义
 $g-color_brand: #0089ff !default; // 品牌色
-$g-color_highlight: #0089ff !default; // 高亮，有待思考这个颜色是不是应该就是品牌色待续...
+$g-color_highlight: #0089ff !default; // 高亮
 $g-color_success: #67C23A !default; // 成功(嫩绿)
 $g-color_warning: #eb9e05 !default; // 警告(鲜橙)
 $g-color_danger: #fa5555 !default; // 危险(艳红)
@@ -46,8 +46,8 @@ $g-color_ignore: #bfbfbf !default; // 忽视(浅灰)
 $g-color_mask: rgba(0, 0, 0, 0.6) !default; // 遮罩(黑色)
 $g-color_select: #409eff !default; // 自定义单选按钮和自定义多选按钮等被选中的色调(蓝色)
 $g-color_create: #06bf04 !default; // 新建(创建)的颜色
-$g-color_cancel: #888d99 !default; // 取消的颜色，有待思考命名是否合理待续...
-$g-color_dark: #252834 !default; // 菜单的颜色，有待思考命名是否合理待续...
+$g-color_cancel: #888d99 !default; // 取消的颜色
+$g-color_dark: #252834 !default; // 菜单的颜色
 
 /*----------【function】----------*/
 // px转rem：如果是pc，则按照1比1进行转换，如果是h5，则将320宽度的设计图分成10份(默认)。
